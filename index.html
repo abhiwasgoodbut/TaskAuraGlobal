@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TaskAura Global helps businesses scale with reliable, efficient, and high-quality backend and customer support solutions." />
+  <meta name="keywords" content="Taskaura, business consulting, outsourcing, scalable solutions, enterprise support" />
+  <title>TaskAura Global — Delivering Growth Beyond Boundaries</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======== PRELOADER ======== -->
+  <div id="preloader" class="preloader">
+    <div class="preloader__content">
+      <img src="asset/logo/image-removebg-preview.png" class="preloader__logo" alt="TaskAura Logo" />
+      <div class="preloader__line-wrapper">
+        <div class="preloader__line"></div>
+      </div>
+      <span class="preloader__text">Loading...</span>
+    </div>
+  </div>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="#" class="navbar__logo" id="nav-logo">
+        <img src="asset/logo/image-removebg-preview.png" class="navbar__logo-img" alt="TaskAura Logo" />
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button class="navbar__hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Menu (Desktop: Left items and Right utilities) -->
+      <div class="navbar__menu" id="nav-menu">
+        
+        <!-- Left Menu Links -->
+        <ul class="navbar__links navbar__links--left">
+          <li><a href="#projects-section" class="navbar__link" id="nav-link-work">Work</a></li>
+          <li><a href="#why-us-section" class="navbar__link" id="nav-link-why-us">Why Us</a></li>
+          <li><a href="#services-section" class="navbar__link" id="nav-link-services">Services</a></li>
+          <li><a href="#about-section" class="navbar__link" id="nav-link-about">About Us</a></li>
+          <li><a href="partners.html" class="navbar__link" id="nav-link-partners">Who We Work With</a></li>
+          <li><a href="careers.html" class="navbar__link" id="nav-link-careers">Careers</a></li>
+        </ul>
+
+        <!-- Right Utilities & Buttons -->
+        <div class="navbar__menu-right">
+          <!-- Language Dropdown -->
+          <div class="navbar__dropdown navbar__dropdown--lang">
+            <a href="#" class="navbar__link navbar__link--dropdown" id="nav-link-lang">
+              Language
+              <svg class="navbar__arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="navbar__dropdown-menu navbar__dropdown-menu--right">
+              <a href="#" class="navbar__dropdown-item navbar__dropdown-item--active">EN-US</a>
+              <a href="#" class="navbar__dropdown-item">Español</a>
+              <a href="#" class="navbar__dropdown-item">Deutsch</a>
+              <a href="#" class="navbar__dropdown-item">Français</a>
+            </div>
+          </div>
+          
+          <!-- Auth / CTA Buttons -->
+          <div class="navbar__buttons">
+            <a href="#contact-section" class="navbar__btn-cta" id="nav-btn-cta">Get started</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mobile overlay -->
+      <div class="navbar__mobile-overlay" id="nav-overlay"></div>
+
+    </div>
+  </nav>
+
+  <!-- ======== HERO SECTION ======== -->
+  <section class="hero" id="hero-section">
+
+    <!-- Background Video (full screen) -->
+    <div class="hero__video-wrapper">
+      <iframe
+        class="hero__video-iframe"
+        id="hero-video"
+        src="https://player.mux.com/HXUlTqj9tfo6tyw12C6awNo8M001u2009InE02tLP2ix5I?metadata-video-title=hero-web3-eos-background&video-title=hero-web3-eos-background&autoplay=true&loop=true&muted=true"
+        allow="autoplay; fullscreen; picture-in-picture;"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- LEFT HALF — Subtle dark gradient for text readability -->
+    <div class="hero__glass-panel">
+      <div class="hero__glass-overlay"></div>
+    </div>
+
+    <!-- RIGHT HALF — Subtle dark gradient for nav readability -->
+    <div class="hero__right-overlay"></div>
+
+    <!-- Content (sits on top of glass panel) -->
+    <div class="hero__content">
+
+      <!-- Badge pill -->
+      <div class="hero__badge" id="hero-badge">
+        Delivering Growth Beyond Boundaries
+      </div>
+
+      <!-- Heading -->
+      <h1 class="hero__heading" id="hero-heading">
+        Smart Outsourcing for <span class="hero__heading-gold">Smarter Growth</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="hero__description" id="hero-description">
+        TaskAura Global helps businesses scale with reliable, efficient, and high-quality backend and customer support solutions, so you can focus on what matters most: <strong>Growth.</strong>
+      </p>
+
+      <!-- CTA Button -->
+      <div class="hero__cta-group">
+        <a href="#contact-section" class="btn btn--primary" id="cta-start">
+          Start With Us
+        </a>
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+  <!-- ======== FEATURED PROJECTS SECTION (Liquid Glass) ======== -->
+  <section class="projects" id="projects-section">
+    
+    <!-- Ambient Liquid Glass Background Blobs -->
+    <div class="projects__blob projects__blob--1"></div>
+    <div class="projects__blob projects__blob--2"></div>
+
+    <div class="projects__container">
+      
+      <!-- Section Header -->
+      <div class="projects__header">
+        <div class="projects__badge">SUCCESS BENCHMARKS</div>
+        <h2 class="projects__title">
+          Our Featured <span class="projects__title-gold">Masterpieces</span>
+        </h2>
+        <p class="projects__description">
+          We don't just provide outsourcing — we engineer scalable, high-performance operational infrastructure. Explore a curated selection of our automated AI portals, real-time validation gateways, and enterprise support suites.
+        </p>
+      </div>
+
+      <!-- Projects 2x3 Grid -->
+      <div class="projects__grid">
+        
+        <!-- Project 1 Card (Local Edge Capture A - Now first) -->
+        <article class="project-card">
+          <div class="project-card__image-wrapper">
+            <img class="project-card__image" src="asset/projectGif/msedge_1f9ZgWxOTG.gif" alt="Enterprise Logistics Portal Preview" loading="lazy" />
+            <div class="project-card__image-overlay"></div>
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__tag">OPERATIONAL PORTAL</span>
+            <h3 class="project-card__title">Enterprise Logistics Portal</h3>
+            <p class="project-card__desc">
+              High-performance administrative dashboard tracking real-time operations, global SLA compliance, and secure metrics.
+            </p>
+            <div class="project-card__stats">
+              <div class="project-card__stat"><span class="project-card__stat-num">99.7%</span><span class="project-card__stat-label">SLA Compliance</span></div>
+              <div class="project-card__stat"><span class="project-card__stat-num">150+</span><span class="project-card__stat-label">Global Hubs</span></div>
+            </div>
+            <a href="#" class="project-card__link">
+              Explore Operations
+              <svg class="project-card__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 Card (Local Edge Capture B - Now second) -->
+        <article class="project-card">
+          <div class="project-card__image-wrapper">
+            <img class="project-card__image" src="asset/projectGif/msedge_6rY82otEsQ.gif" alt="Distributed Validation Suite Preview" loading="lazy" />
+            <div class="project-card__image-overlay"></div>
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__tag">INFRASTRUCTURE PORTAL</span>
+            <h3 class="project-card__title">Decentralized Telemetry Hub</h3>
+            <p class="project-card__desc">
+              A spacious decentralized administrative hub with integrated operational data validation, and continuous ledger monitoring.
+            </p>
+            <div class="project-card__stats">
+              <div class="project-card__stat"><span class="project-card__stat-num">&lt;15ms</span><span class="project-card__stat-label">Telemetry Sync</span></div>
+              <div class="project-card__stat"><span class="project-card__stat-num">24/7</span><span class="project-card__stat-label">Uptime Audit</span></div>
+            </div>
+            <a href="#" class="project-card__link">
+              Explore Operations
+              <svg class="project-card__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 Card (External GIF) -->
+        <article class="project-card">
+          <div class="project-card__image-wrapper">
+            <img class="project-card__image" src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" alt="Aethera AI Workflows Preview" loading="lazy" />
+            <div class="project-card__image-overlay"></div>
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__tag">AI & AUTOMATED DESK</span>
+            <h3 class="project-card__title">Aethera Intelligent Workflows</h3>
+            <p class="project-card__desc">
+              Next-generation automated client desk ticketing with integrated machine learning models operating at 99.8% precision.
+            </p>
+            <div class="project-card__stats">
+              <div class="project-card__stat"><span class="project-card__stat-num">99.8%</span><span class="project-card__stat-label">Precision</span></div>
+              <div class="project-card__stat"><span class="project-card__stat-num">2.5x</span><span class="project-card__stat-label">Efficiency Boost</span></div>
+            </div>
+            <a href="#" class="project-card__link">
+              Explore Operations
+              <svg class="project-card__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 4 Card (External WebP) -->
+        <article class="project-card">
+          <div class="project-card__image-wrapper">
+            <img class="project-card__image" src="https://image.mux.com/XG9nlYYapGLVCNhOUW015BeaSWZe1atIOtYJSfroBB8g/animated.webp?width=640&fps=15" alt="Supply Chain Engine Preview" loading="lazy" />
+            <div class="project-card__image-overlay"></div>
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__tag">INFRASTRUCTURE & SCALE</span>
+            <h3 class="project-card__title">Global Supply Chain Portal</h3>
+            <p class="project-card__desc">
+              High-volume logistic fleet routing portal with zero-latency live synchronization and real-time operational mapping.
+            </p>
+            <div class="project-card__stats">
+              <div class="project-card__stat"><span class="project-card__stat-num">&lt;10ms</span><span class="project-card__stat-label">Sync Latency</span></div>
+              <div class="project-card__stat"><span class="project-card__stat-num">1.4M+</span><span class="project-card__stat-label">Daily Deliveries</span></div>
+            </div>
+            <a href="#" class="project-card__link">
+              Explore Operations
+              <svg class="project-card__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 5 Card (External PNG) -->
+        <article class="project-card">
+          <div class="project-card__image-wrapper">
+            <img class="project-card__image" src="https://motionsites.ai/assets/hero-web3-eos-poster-DF0_WdVS.png" alt="EOS Protocol Node Preview" loading="lazy" />
+            <div class="project-card__image-overlay"></div>
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__tag">BLOCKCHAIN INTEGRATION</span>
+            <h3 class="project-card__title">EOS Node Validator Gateway</h3>
+            <p class="project-card__desc">
+              Enterprise validated node operations gateway providing round-the-clock ledger tracking, audits, and decentralized validation.
+            </p>
+            <div class="project-card__stats">
+              <div class="project-card__stat"><span class="project-card__stat-num">99.99%</span><span class="project-card__stat-label">Uptime SLA</span></div>
+              <div class="project-card__stat"><span class="project-card__stat-num">256-bit</span><span class="project-card__stat-label">End-to-End Encryption</span></div>
+            </div>
+            <a href="#" class="project-card__link">
+              Explore Operations
+              <svg class="project-card__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 6 Card (External WebP) -->
+        <article class="project-card">
+          <div class="project-card__image-wrapper">
+            <img class="project-card__image" src="https://image.mux.com/802ps1LP2vYwpJjPj9DLdbaOAwDTG4UkLgPJOVZaR8N4/animated.webp?width=640&fps=15" alt="Live Multi-Channel Support Hub Preview" loading="lazy" />
+            <div class="project-card__image-overlay"></div>
+          </div>
+          <div class="project-card__content">
+            <span class="project-card__tag">ENTERPRISE SUPPORT SUITE</span>
+            <h3 class="project-card__title">Omnichannel Real-Time Hub</h3>
+            <p class="project-card__desc">
+              Global live-agent desk supporting unified ticket resolution queues, instant fallbacks, and multi-region routing.
+            </p>
+            <div class="project-card__stats">
+              <div class="project-card__stat"><span class="project-card__stat-num">&lt;45s</span><span class="project-card__stat-label">Avg Response</span></div>
+              <div class="project-card__stat"><span class="project-card__stat-num">120+</span><span class="project-card__stat-label">Support Agents</span></div>
+            </div>
+            <a href="#" class="project-card__link">
+              Explore Operations
+              <svg class="project-card__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== WHY CHOOSE US SECTION ======== -->
+  <section class="why-us" id="why-us-section">
+    <!-- Ambient Liquid Glass Background Blobs -->
+    <div class="why-us__blob why-us__blob--1"></div>
+    <div class="why-us__blob why-us__blob--2"></div>
+
+    <div class="why-us__container">
+      <div class="why-us__grid">
+        
+        <!-- Left Side: Video Showcase on Glass Device Mockup -->
+        <div class="why-us__video-col">
+          <div class="why-us__device-wrapper">
+            <!-- Simulated 3D Bezel Glass Phone -->
+            <div class="why-us__device-bezel">
+              <div class="why-us__device-screen" style="position: relative;">
+                <!-- Invisible interaction shield to block Mux player hover/click UI -->
+                <div class="why-us__click-blocker" style="position: absolute; inset: 0; z-index: 10; background: transparent;"></div>
+                <iframe
+                  class="why-us__video"
+                  src="https://player.mux.com/bR5Ascjhq6f6aXhByoXApyHuGxX6uwC02mFZNrRpJ3fk?muted=true&autoplay=true&loop=true&controls=false"
+                  style="width: 100%; height: 100%; border: none; aspect-ratio: 9/16; display: block;"
+                  allow="autoplay; encrypted-media;"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Content and Glass Cards -->
+        <div class="why-us__content-col">
+          <div class="why-us__badge">OPERATIONAL MATURITY</div>
+          <h2 class="why-us__title">
+            Transforming Complexity Into <span class="why-us__title-gold">Scalable Performance</span>
+          </h2>
+          <p class="why-us__description">
+            Easy-to-use interfaces, seamless execution systems, and lasting impressions keep your business scaling smoothly. At TaskAura, we integrate directly into your workflows to reduce friction and accelerate sustainable growth.
+          </p>
+
+          <!-- Glass Stats Grid -->
+          <div class="why-us__stats-grid">
+            
+            <!-- Stat Card 1 -->
+            <div class="why-us__stat-card">
+              <div class="why-us__stat-num">600+</div>
+              <h4 class="why-us__stat-label">Successful projects completed</h4>
+              <p class="why-us__stat-desc">
+                We've helped launch and optimize over 600 custom operational workflows and support infrastructures globally.
+              </p>
+            </div>
+
+            <!-- Stat Card 2 -->
+            <div class="why-us__stat-card">
+              <div class="why-us__stat-num">100%</div>
+              <h4 class="why-us__stat-label">UpWork & SLA rating</h4>
+              <p class="why-us__stat-desc">
+                Flawless execution metrics across all dedicated offshore processes and operational frameworks.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== WHAT WE DO / SERVICES SECTION (Accordion) ======== -->
+  <section class="services" id="services-section">
+    
+    <!-- Ambient liquid glass background blobs -->
+    <div class="services__blob services__blob--1"></div>
+    <div class="services__blob services__blob--2"></div>
+
+    <div class="services__container">
+      
+      <!-- Section Header -->
+      <div class="services__header">
+        <div class="services__badge">ENTERPRISE CAPABILITIES</div>
+        <h2 class="services__title">
+          What We <span class="services__title-gold">Do Best</span>
+        </h2>
+        <p class="services__desc">
+          We architect and deploy scalable offshore operational frameworks to support business expansion without friction. Click on any service capability row to view specific modules.
+        </p>
+      </div>
+
+      <!-- Accordion Stack -->
+      <div class="services__accordion">
+        
+        <!-- Accordion Item 1: Website Design & Development -->
+        <div class="accordion-item" id="accordion-service-1">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">01</span>
+              <h3 class="accordion-item__title">Website Design & Development</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Engineering high-performance, secure, and visually stunning web platforms designed to elevate your brand presence and drive user conversions. We optimize page loading times and integrate complex back-end engines.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> Native load speed optimization, secure deployment environments, and custom brand alignment.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">Responsive UI/UX</span>
+                  <span class="glass-tag">Web Architecture</span>
+                  <span class="glass-tag">Speed Optimization</span>
+                  <span class="glass-tag">API Integration</span>
+                  <span class="glass-tag">Security Protocols</span>
+                  <span class="glass-tag">CMS Platforms</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 2: Customer Service -->
+        <div class="accordion-item" id="accordion-service-2">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">02</span>
+              <h3 class="accordion-item__title">Customer Service (Inbound & Outbound)</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Delivering omnichannel client engagement desks with highly trained specialists operating under strict SLA compliance parameters. We handle complex client calls, inbound inquiries, and strategic outbound campaigns.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> 24/7 SLA governance, continuous monitoring protocols, and instant multi-region operational scale.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">Inbound Call Desk</span>
+                  <span class="glass-tag">Outbound Campaigns</span>
+                  <span class="glass-tag">SLA Governance</span>
+                  <span class="glass-tag">Multi-Region Support</span>
+                  <span class="glass-tag">Client Satisfaction</span>
+                  <span class="glass-tag">Incident Logging</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 3: Chat & Email Support -->
+        <div class="accordion-item" id="accordion-service-3">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">03</span>
+              <h3 class="accordion-item__title">Chat & Email Support</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Providing round-the-clock live agent support desks, unified ticket queues, rapid response systems, and multi-channel routing. We resolve user issues with speed, clarity, and precision.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> Average response time under 45 seconds, unified multi-channel tickets, and seamless fallback routing.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">Live Chat Desk</span>
+                  <span class="glass-tag">Ticket Queue</span>
+                  <span class="glass-tag">Email Operations</span>
+                  <span class="glass-tag">Rapid Response SLA</span>
+                  <span class="glass-tag">FAQ Automation</span>
+                  <span class="glass-tag">Multilingual Support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 4: Accounting & Bookkeeping -->
+        <div class="accordion-item" id="accordion-service-4">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">04</span>
+              <h3 class="accordion-item__title">Accounting & Bookkeeping</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Structured bookkeeping governance and financial documentation support to secure ledger precision and operational compliance. We coordinate reconciliation workflows, invoice dispatch lifecycles, and document auditing.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> Over 35% reduction in manual financial administrative workloads, record errors, and reconciliation time.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">Data Processing</span>
+                  <span class="glass-tag">Invoice Coordination</span>
+                  <span class="glass-tag">Reconciliation</span>
+                  <span class="glass-tag">Record Audits</span>
+                  <span class="glass-tag">Financial Reporting</span>
+                  <span class="glass-tag">Tax Documentation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 5: Lead Generation & Sales Support -->
+        <div class="accordion-item" id="accordion-service-5">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">05</span>
+              <h3 class="accordion-item__title">Lead Generation & Sales Support</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Accelerating your sales pipeline through targeted prospect intelligence, outbound outreach campaigns, appointment scheduling, and CRM pipeline synchronization. We help your internal sales team stay focused on closing.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> High-velocity lead acquisition pipelines, clean database scrubbing, and qualified sales-ready opportunities.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">Prospect Qualification</span>
+                  <span class="glass-tag">Outbound Outreach</span>
+                  <span class="glass-tag">CRM Pipeline Sync</span>
+                  <span class="glass-tag">Appointment Booking</span>
+                  <span class="glass-tag">Lead Scrape & Clean</span>
+                  <span class="glass-tag">Sales Coordination</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 6: Voice & Non-Voice Process -->
+        <div class="accordion-item" id="accordion-service-6">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">06</span>
+              <h3 class="accordion-item__title">Voice & Non-Voice Process</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Deploying scalable offshore workforce modules to handle high-volume administrative data processing, workflow coordinate tasks, data scrubbing, and custom back-office operations.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> Fast administrative scaling, significant overhead reduction, and continuous workflow coordination.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">Offshore Staffing</span>
+                  <span class="glass-tag">Administrative Desks</span>
+                  <span class="glass-tag">Data Verification</span>
+                  <span class="glass-tag">Back-Office Operations</span>
+                  <span class="glass-tag">SLA Performance</span>
+                  <span class="glass-tag">Workforce Scale</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 7: Quality Assurance & Process Monitoring -->
+        <div class="accordion-item" id="accordion-service-7">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">07</span>
+              <h3 class="accordion-item__title">Quality Assurance & Process Monitoring</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Continuous performance monitoring, structured KPI audits, output compliance tracking, and strict operational governance rules. We ensure your workflows operate under flawless auditing protocols.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> Flawless output compliance audits, structured agent feedback scorecards, and high quality-assurance metrics.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">KPI Performance Audits</span>
+                  <span class="glass-tag">Compliance Checks</span>
+                  <span class="glass-tag">QA Scorecards</span>
+                  <span class="glass-tag">Continuous Auditing</span>
+                  <span class="glass-tag">Process Governance</span>
+                  <span class="glass-tag">Feedback Loops</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 8: ERP -->
+        <div class="accordion-item" id="accordion-service-8">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">08</span>
+              <h3 class="accordion-item__title">ERP Solutions</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Designing and integrating customized ERP infrastructure setups that seamlessly unify your resource planning, databases, operations, and financial management modules.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> Unified enterprise resource tracking, automated cross-departmental operations, and database sync.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">Resource Planning</span>
+                  <span class="glass-tag">Module Integrations</span>
+                  <span class="glass-tag">Workflow Automation</span>
+                  <span class="glass-tag">Data Synchronization</span>
+                  <span class="glass-tag">ERP Governance</span>
+                  <span class="glass-tag">Database Management</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 9: CRM Solutions -->
+        <div class="accordion-item" id="accordion-service-9">
+          <div class="accordion-item__header">
+            <div class="accordion-item__header-left">
+              <span class="accordion-item__num">09</span>
+              <h3 class="accordion-item__title">CRM Solutions</h3>
+            </div>
+            <div class="accordion-item__toggle">
+              <svg class="accordion-item__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="accordion-item__line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="accordion-item__line-h"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="accordion-item__panel">
+            <div class="accordion-item__content">
+              <div class="accordion-item__copy-col">
+                <p class="accordion-item__desc">
+                  Architecting custom CRM solutions with automated contact pipelines, trigger workflows, comprehensive lead lifecycle coordination, and data visualization dashboards.
+                </p>
+                <div class="accordion-item__benefit">
+                  <span class="accordion-item__benefit-highlight">Operational Output:</span> 100% pipeline visibility, automated triggers, lifecycle management, and custom analytics reporting.
+                </div>
+              </div>
+              <div class="accordion-item__tags-col">
+                <span class="accordion-item__tags-title">Capabilities</span>
+                <div class="accordion-item__tags">
+                  <span class="glass-tag">Pipeline Architecture</span>
+                  <span class="glass-tag">Automated Triggers</span>
+                  <span class="glass-tag">Dashboard Analytics</span>
+                  <span class="glass-tag">Lifecycle Management</span>
+                  <span class="glass-tag">Integrations Setup</span>
+                  <span class="glass-tag">Process Visibility</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Services CTA -->
+      <div class="services__cta">
+        <a href="#contact-section" class="btn btn--primary" id="services-cta-connect">
+          Connect With Us
+          <span class="btn__icon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- ======== ABOUT US SECTION ======== -->
+  <section class="about animate-on-scroll" id="about-section">
+    <!-- Ambient liquid glass background blobs -->
+    <div class="about__blob about__blob--1"></div>
+    <div class="about__blob about__blob--2"></div>
+
+    <div class="about__container">
+      <div class="about__grid">
+        
+        <!-- Left Column: Text & Content Narrative -->
+        <div class="about__content-col">
+          <div class="about__badge">ABOUT US</div>
+          
+          <h2 class="about__title">
+            Architecting Scalable Operational<br />
+            <span class="about__title-gold">Ecosystems</span>
+          </h2>
+
+          <div class="about__copy-stack">
+            <p class="about__copy-lead">
+              At Taskaura Global Consultancy Pvt. Ltd., we architect operational ecosystems that empower businesses to scale with precision, efficiency, and confidence.
+            </p>
+            <p class="about__copy-body">
+              We partner with ambitious organizations to streamline execution, optimize workflows, strengthen backend infrastructure, and deploy scalable operational support models that reduce friction and accelerate sustainable growth.
+            </p>
+            <p class="about__copy-body">
+              Our role extends beyond service delivery. We function as a strategic operational extension of your business — integrating seamlessly into your workflow architecture to improve performance, increase visibility, and create long-term business continuity.
+            </p>
+            <p class="about__copy-body about__copy-body--highlight">
+              We don’t just support business operations. <strong>We engineer operational excellence.</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Visual Video Mockup -->
+        <div class="about__video-col">
+          <div class="about__video-wrapper">
+            <div class="about__video-bezel">
+              <div class="about__video-screen">
+                <video
+                  id="about-logo-video"
+                  class="about__video"
+                  muted
+                  playsinline
+                  preload="auto"
+                >
+                  <source src="asset/content/0602.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CONTACT SECTION ======== -->
+  <section class="contact animate-on-scroll" id="contact-section">
+    <!-- Ambient liquid glass background blobs -->
+    <div class="contact__blob contact__blob--1"></div>
+    <div class="contact__blob contact__blob--2"></div>
+
+    <div class="contact__container">
+      <div class="contact__grid">
+        
+        <!-- Left Column: Big Typography -->
+        <div class="contact__info-col">
+          <div class="contact__badge">GET IN TOUCH</div>
+          <h2 class="contact__title">Let's<br>talk</h2>
+          <p class="contact__subtitle">Have an idea in mind — website, app, or rebrand? Let's make it real.</p>
+        </div>
+
+        <!-- Right Column: Frosted White Card -->
+        <div class="contact__form-col">
+          <div class="contact__form-card">
+            <h3 class="contact__form-title">Have a project in mind?</h3>
+            
+            <form class="contact__form" id="contact-form" onsubmit="return false;">
+              <!-- Field: Name -->
+              <div class="contact__field-group">
+                <label class="contact__label" for="contact-name">How should we call you?*</label>
+                <input class="contact__input" type="text" id="contact-name" name="name" placeholder="Your Name" required />
+              </div>
+
+              <!-- Field: Email -->
+              <div class="contact__field-group">
+                <label class="contact__label" for="contact-email">E-mail*</label>
+                <input class="contact__input" type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+              </div>
+
+              <!-- Field: Message -->
+              <div class="contact__field-group">
+                <label class="contact__label" for="contact-message">Message*</label>
+                <textarea class="contact__input contact__input--textarea" id="contact-message" name="message" placeholder="Your message" required></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="contact__submit-btn" id="contact-submit">
+                <span>Send Message</span>
+              </button>
+            </form>
+
+            <p class="contact__form-footer">
+              By submitting, you agree to our <a href="#" class="contact__footer-link">Privacy Policy</a> and <a href="#" class="contact__footer-link">Cookie Policy</a>.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+        
+        <!-- Left Column: Brand Info & Socials -->
+        <div class="footer__brand-col">
+          <a href="index.html" class="footer__logo-link">
+            <img src="asset/logo/image-removebg-preview.png" class="footer__logo" alt="TaskAura Logo" />
+          </a>
+          <p class="footer__description">
+            TaskAura Global helps businesses scale with reliable, efficient, and high-quality backend and customer support solutions — so you can focus on what matters most: <span class="footer__highlight">Growth.</span>
+          </p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer__social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="footer__social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Middle Column: Useful Links -->
+        <div class="footer__links-col">
+          <h4 class="footer__title">Useful Links</h4>
+          <ul class="footer__links-list">
+            <li><a href="#hero-section" class="footer__link">Home</a></li>
+            <li><a href="#projects-section" class="footer__link">Work</a></li>
+            <li><a href="#why-us-section" class="footer__link">Why Us</a></li>
+            <li><a href="#services-section" class="footer__link">Services</a></li>
+            <li><a href="#about-section" class="footer__link">About Us</a></li>
+            <li><a href="#contact-section" class="footer__link">Contact Us</a></li>
+            <li><a href="partners.html" class="footer__link">Who We Work With</a></li>
+            <li><a href="careers.html" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Right Column: Connect Us -->
+        <div class="footer__connect-col">
+          <h4 class="footer__title">Connect Us</h4>
+          <ul class="footer__connect-list">
+            <li class="footer__connect-item">
+              <span class="footer__connect-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <a href="mailto:rohitsingh@taskauraglobal.com" class="footer__connect-text">rohitsingh@taskauraglobal.com</a>
+            </li>
+            <li class="footer__connect-item">
+              <span class="footer__connect-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.5 19.5 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <a href="tel:+919630549549" class="footer__connect-text">+91 9630549549</a>
+            </li>
+            <li class="footer__connect-item">
+              <span class="footer__connect-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+              <span class="footer__connect-text">Indore, M.P., India</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="footer__divider" />
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">Copyright © 2026 Taskaura Global. All rights reserved.</p>
+        <div class="footer__policies">
+          <a href="#" class="footer__policy-link">Privacy Policy</a>
+          <span class="footer__policy-sep">|</span>
+          <a href="#" class="footer__policy-link">Terms & Conditions</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
