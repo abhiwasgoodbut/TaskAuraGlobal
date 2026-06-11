@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- LIQUID GLASS GENERATOR SYSTEM ----
   // =========================================================================
   const initLiquidGlass = () => {
-    const nav = document.getElementById('navbar');
+    const nav = document.getElementById('navbar-capsule');
     if (!nav) return;
 
     // 1. Create and inject SVG container for defs if it does not exist

@@ -30,62 +30,65 @@
 
   <!-- ======== NAVBAR ======== -->
   <nav class="navbar" id="navbar">
-    <div class="navbar__inner">
+    <!-- Logo -->
+    <a href="index.html" class="navbar__logo" id="nav-logo">
+      <img src="https://i0.wp.com/taskauraglobal.com/wp-content/uploads/2025/11/taskaura_new_logo-removebg-preview-1-e1764436845776.png?w=352&ssl=1" class="navbar__logo-img" alt="TaskAura Logo" />
+    </a>
 
-      <!-- Logo -->
-      <a href="index.html" class="navbar__logo" id="nav-logo">
-        <img src="asset/logo/image-removebg-preview.png" class="navbar__logo-img" alt="TaskAura Logo" />
-      </a>
+    <!-- Capsule Container -->
+    <div class="navbar__capsule" id="navbar-capsule">
+      <div class="navbar__inner">
 
-      <!-- Mobile Hamburger -->
-      <button class="navbar__hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <!-- Mobile Hamburger -->
+        <button class="navbar__hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      <!-- Menu -->
-      <div class="navbar__menu" id="nav-menu">
-        
-        <!-- Left Menu Links -->
-        <ul class="navbar__links navbar__links--left">
-          <li><a href="index.html#projects-section" class="navbar__link" id="nav-link-work">Work</a></li>
-          <li><a href="index.html#why-us-section" class="navbar__link" id="nav-link-why-us">Why Us</a></li>
-          <li><a href="index.html#services-section" class="navbar__link" id="nav-link-services">Services</a></li>
-          <li><a href="index.html#about-section" class="navbar__link" id="nav-link-about">About Us</a></li>
-          <li><a href="partners.html" class="navbar__link" id="nav-link-partners" style="color: var(--color-white); font-weight: 600;">Who We Work With</a></li>
-          <li><a href="careers.html" class="navbar__link" id="nav-link-careers">Careers</a></li>
-        </ul>
+        <!-- Menu -->
+        <div class="navbar__menu" id="nav-menu">
+          
+          <!-- Left Menu Links -->
+          <ul class="navbar__links navbar__links--left">
+            <li><a href="index.html#projects-section" class="navbar__link" id="nav-link-work">Work</a></li>
+            <li><a href="index.html#why-us-section" class="navbar__link" id="nav-link-why-us">Why Us</a></li>
+            <li><a href="index.html#services-section" class="navbar__link" id="nav-link-services">Services</a></li>
+            <li><a href="index.html#about-section" class="navbar__link" id="nav-link-about">About Us</a></li>
+            <li><a href="partners.html" class="navbar__link" id="nav-link-partners" style="color: var(--color-white); font-weight: 600;">Who We Work With</a></li>
+            <li><a href="careers.html" class="navbar__link" id="nav-link-careers">Careers</a></li>
+          </ul>
 
-        <!-- Right Utilities & Buttons -->
-        <div class="navbar__menu-right">
-          <!-- Language Dropdown -->
-          <div class="navbar__dropdown navbar__dropdown--lang">
-            <a href="#" class="navbar__link navbar__link--dropdown" id="nav-link-lang">
-              Language
-              <svg class="navbar__arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </a>
-            <div class="navbar__dropdown-menu navbar__dropdown-menu--right">
-              <a href="#" class="navbar__dropdown-item navbar__dropdown-item--active">EN-US</a>
-              <a href="#" class="navbar__dropdown-item">Español</a>
-              <a href="#" class="navbar__dropdown-item">Deutsch</a>
-              <a href="#" class="navbar__dropdown-item">Français</a>
+          <!-- Right Utilities & Buttons -->
+          <div class="navbar__menu-right">
+            <!-- Language Dropdown -->
+            <div class="navbar__dropdown navbar__dropdown--lang">
+              <a href="#" class="navbar__link navbar__link--dropdown" id="nav-link-lang">
+                Language
+                <svg class="navbar__arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="navbar__dropdown-menu navbar__dropdown-menu--right">
+                <a href="#" class="navbar__dropdown-item navbar__dropdown-item--active">EN-US</a>
+                <a href="#" class="navbar__dropdown-item">Español</a>
+                <a href="#" class="navbar__dropdown-item">Deutsch</a>
+                <a href="#" class="navbar__dropdown-item">Français</a>
+              </div>
+            </div>
+            
+            <!-- Auth / CTA Buttons -->
+            <div class="navbar__buttons">
+              <a href="index.html#contact-section" class="navbar__btn-cta" id="nav-btn-cta">Get started</a>
             </div>
           </div>
-          
-          <!-- Auth / CTA Buttons -->
-          <div class="navbar__buttons">
-            <a href="index.html#contact-section" class="navbar__btn-cta" id="nav-btn-cta">Get started</a>
-          </div>
+
         </div>
 
+        <!-- Mobile overlay -->
+        <div class="navbar__mobile-overlay" id="nav-overlay"></div>
+
       </div>
-
-      <!-- Mobile overlay -->
-      <div class="navbar__mobile-overlay" id="nav-overlay"></div>
-
     </div>
   </nav>
 

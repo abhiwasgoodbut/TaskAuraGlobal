@@ -77,10 +77,26 @@ section {
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 24px);
-  max-width: 1140px; /* Floating capsule width as requested */
-  height: 76px; /* Breathable height to fit larger logo */
+  max-width: 1200px;
   z-index: 100;
-  border-radius: 100px; /* Capsule pill shape reverted */
+  transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1200px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+}
+
+/* Glass Capsule Container */
+.navbar__capsule {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  border-radius: 100px;
   isolation: isolate;
 
   /* LIQUID GLASS SYSTEM VARIABLES */
@@ -95,13 +111,19 @@ section {
   box-shadow: 0 12px var(--outer-shadow-blur) rgba(0, 0, 0, 0.45);
   
   transition: 
-    top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@media (min-width: 1200px) {
+  .navbar__capsule {
+    flex: 0 1 auto;
+    max-width: 980px;
+  }
+}
+
 /* Liquid Glass Tint & Highlight Bevel overlay */
-.navbar::before {
+.navbar__capsule::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -116,7 +138,7 @@ section {
 }
 
 /* Liquid Glass SVG Refraction Backdrop Layer */
-.navbar::after {
+.navbar__capsule::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -130,6 +152,9 @@ section {
 /* Scrolled/Shrunk state (Dynamic micro-interaction) */
 .navbar.scrolled {
   top: 10px;
+}
+
+.navbar.scrolled .navbar__capsule {
   height: 68px; /* Breathable shrunk height */
   --tint-color: 6, 6, 12;
   --tint-opacity: 0.80; /* High opacity for readability */
@@ -143,7 +168,7 @@ section {
   z-index: 2;
   width: 100%;
   height: 100%;
-  padding: 0 10px 0 24px;
+  padding: 0 12px 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,7 +180,6 @@ section {
   align-items: center;
   justify-content: space-between;
   flex: 1;
-  margin-left: 48px;
   height: 100%;
 }
 
@@ -163,8 +187,12 @@ section {
 .navbar__logo {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: auto;
   transition: var(--transition-fast);
   cursor: pointer;
+  z-index: 102;
 }
 
 .navbar__logo:hover { 
@@ -172,23 +200,37 @@ section {
 }
 
 .navbar__logo-img {
-  height: 52px; /* Nicely scaled-down to avoid cramped capsule */
-  width: auto;
+  width: 100%;
+  height: auto;
+  max-height: 56px;
   object-fit: contain;
   display: block;
-  margin-top: -4px;
-  margin-bottom: -4px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar.scrolled .navbar__logo-img {
-  height: 46px; /* Proportionally scaled down on scroll */
-  margin-top: -3px;
-  margin-bottom: -3px;
+  transform: scale(0.92);
 }
 
 .navbar__logo:hover .navbar__logo-img {
   transform: scale(1.03); /* Soft premium hover scaling */
+}
+
+@media (max-width: 1199px) {
+  .navbar__logo {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+  }
+  .navbar__logo-img {
+    max-height: 48px;
+  }
+  .navbar.scrolled .navbar__logo-img {
+    max-height: 42px;
+    transform: none;
+  }
 }
 
 /* Links Left */
@@ -596,6 +638,8 @@ section {
   .navbar { 
     width: calc(100% - 32px); 
     max-width: 960px;
+  }
+  .navbar__capsule {
     height: 76px;
   }
   .navbar__links--left { gap: 16px; }
@@ -609,12 +653,13 @@ section {
   .navbar {
     top: 15px;
     width: calc(100% - 24px);
+  }
+  .navbar__capsule {
     height: 68px; /* Spacious mobile navbar height */
     border-radius: 100px;
   }
 
-  .navbar.scrolled {
-    top: 10px;
+  .navbar.scrolled .navbar__capsule {
     height: 64px; /* Spacious scrolled mobile height */
   }
 
