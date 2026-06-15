@@ -2798,7 +2798,7 @@ a.footer__connect-text:hover {
 
 
 /* ========================================
-   WHO WE WORK WITH SECTION
+   OUR CLIENTS SECTION
    ======================================== */
 .partners {
   position: relative;
@@ -3010,22 +3010,41 @@ a.footer__connect-text:hover {
 }
 
 .partner-card.expanded .partner-card__details {
-  max-height: 350px;
+  max-height: 600px;
   opacity: 1;
   margin-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 20px;
 }
 
-.partner-card__tag {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--color-gold-light);
-  margin-bottom: 20px;
+/* Case Study Content Styles */
+.partner-card__case-study {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.partner-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.partner-card__field-label {
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  text-align: center;
-  line-height: 1.4;
+  letter-spacing: 0.05em;
+  color: var(--color-gold);
+}
+
+.partner-card__field-value {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
 }
 
 .partner-card__links {
