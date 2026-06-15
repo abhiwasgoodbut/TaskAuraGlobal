@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Link to sitemap
-Sitemap: https://taskauraglobal.com/sitemap.xml
+Sitemap: https://taskauraglobal.com/sitemap_index.xml
