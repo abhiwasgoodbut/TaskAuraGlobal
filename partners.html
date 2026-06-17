@@ -58,6 +58,7 @@
             <li><a href="index.html#about-section" class="navbar__link" id="nav-link-about">About Us</a></li>
             <li><a href="partners.html" class="navbar__link" id="nav-link-partners" style="color: var(--color-white); font-weight: 600;">Our Clients</a></li>
             <li><a href="careers.html" class="navbar__link" id="nav-link-careers">Careers</a></li>
+            <li><a href="faq.html" class="navbar__link" id="nav-link-faq">FAQ</a></li>
           </ul>
 
           <!-- Right Utilities & Buttons -->
@@ -108,50 +109,34 @@
           Delivering Value to <span class="partners__title-gold">Our Clients</span>
         </h1>
         <p class="partners__desc">
-          Explore how we partner with our clients to design, implement, and run high-performance workflows that drive real business impact. Click on any card to view detailed case studies and contact links.
+          Explore how we partner with our clients to design, implement, and run high-performance workflows that drive real business impact.
         </p>
       </div>
 
-      <!-- Partners Grid -->
-      <div class="partners__grid">
+      <!-- Clients List Stack -->
+      <div class="clients-list">
         
         <!-- Client 1: WakeUp Monster -->
-        <div class="partner-card">
-          <div class="partner-card__logo-wrapper">
-            <img class="partner-card__logo" src="asset/logo/V1.png" alt="WakeUp Monster Logo" />
-          </div>
-          <h3 class="partner-card__name">WakeUp Monster</h3>
-          
-          <!-- Social Link (Always visible for redirect) -->
-          <div class="partner-card__socials">
-            <a href="https://www.instagram.com/wakeupmonster.agency?utm_source=ig_web_button_share_sheet" target="_blank" class="partner-card__social-btn" aria-label="WakeUp Monster Instagram">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Hidden details, expanding on click -->
-          <div class="partner-card__details">
-            <div class="partner-card__case-study">
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Operational Objective</span>
-                <p class="partner-card__field-value">Strengthen revenue pipeline generation.</p>
-              </div>
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Taskaura Solution</span>
-                <p class="partner-card__field-value">Designed structured lead research systems and outbound qualification workflows.</p>
-              </div>
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Business Impact</span>
-                <p class="partner-card__field-value">Improved qualified lead conversion potential by 40%, reducing manual acquisition effort.</p>
-              </div>
+        <div class="client-card">
+          <div class="client-card__branding">
+            <div class="client-card__logo-container">
+              <img class="client-card__logo" src="asset/logo/V1.png" alt="WakeUp Monster Logo" />
+            </div>
+            <h3 class="client-card__name">WakeUp Monster</h3>
+            <span class="client-card__tag">Lead Generation</span>
+            
+            <div class="client-card__socials">
+              <a href="https://www.instagram.com/wakeupmonster.agency?utm_source=ig_web_button_share_sheet" target="_blank" class="client-card__social-btn" aria-label="WakeUp Monster Instagram">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
             </div>
             
-            <div class="partner-card__links">
-              <a href="http://www.wakeupmonster.com" target="_blank" class="partner-card__link-item">
+            <div class="client-card__links">
+              <a href="http://www.wakeupmonster.com" target="_blank" class="client-card__link-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -159,7 +144,7 @@
                 </svg>
                 wakeupmonster.com
               </a>
-              <a href="mailto:wake_up.monsters@gmail.com" class="partner-card__link-item">
+              <a href="mailto:wake_up.monsters@gmail.com" class="client-card__link-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
@@ -169,51 +154,44 @@
             </div>
           </div>
 
-          <!-- Expand indicator chevron -->
-          <div class="partner-card__expand-indicator">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <div class="client-card__case-study">
+            <p class="client-card__description">Designed structured lead research systems and outbound qualification workflows to strengthen revenue pipeline generation and improve qualified lead conversion potential by 40%.</p>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Operational Objective</span>
+              <p class="client-card__field-value">Strengthen revenue pipeline generation.</p>
+            </div>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Taskaura Solution</span>
+              <p class="client-card__field-value">Designed structured lead research systems and outbound qualification workflows.</p>
+            </div>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Business Impact</span>
+              <p class="client-card__field-value">Improved qualified lead conversion potential by 40%, reducing manual acquisition effort.</p>
+            </div>
           </div>
         </div>
 
         <!-- Client 2: Snap Perfect Weddings -->
-        <div class="partner-card">
-          <div class="partner-card__logo-wrapper">
-            <img class="partner-card__logo" src="asset/logo/V2.png" alt="Snap Perfect Weddings Logo" />
-          </div>
-          <h3 class="partner-card__name">Snap Perfect Weddings</h3>
-          
-          <!-- Social Link (Always visible for redirect) -->
-          <div class="partner-card__socials">
-            <a href="https://www.instagram.com/snap_perfect_weddings?utm_source=ig_web_button_share_sheet" target="_blank" class="partner-card__social-btn" aria-label="Snap Perfect Weddings Instagram">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Hidden details, expanding on click -->
-          <div class="partner-card__details">
-            <div class="partner-card__case-study">
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Operational Objective</span>
-                <p class="partner-card__field-value">Improve customer engagement consistency.</p>
-              </div>
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Taskaura Solution</span>
-                <p class="partner-card__field-value">Implemented sales workflow automation and customer relationship coordination systems.</p>
-              </div>
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Business Impact</span>
-                <p class="partner-card__field-value">Enhanced customer retention performance by 35%.</p>
-              </div>
+        <div class="client-card">
+          <div class="client-card__branding">
+            <div class="client-card__logo-container">
+              <img class="client-card__logo" src="asset/logo/V2.png" alt="Snap Perfect Weddings Logo" />
+            </div>
+            <h3 class="client-card__name">Snap Perfect Weddings</h3>
+            <span class="client-card__tag">Sales Automation</span>
+            
+            <div class="client-card__socials">
+              <a href="https://www.instagram.com/snap_perfect_weddings?utm_source=ig_web_button_share_sheet" target="_blank" class="client-card__social-btn" aria-label="Snap Perfect Weddings Instagram">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
             </div>
             
-            <div class="partner-card__links">
-              <a href="https://snap-perfect.voucel.app" target="_blank" class="partner-card__link-item">
+            <div class="client-card__links">
+              <a href="https://snap-perfect.voucel.app" target="_blank" class="client-card__link-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -221,7 +199,7 @@
                 </svg>
                 snap-perfect.voucel.app
               </a>
-              <a href="mailto:Snap.perfect.weddings@gmail.com" class="partner-card__link-item">
+              <a href="mailto:Snap.perfect.weddings@gmail.com" class="client-card__link-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
@@ -231,51 +209,44 @@
             </div>
           </div>
 
-          <!-- Expand indicator chevron -->
-          <div class="partner-card__expand-indicator">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <div class="client-card__case-study">
+            <p class="client-card__description">Implemented sales workflow automation and customer relationship coordination systems to improve customer engagement consistency and enhance customer retention performance by 35%.</p>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Operational Objective</span>
+              <p class="client-card__field-value">Improve customer engagement consistency.</p>
+            </div>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Taskaura Solution</span>
+              <p class="client-card__field-value">Implemented sales workflow automation and customer relationship coordination systems.</p>
+            </div>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Business Impact</span>
+              <p class="client-card__field-value">Enhanced customer retention performance by 35%.</p>
+            </div>
           </div>
         </div>
 
         <!-- Client 3: Vriddhe Business Solutions -->
-        <div class="partner-card">
-          <div class="partner-card__logo-wrapper">
-            <img class="partner-card__logo" src="asset/logo/V3.png" alt="Vriddhe Business Solutions Logo" />
-          </div>
-          <h3 class="partner-card__name">Vriddhe Business Solutions</h3>
-          
-          <!-- Social Link (Always visible for redirect) -->
-          <div class="partner-card__socials">
-            <a href="https://www.instagram.com/vriddhe.online?utm_source=ig_web_button_share_sheet" target="_blank" class="partner-card__social-btn" aria-label="Vriddhe Business Solutions Instagram">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Hidden details, expanding on click -->
-          <div class="partner-card__details">
-            <div class="partner-card__case-study">
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Operational Objective</span>
-                <p class="partner-card__field-value">Strengthen backend operational responsiveness.</p>
-              </div>
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Taskaura Solution</span>
-                <p class="partner-card__field-value">Deployed structured customer support and backend coordination frameworks.</p>
-              </div>
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Business Impact</span>
-                <p class="partner-card__field-value">Reduced resolution turnaround time by 50%.</p>
-              </div>
+        <div class="client-card">
+          <div class="client-card__branding">
+            <div class="client-card__logo-container">
+              <img class="client-card__logo" src="asset/logo/V3.png" alt="Vriddhe Business Solutions Logo" />
+            </div>
+            <h3 class="client-card__name">Vriddhe Business Solutions</h3>
+            <span class="client-card__tag">Accounting</span>
+            
+            <div class="client-card__socials">
+              <a href="https://www.instagram.com/vriddhe.online?utm_source=ig_web_button_share_sheet" target="_blank" class="client-card__social-btn" aria-label="Vriddhe Business Solutions Instagram">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
             </div>
             
-            <div class="partner-card__links">
-              <a href="http://www.vridhe.in" target="_blank" class="partner-card__link-item">
+            <div class="client-card__links">
+              <a href="http://www.vridhe.in" target="_blank" class="client-card__link-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -283,7 +254,7 @@
                 </svg>
                 vridhe.in
               </a>
-              <a href="mailto:tushar@vridhe.in" class="partner-card__link-item">
+              <a href="mailto:tushar@vridhe.in" class="client-card__link-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
@@ -293,51 +264,44 @@
             </div>
           </div>
 
-          <!-- Expand indicator chevron -->
-          <div class="partner-card__expand-indicator">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <div class="client-card__case-study">
+            <p class="client-card__description">Managed end-to-end bookkeeping, tax compliance, and payroll processing systems to streamline financial reporting and maintain absolute compliance.</p>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Operational Objective</span>
+              <p class="client-card__field-value">Strengthen backend operational responsiveness.</p>
+            </div>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Taskaura Solution</span>
+              <p class="client-card__field-value">Deployed structured customer support and backend coordination frameworks.</p>
+            </div>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Business Impact</span>
+              <p class="client-card__field-value">Reduced resolution turnaround time by 50%.</p>
+            </div>
           </div>
         </div>
 
         <!-- Client 4: AstexAI -->
-        <div class="partner-card">
-          <div class="partner-card__logo-wrapper">
-            <img class="partner-card__logo" src="asset/logo/V4.png" alt="AstexAI Logo" />
-          </div>
-          <h3 class="partner-card__name">AstexAI</h3>
-          
-          <!-- Social Link (Always visible for redirect) -->
-          <div class="partner-card__socials">
-            <a href="https://www.instagram.com/astexai?utm_source=ig_web_button_share_sheet" target="_blank" class="partner-card__social-btn" aria-label="AstexAI Instagram">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Hidden details, expanding on click -->
-          <div class="partner-card__details">
-            <div class="partner-card__case-study">
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Operational Objective</span>
-                <p class="partner-card__field-value">Increase service quality visibility.</p>
-              </div>
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Taskaura Solution</span>
-                <p class="partner-card__field-value">Implemented process monitoring systems and quality assurance reporting architecture.</p>
-              </div>
-              <div class="partner-card__field">
-                <span class="partner-card__field-label">Business Impact</span>
-                <p class="partner-card__field-value">Improved decision-making speed through real-time operational performance insights.</p>
-              </div>
+        <div class="client-card">
+          <div class="client-card__branding">
+            <div class="client-card__logo-container">
+              <img class="client-card__logo" src="asset/logo/V4.png" alt="AstexAI Logo" />
+            </div>
+            <h3 class="client-card__name">AstexAI</h3>
+            <span class="client-card__tag">Website Development</span>
+            
+            <div class="client-card__socials">
+              <a href="https://www.instagram.com/astexai?utm_source=ig_web_button_share_sheet" target="_blank" class="client-card__social-btn" aria-label="AstexAI Instagram">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
             </div>
             
-            <div class="partner-card__links">
-              <a href="https://astexai.tech" target="_blank" class="partner-card__link-item">
+            <div class="client-card__links">
+              <a href="https://astexai.tech" target="_blank" class="client-card__link-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -345,7 +309,7 @@
                 </svg>
                 astexai.tech
               </a>
-              <a href="mailto:contact.astexai@gmail.com" class="partner-card__link-item">
+              <a href="mailto:contact.astexai@gmail.com" class="client-card__link-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
@@ -355,11 +319,20 @@
             </div>
           </div>
 
-          <!-- Expand indicator chevron -->
-          <div class="partner-card__expand-indicator">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <div class="client-card__case-study">
+            <p class="client-card__description">Developed and deployed a premium, responsive website with modern UI/UX design, optimized performance, and SEO integrations to establish a strong digital presence.</p>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Operational Objective</span>
+              <p class="client-card__field-value">Increase service quality visibility.</p>
+            </div>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Taskaura Solution</span>
+              <p class="client-card__field-value">Implemented process monitoring systems and quality assurance reporting architecture.</p>
+            </div>
+            <div class="client-card__field">
+              <span class="client-card__field-label">Business Impact</span>
+              <p class="client-card__field-value">Improved decision-making speed through real-time operational performance insights.</p>
+            </div>
           </div>
         </div>
 
@@ -413,6 +386,7 @@
             <li><a href="index.html#contact-section" class="footer__link">Contact Us</a></li>
             <li><a href="partners.html" class="footer__link" style="color: var(--color-gold-light);">Our Clients</a></li>
             <li><a href="careers.html" class="footer__link">Careers</a></li>
+            <li><a href="faq.html" class="footer__link">FAQ</a></li>
           </ul>
         </div>
 

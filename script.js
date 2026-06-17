@@ -242,33 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Partners Card Expansion ----
-  const partnerCards = document.querySelectorAll('.partner-card');
-  partnerCards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      // Don't toggle expansion if clicking any link inside
-      if (e.target.closest('a')) {
-        return;
-      }
-      
-      const isExpanded = card.classList.contains('expanded');
-      
-      // Collapse other cards
-      partnerCards.forEach(otherCard => {
-        if (otherCard !== card) {
-          otherCard.classList.remove('expanded');
-        }
-      });
-      
-      // Toggle current card
-      if (isExpanded) {
-        card.classList.remove('expanded');
-      } else {
-        card.classList.add('expanded');
-      }
-    });
-  });
-
   // =========================================================================
   // ---- LIQUID GLASS GENERATOR SYSTEM ----
   // =========================================================================
@@ -484,6 +457,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial build
     rebuildNavbarFilter();
   };
+
+  // ---- FAQ Accordion ----
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('.faq-item__trigger');
+    const content = item.querySelector('.faq-item__content');
+    if (!trigger || !content) return;
+    
+    trigger.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close other items
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+          const otherContent = otherItem.querySelector('.faq-item__content');
+          if (otherContent) {
+            otherContent.style.maxHeight = '0';
+            otherContent.style.opacity = '0';
+          }
+        }
+      });
+      
+      if (isActive) {
+        item.classList.remove('active');
+        content.style.maxHeight = '0';
+        content.style.opacity = '0';
+      } else {
+        item.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.opacity = '1';
+      }
+    });
+  });
 
   initLiquidGlass();
 });
