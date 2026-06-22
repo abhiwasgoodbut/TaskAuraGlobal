@@ -492,6 +492,111 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---- Portfolio Filter Logic ----
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioCards = document.querySelectorAll('.portfolio-card[data-category]');
+
+  if (filterBtns.length > 0 && portfolioCards.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons and add to the clicked one
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        portfolioCards.forEach(card => {
+          const isMatch = filterValue === 'all' || card.getAttribute('data-category') === filterValue;
+
+          // Clear any existing transition timeout for this card to prevent rapid click conflicts
+          if (card.dataset.timeoutId) {
+            clearTimeout(parseInt(card.dataset.timeoutId));
+            card.removeAttribute('data-timeout-id');
+          }
+
+          if (isMatch) {
+            // Show matching card
+            card.classList.remove('hidden');
+            // Trigger reflow to ensure the transition runs smoothly
+            void card.offsetWidth; 
+            card.style.opacity = '';
+            card.style.transform = '';
+            card.style.pointerEvents = '';
+          } else {
+            // Hide non-matching card
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.95)';
+            card.style.pointerEvents = 'none';
+
+            const timeoutId = setTimeout(() => {
+              card.classList.add('hidden');
+              card.removeAttribute('data-timeout-id');
+            }, 300);
+            card.dataset.timeoutId = timeoutId;
+          }
+        });
+      });
+    });
+  }
+
+  // ---- IntersectionObserver Scroll Reveal Animations ----
+  const revealElements = document.querySelectorAll('.reveal');
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target); // Reveal once
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+    });
+
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+  }
+
+  // ---- Smooth scroll and filter activation for hash links ----
+  const handleHashLink = (hash) => {
+    if (!hash) return;
+    try {
+      const targetEl = document.querySelector(hash);
+      if (targetEl && targetEl.classList.contains('portfolio-card')) {
+        // 1. Trigger the 'All' filter button to ensure the card is visible
+        const allFilterBtn = document.querySelector('.filter-btn[data-filter="all"]');
+        if (allFilterBtn && !allFilterBtn.classList.contains('active')) {
+          allFilterBtn.click();
+        }
+        
+        // 2. Wait a brief moment for the cards to animate/become visible, then scroll
+        setTimeout(() => {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Add a temporary highlight effect to the card to draw the user's attention
+          targetEl.classList.add('highlight-glow');
+          setTimeout(() => targetEl.classList.remove('highlight-glow'), 2200);
+        }, 350);
+      }
+    } catch (e) {
+      console.warn("Invalid hash target for scroll:", hash);
+    }
+  };
+
+  // Listen for hash changes (clicking dropdown links on the same page)
+  window.addEventListener('hashchange', () => {
+    handleHashLink(window.location.hash);
+  });
+
+  // Handle initial page load with hash
+  if (window.location.hash) {
+    // Delay slightly to allow content/DOM to be fully ready
+    setTimeout(() => {
+      handleHashLink(window.location.hash);
+    }, 600);
+  }
+
   initLiquidGlass();
 });
 
