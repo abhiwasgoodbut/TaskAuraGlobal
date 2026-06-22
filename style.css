@@ -517,6 +517,14 @@ section {
   gap: 24px;
 }
 
+@media (max-aspect-ratio: 1.62) and (min-width: 1025px) {
+  .hero__content {
+    justify-content: center;
+    padding-top: 140px;
+    padding-bottom: 60px;
+  }
+}
+
 /* Badge pill */
 .hero__badge {
   display: inline-flex;
@@ -649,6 +657,14 @@ section {
   .hero__content { width: 100%; padding: 60px 40px 50px 40px; justify-content: flex-end; }
 }
 
+@media (max-width: 1024px) and (max-aspect-ratio: 1.62) {
+  .hero__content {
+    padding-top: 130px;
+    padding-bottom: 60px;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     top: 15px;
@@ -665,7 +681,19 @@ section {
 
   .navbar__inner { padding: 0 10px 0 18px; }
 
-  .navbar__hamburger { display: flex; }
+  .navbar__logo {
+    left: 20px;
+    width: 70px;
+  }
+  .navbar__logo-img {
+    max-height: 40px;
+  }
+  .navbar.scrolled .navbar__logo-img {
+    max-height: 36px;
+    transform: none;
+  }
+
+  .navbar__hamburger { display: flex; margin-left: auto; }
 
   /* Mobile Slide-out Menu Drawer */
   .navbar__menu {
@@ -835,10 +863,30 @@ section {
   }
 }
 
+@media (max-width: 768px) and (max-aspect-ratio: 1.62) {
+  .hero__content {
+    padding-top: 110px;
+    padding-bottom: 40px;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 480px) {
   .hero__heading { font-size: 2rem; }
   .hero__subtitle { font-size: 1rem; }
-  .navbar__logo-img { height: 44px; margin-top: -3px; margin-bottom: -3px; } /* Clean scaled-down height compensating whitespace */
+  .navbar__logo {
+    left: 18px;
+    width: 64px;
+  }
+  .navbar__logo-img {
+    height: auto;
+    max-height: 34px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar.scrolled .navbar__logo-img {
+    max-height: 30px;
+  }
 }
 
 
