@@ -560,24 +560,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---- Smooth scroll and filter activation for hash links ----
-  const handleHashLink = (hash) => {
+  const handleHashLink = (hash, isInitialLoad = false) => {
     if (!hash) return;
     try {
       const targetEl = document.querySelector(hash);
-      if (targetEl && targetEl.classList.contains('portfolio-card')) {
-        // 1. Trigger the 'All' filter button to ensure the card is visible
-        const allFilterBtn = document.querySelector('.filter-btn[data-filter="all"]');
-        if (allFilterBtn && !allFilterBtn.classList.contains('active')) {
-          allFilterBtn.click();
+      if (targetEl) {
+        if (targetEl.classList.contains('portfolio-card')) {
+          // 1. Trigger the 'All' filter button to ensure the card is visible
+          const allFilterBtn = document.querySelector('.filter-btn[data-filter="all"]');
+          if (allFilterBtn && !allFilterBtn.classList.contains('active')) {
+            allFilterBtn.click();
+          }
+          
+          // 2. Wait a brief moment for the cards to animate/become visible, then scroll
+          setTimeout(() => {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Add a temporary highlight effect to the card to draw the user's attention
+            targetEl.classList.add('highlight-glow');
+            setTimeout(() => targetEl.classList.remove('highlight-glow'), 2200);
+          }, 350);
+        } else if (isInitialLoad) {
+          // Force scrollIntoView on initial page load because window.scrollTo(0,0) blocks default jump
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        
-        // 2. Wait a brief moment for the cards to animate/become visible, then scroll
-        setTimeout(() => {
-          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          // Add a temporary highlight effect to the card to draw the user's attention
-          targetEl.classList.add('highlight-glow');
-          setTimeout(() => targetEl.classList.remove('highlight-glow'), 2200);
-        }, 350);
       }
     } catch (e) {
       console.warn("Invalid hash target for scroll:", hash);
@@ -586,14 +591,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Listen for hash changes (clicking dropdown links on the same page)
   window.addEventListener('hashchange', () => {
-    handleHashLink(window.location.hash);
+    handleHashLink(window.location.hash, false);
   });
 
   // Handle initial page load with hash
   if (window.location.hash) {
     // Delay slightly to allow content/DOM to be fully ready
     setTimeout(() => {
-      handleHashLink(window.location.hash);
+      handleHashLink(window.location.hash, true);
     }, 600);
   }
 
