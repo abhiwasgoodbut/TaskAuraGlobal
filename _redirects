@@ -1,0 +1,36 @@
+# WordPress Core Pages to Static Counterparts
+/portfolio            /portfolio.html       301
+/portfolio/           /portfolio.html       301
+/about                /#about-section       301
+/about/               /#about-section       301
+/about-us             /#about-section       301
+/about-us/            /#about-section       301
+/contact              /#contact-section     301
+/contact/             /#contact-section     301
+/contact-us           /#contact-section     301
+/contact-us/          /#contact-section     301
+/careers              /careers.html         301
+/careers/             /careers.html         301
+/faq                  /faq.html             301
+/faq/                 /faq.html             301
+/partners             /partners.html        301
+/partners/            /partners.html        301
+/clients              /partners.html        301
+/clients/             /partners.html        301
+
+# WordPress WooCommerce & Default Junk Pages to Home
+/checkout             /                     301
+/checkout/            /                     301
+/hello-world          /                     301
+/hello-world/         /                     301
+/cart                 /                     301
+/cart/                /                     301
+/my-account           /                     301
+/my-account/          /                     301
+/shop                 /                     301
+/shop/                /                     301
+
+# Media Attachment Page leftovers
+/img14                /                     301
+/img14/               /                     301
+/img14.png            /                     301
