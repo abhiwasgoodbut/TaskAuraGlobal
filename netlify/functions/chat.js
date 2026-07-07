@@ -143,6 +143,7 @@ exports.handler = async function(event, context) {
       });
       console.log(`[NETLIFY BLOBS] Chat logged successfully: ${sessionId}`);
     } catch (e) {
+      console.error("[NETLIFY BLOBS ERROR]", e);
       // Local dev logging fallback: print to terminal AND write to a local JSON file for easy review
       console.log(`[LOCAL DEV LOG] Session: ${sessionId}`);
       try {
