@@ -1,4 +1,11 @@
-const https = require("https");
+import { getStore } from "@netlify/blobs";
+import https from "https";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const systemPrompt = `You are Aura, the official AI assistant for TaskAura Global (Taskaura Global Consultancy Pvt. Ltd.). Your job is to answer questions about the company accurately, professionally, and helpfully based on the following comprehensive company context.
 
@@ -71,34 +78,43 @@ function fetchFallback(url, options) {
 
 const performRequest = typeof fetch !== "undefined" ? fetch : fetchFallback;
 
-exports.handler = async function(event, context) {
+// Netlify Functions v2 handler syntax
+export default async (req, context) => {
   // CORS Headers
-  const headers = {
+  const corsHeaders = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Content-Type": "application/json"
+    "Access-Control-Allow-Methods": "POST, OPTIONS"
   };
 
   // Handle options preflight request
-  if (event.httpMethod === "OPTIONS") {
-    return { statusCode: 200, headers, body: "" };
+  if (req.method === "OPTIONS") {
+    return new Response("", { status: 200, headers: corsHeaders });
   }
 
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, headers, body: JSON.stringify({ error: "Method Not Allowed" }) };
+  if (req.method !== "POST") {
+    return new Response(JSON.stringify({ error: "Method Not Allowed" }), {
+      status: 405,
+      headers: { ...corsHeaders, "Content-Type": "application/json" }
+    });
   }
 
   try {
-    const { history, session_id } = JSON.parse(event.body);
+    const { history, session_id } = await req.json();
 
     if (!history || !Array.isArray(history)) {
-      return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid history format." }) };
+      return new Response(JSON.stringify({ error: "Invalid history format." }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" }
+      });
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey || apiKey === "YOUR_GEMINI_API_KEY_HERE") {
-      return { statusCode: 500, headers, body: JSON.stringify({ error: "Gemini API key is not configured. Please add it to your environment variables." }) };
+      return new Response(JSON.stringify({ error: "Gemini API key is not configured. Please add it to your environment variables." }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" }
+      });
     }
 
     // Map conversation history to Gemini's expected user/model roles format
@@ -135,7 +151,6 @@ exports.handler = async function(event, context) {
     // Save Chat Logs to Netlify Blobs (or save to local files on disk during dev)
     const sessionId = session_id || `session_${Date.now()}`;
     try {
-      const { getStore } = require("@netlify/blobs");
       const chatStore = getStore("chats");
       await chatStore.setJSON(sessionId, {
         history: fullHistory,
@@ -144,11 +159,8 @@ exports.handler = async function(event, context) {
       console.log(`[NETLIFY BLOBS] Chat logged successfully: ${sessionId}`);
     } catch (e) {
       console.error("[NETLIFY BLOBS ERROR]", e);
-      // Local dev logging fallback: print to terminal AND write to a local JSON file for easy review
       console.log(`[LOCAL DEV LOG] Session: ${sessionId}`);
       try {
-        const fs = require('fs');
-        const path = require('path');
         const logDir = path.join(__dirname, '..', '..', 'chat_logs');
         
         if (!fs.existsSync(logDir)) {
@@ -168,18 +180,16 @@ exports.handler = async function(event, context) {
       }
     }
 
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ reply: botReply })
-    };
+    return new Response(JSON.stringify({ reply: botReply }), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" }
+    });
 
   } catch (error) {
     console.error("Function Error:", error);
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: error.message })
-    };
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" }
+    });
   }
 };
