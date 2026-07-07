@@ -42,3 +42,6 @@
 # Dental Clinic Accounting pretty URLs redirect
 /dental-accounting-payroll          /dental-accounting-payroll.html     301
 /dental-accounting-payroll/         /dental-accounting-payroll.html     301
+
+# Chatbot Serverless routing
+/api/chat                            /.netlify/functions/chat            200

@@ -732,6 +732,236 @@ document.addEventListener('DOMContentLoaded', () => {
     browserMockup.addEventListener('mouseleave', startSlideshow);
   }
 
+  // ---- Aura AI Chatbot Widget ----
+  function initChatbot() {
+    // Inject Chatbot HTML container
+    const chatContainer = document.createElement('div');
+    chatContainer.id = 'taskaura-chatbot';
+    chatContainer.innerHTML = `
+      <div class="chat-trigger-group">
+        <div class="chat-trigger-label" id="chat-trigger-label">
+          Ask! Aura
+        </div>
+        <button class="chat-trigger" id="chat-trigger" aria-label="Open AI Assistant" style="padding: 0; overflow: hidden;">
+          <img class="chat-icon-open" src="asset/logo/chat-logo.png" alt="Open Chat" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block;">
+          <svg class="chat-icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none; color: #06060c;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="chat-panel" id="chat-panel">
+        <div class="chat-header">
+          <div class="chat-header__info">
+            <img src="asset/logo/chat-logo.png" class="chat-avatar" alt="Ask! Aura Logo">
+            <div>
+              <h4 class="chat-title">Ask! Aura</h4>
+              <span class="chat-status">Online • AI Assistant</span>
+            </div>
+          </div>
+          <button class="chat-close" id="chat-close" aria-label="Close Chat">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-msg chat-msg--bot">
+            <div class="chat-msg__bubble">
+              Hello! I'm Aura, your AI assistant. How can I help you with TaskAura Global's services today?
+            </div>
+          </div>
+        </div>
+
+        <form class="chat-input-area" id="chat-form">
+          <input type="text" class="chat-input" id="chat-input" placeholder="Ask about our services..." required autocomplete="off">
+          <button type="submit" class="chat-send-btn" id="chat-send-btn" aria-label="Send Message">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(chatContainer);
+
+    const trigger = document.getElementById('chat-trigger');
+    const triggerLabel = document.getElementById('chat-trigger-label');
+    const panel = document.getElementById('chat-panel');
+    const closeBtn = document.getElementById('chat-close');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+    const iconOpen = trigger.querySelector('.chat-icon-open');
+    const iconClose = trigger.querySelector('.chat-icon-close');
+
+    // Retrieve or create unique session ID for chat persistence logs
+    let sessionId = localStorage.getItem('taskaura_chat_session');
+    if (!sessionId) {
+      sessionId = 'session_' + Math.random().toString(36).substring(2, 15) + '_' + Date.now();
+      localStorage.setItem('taskaura_chat_session', sessionId);
+    }
+
+    // Keep conversation memory state
+    let history = [
+      { role: 'bot', text: "Hello! I'm Aura, your AI assistant. How can I help you with TaskAura Global's services today?" }
+    ];
+
+    // Toggle Chat Panel visibility
+    const toggleChat = () => {
+      const isActive = panel.classList.toggle('active');
+      if (isActive) {
+        iconOpen.style.display = 'none';
+        iconClose.style.display = 'block';
+        triggerLabel.classList.add('hidden'); // Hide the text label when panel is open
+        chatInput.focus();
+      } else {
+        iconOpen.style.display = 'block';
+        iconClose.style.display = 'none';
+        triggerLabel.classList.remove('hidden'); // Show the text label when panel is closed
+      }
+    };
+
+    trigger.addEventListener('click', toggleChat);
+    triggerLabel.addEventListener('click', toggleChat); // Label is also clickable to open chat
+    closeBtn.addEventListener('click', toggleChat);
+
+    // Convert basic markdown (bold, bullet points, newlines) to HTML safely
+    const formatMarkdown = (text) => {
+      // Escape HTML to prevent XSS
+      let html = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      // Bold: **text** -> <strong>text</strong>
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+      // Bullet points: lines starting with * or -
+      const lines = html.split('\n');
+      let inList = false;
+      const processedLines = [];
+
+      for (let line of lines) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
+          if (!inList) {
+            processedLines.push('<ul style="margin: 8px 0; padding-left: 20px; list-style-type: disc;">');
+            inList = true;
+          }
+          processedLines.push(`<li>${trimmed.substring(2)}</li>`);
+        } else {
+          if (inList) {
+            processedLines.push('</ul>');
+            inList = false;
+          }
+          processedLines.push(line);
+        }
+      }
+      if (inList) {
+        processedLines.push('</ul>');
+      }
+
+      // Join and replace remaining newlines with linebreaks
+      return processedLines.join('\n').replace(/\n/g, '<br>');
+    };
+
+    // Append Message helper
+    const appendMessage = (role, text) => {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg chat-msg--${role}`;
+      msgDiv.innerHTML = `<div class="chat-msg__bubble">${formatMarkdown(text)}</div>`;
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    // Show/Hide Typing Indicator helpers
+    let typingIndicator = null;
+    const showTypingIndicator = () => {
+      if (typingIndicator) return;
+      typingIndicator = document.createElement('div');
+      typingIndicator.className = 'chat-msg chat-msg--bot';
+      typingIndicator.id = 'chat-typing-indicator';
+      typingIndicator.innerHTML = `
+        <div class="chat-msg__bubble typing-indicator">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      `;
+      chatMessages.appendChild(typingIndicator);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    const removeTypingIndicator = () => {
+      if (typingIndicator) {
+        typingIndicator.remove();
+        typingIndicator = null;
+      }
+    };
+
+    // Handle form submission
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      chatInput.value = '';
+      appendMessage('user', text);
+      history.push({ role: 'user', text });
+
+      showTypingIndicator();
+
+      // Check if running directly on file://
+      if (window.location.protocol === 'file:') {
+        removeTypingIndicator();
+        appendMessage('bot', '⚠️ **Direct File Mode**: You are viewing this page directly from your hard drive. Browsers prevent local files from calling serverless APIs.\n\nTo test the chatbot locally:\n1. Open your terminal in this folder.\n2. Run **`netlify dev`** (starts the local serverless backend).\n3. View the site at the URL provided (usually `http://localhost:8888`).');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            history,
+            session_id: sessionId
+          })
+        });
+
+        removeTypingIndicator();
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.reply) {
+            appendMessage('bot', data.reply);
+            history.push({ role: 'bot', text: data.reply });
+          } else {
+            appendMessage('bot', 'Sorry, I am having trouble connecting to my brain right now. Please try again.');
+          }
+        } else {
+          const errText = response.status === 404
+            ? 'Backend server not found (404). Please ensure you are running the site via **`netlify dev`** to host the serverless functions.'
+            : `API server returned error ${response.status}. Please check your environment variables.`;
+          appendMessage('bot', `⚠️ ${errText}`);
+        }
+      } catch (err) {
+        removeTypingIndicator();
+        console.error('Chatbot request failed:', err);
+        appendMessage('bot', '⚠️ Could not reach the server. If testing locally, make sure you ran **`netlify dev`** to start the local backend, not just a static server.');
+      }
+    });
+  }
+
+  // Initialize Chatbot UI
+  initChatbot();
+
   initLiquidGlass();
 });
 
