@@ -1,3 +1,7 @@
 # Local Netlify folder
 .netlify
 .env
+
+# Dependencies & Local Chat Logs
+node_modules/
+chat_logs/

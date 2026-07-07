@@ -1,0 +1,9 @@
+{
+  "name": "taskaura",
+  "version": "1.0.0",
+  "description": "TaskAura Global Website",
+  "main": "script.js",
+  "dependencies": {
+    "@netlify/blobs": "^10.7.9"
+  }
+}
