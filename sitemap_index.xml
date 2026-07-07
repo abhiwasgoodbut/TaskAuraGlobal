@@ -3,9 +3,23 @@
   <!-- Homepage -->
   <url>
     <loc>https://taskauraglobal.com/</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <!-- IT Services Page -->
+  <url>
+    <loc>https://taskauraglobal.com/it-services.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Dental Clinic Accounting & Payroll Page -->
+  <url>
+    <loc>https://taskauraglobal.com/dental-accounting-payroll.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <!-- Portfolio Page -->
   <url>

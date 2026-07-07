@@ -34,3 +34,11 @@
 /img14                /                     301
 /img14/               /                     301
 /img14.png            /                     301
+
+# IT Services pretty URLs redirect
+/it-services          /it-services.html     301
+/it-services/         /it-services.html     301
+
+# Dental Clinic Accounting pretty URLs redirect
+/dental-accounting-payroll          /dental-accounting-payroll.html     301
+/dental-accounting-payroll/         /dental-accounting-payroll.html     301

@@ -492,6 +492,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---- FAQ Scroll Spy & Navigation ----
+  const faqLinks = document.querySelectorAll('.faq__nav-link');
+  const faqSections = document.querySelectorAll('.faq__section');
+  
+  if (faqLinks.length > 0 && faqSections.length > 0) {
+    // Smooth scroll on click
+    faqLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          const headerOffset = 130;
+          const elementPosition = targetSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Scroll spy active class toggling
+    const handleScrollSpy = () => {
+      let currentSectionId = '';
+      const scrollPosition = window.scrollY + 160; // Offset for header + padding
+      
+      faqSections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPosition >= top && scrollPosition < top + height) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+      
+      if (currentSectionId) {
+        faqLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add('active');
+            
+            // Scroll category bar on mobile to keep active item visible
+            const parentList = link.closest('.faq__nav-list');
+            if (parentList && window.innerWidth <= 1024) {
+              const linkRect = link.getBoundingClientRect();
+              const listRect = parentList.getBoundingClientRect();
+              if (linkRect.left < listRect.left || linkRect.right > listRect.right) {
+                parentList.scrollTo({
+                  left: link.offsetLeft - parentList.offsetWidth / 2 + link.offsetWidth / 2,
+                  behavior: 'smooth'
+                });
+              }
+            }
+          }
+        });
+      }
+    };
+    
+    window.addEventListener('scroll', handleScrollSpy);
+    // Trigger once on load
+    handleScrollSpy();
+  }
+
   // ---- Portfolio Filter Logic ----
   const filterBtns = document.querySelectorAll('.filter-btn');
   const portfolioCards = document.querySelectorAll('.portfolio-card[data-category]');
@@ -600,6 +665,71 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       handleHashLink(window.location.hash, true);
     }, 600);
+  }
+
+  // ---- AI Integration Browser Mockup Slideshow ----
+  const browserMockup = document.querySelector('.browser-mockup');
+  if (browserMockup) {
+    const tabs = browserMockup.querySelectorAll('.browser-tab');
+    const slidesWrapper = browserMockup.querySelector('#browser-slides-wrapper');
+    let activeIndex = 0;
+    let slideshowInterval = null;
+
+    const startSlideshow = () => {
+      slideshowInterval = setInterval(() => {
+        activeIndex = (activeIndex + 1) % tabs.length;
+        updateSlide(activeIndex);
+      }, 4000); // Switch slide every 4 seconds
+    };
+
+    const stopSlideshow = () => {
+      if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+      }
+    };
+
+    const updateSlide = (index) => {
+      const targetTab = tabs[index];
+      if (targetTab && slidesWrapper) {
+        // Shift slide wrapper by index percentage
+        const shiftPercent = -index * 25; // 4 slides = 25% each
+        slidesWrapper.style.transform = `translateX(${shiftPercent}%)`;
+
+        tabs.forEach(t => t.classList.remove('active'));
+        targetTab.classList.add('active');
+        
+        // Auto-scroll mobile tabs bar to keep active tab visible
+        const tabsContainer = browserMockup.querySelector('.browser-tabs');
+        if (tabsContainer) {
+          const tabRect = targetTab.getBoundingClientRect();
+          const containerRect = tabsContainer.getBoundingClientRect();
+          if (tabRect.left < containerRect.left || tabRect.right > containerRect.right) {
+            tabsContainer.scrollTo({
+              left: targetTab.offsetLeft - tabsContainer.offsetWidth / 2 + targetTab.offsetWidth / 2,
+              behavior: 'smooth'
+            });
+          }
+        }
+      }
+    };
+
+    // Initialize slideshow
+    startSlideshow();
+
+    // Click handler for manual override
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        activeIndex = index;
+        updateSlide(activeIndex);
+        // Reset the timer so it stays on the clicked slide for a full duration
+        stopSlideshow();
+        startSlideshow();
+      });
+    });
+
+    // Pause on hover
+    browserMockup.addEventListener('mouseenter', stopSlideshow);
+    browserMockup.addEventListener('mouseleave', startSlideshow);
   }
 
   initLiquidGlass();
