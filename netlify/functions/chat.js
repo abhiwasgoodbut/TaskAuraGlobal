@@ -2,10 +2,6 @@ import { getStore } from "@netlify/blobs";
 import https from "https";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const systemPrompt = `You are Aura, the official AI assistant for TaskAura Global (Taskaura Global Consultancy Pvt. Ltd.). Your job is to answer questions about the company accurately, professionally, and helpfully based on the following comprehensive company context.
 
@@ -161,7 +157,7 @@ export default async (req, context) => {
       console.error("[NETLIFY BLOBS ERROR]", e);
       console.log(`[LOCAL DEV LOG] Session: ${sessionId}`);
       try {
-        const logDir = path.join(__dirname, '..', '..', 'chat_logs');
+        const logDir = path.join(process.cwd(), 'chat_logs');
         
         if (!fs.existsSync(logDir)) {
           fs.mkdirSync(logDir, { recursive: true });
