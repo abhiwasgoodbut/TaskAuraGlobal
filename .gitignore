@@ -5,3 +5,5 @@
 # Dependencies & Local Chat Logs
 node_modules/
 chat_logs/
+.agents/
+

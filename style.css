@@ -4879,7 +4879,7 @@ a.footer__connect-text:hover {
 
 .app-showcase__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   position: relative;
   z-index: 2;
@@ -4970,6 +4970,10 @@ a.footer__connect-text:hover {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
     margin-bottom: 50px !important;
+  }
+  
+  .app-showcase__grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
