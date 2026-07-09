@@ -4879,8 +4879,8 @@ a.footer__connect-text:hover {
 
 .app-showcase__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 60px;
   position: relative;
   z-index: 2;
 }
@@ -4895,7 +4895,8 @@ a.footer__connect-text:hover {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: #0d0d15;
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/9;
+  max-height: 560px;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -4971,15 +4972,10 @@ a.footer__connect-text:hover {
     gap: 24px !important;
     margin-bottom: 50px !important;
   }
-  
-  .app-showcase__grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 768px) {
   .app-showcase__grid {
-    grid-template-columns: 1fr;
     gap: 30px;
   }
   
