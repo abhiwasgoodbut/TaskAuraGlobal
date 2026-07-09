@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleLink = dropdown.querySelector('.navbar__link--dropdown');
     if (toggleLink) {
       toggleLink.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 991) {
           e.preventDefault();
           e.stopPropagation();
           

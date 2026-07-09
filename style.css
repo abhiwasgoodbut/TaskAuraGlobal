@@ -758,7 +758,7 @@ section {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .navbar {
     top: 15px;
     width: calc(100% - 24px);
@@ -978,7 +978,9 @@ section {
     opacity: 1;
     visibility: visible;
   }
+}
 
+@media (max-width: 768px) {
   /* Hero — Full width on mobile */
   .hero__glass-panel {
     width: 100%;
