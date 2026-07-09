@@ -4868,7 +4868,7 @@ a.footer__connect-text:hover {
 }
 
 /* ==========================================================================
-   APP DEVELOPMENT SECTION STYLES
+   APP SHOWCASE SECTION STYLES (NIXTIO STYLE)
    ========================================================================== */
 
 .app-development {
@@ -4877,132 +4877,110 @@ a.footer__connect-text:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-.app-dev__grid {
+.app-showcase__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  gap: 40px;
   position: relative;
-}
-
-.app-dev__visual-col {
-  position: relative;
-  height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.app-dev__card {
-  position: absolute;
-  width: 250px;
-  height: auto;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.app-dev__card img {
-  width: 100%;
-  display: block;
-}
-
-.app-dev__card--1 {
-  border: 1px solid rgba(212, 168, 83, 0.25);
-  transform: translateX(-45px) translateY(-20px) rotate(-6deg);
   z-index: 2;
 }
 
-.app-dev__card--2 {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transform: translateX(65px) translateY(30px) rotate(8deg);
-  z-index: 1;
+.app-showcase__card {
+  cursor: pointer;
 }
 
-.app-dev__visual-col:hover .app-dev__card--1 {
-  transform: translateX(-65px) translateY(-35px) rotate(-3deg) scale(1.04);
-  border-color: rgba(212, 168, 83, 0.6);
-  box-shadow: 0 40px 80px rgba(212, 168, 83, 0.2);
-  z-index: 3;
-}
-
-.app-dev__visual-col:hover .app-dev__card--2 {
-  transform: translateX(85px) translateY(45px) rotate(11deg) scale(0.98);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-}
-
-.app-dev__floating-badge {
-  position: absolute;
-  background: rgba(11, 11, 18, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 10px 20px;
+.app-showcase__image-wrapper {
+  position: relative;
   border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  z-index: 4;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #0d0d15;
+  aspect-ratio: 4/3;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  user-select: none;
 }
 
-.app-dev__floating-badge--1 {
-  top: 40px;
-  left: 20px;
-  border: 1px solid rgba(212, 168, 83, 0.3);
+.app-showcase__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.app-showcase__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 6, 12, 0.8) 0%, rgba(6, 6, 12, 0) 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.app-showcase__content {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.app-showcase__tag {
+  color: #d4a853;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.app-showcase__title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.app-showcase__year {
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+}
+
+/* Hover States */
+.app-showcase__card:hover .app-showcase__image-wrapper {
+  transform: translateY(-8px);
+  border-color: rgba(212, 168, 83, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.app-showcase__card:hover .app-showcase__image-wrapper img {
+  transform: scale(1.05);
+}
+
+.app-showcase__card:hover .app-showcase__overlay {
+  opacity: 1;
+}
+
+.app-showcase__card:hover .app-showcase__title {
   color: #d4a853;
 }
 
-.app-dev__floating-badge--2 {
-  bottom: 40px;
-  right: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-.app-dev__visual-col:hover .app-dev__floating-badge {
-  transform: translateY(-8px);
-}
-
-/* Responsiveness for App Development Grid */
+/* Responsiveness */
 @media (max-width: 991px) {
-  .app-dev__grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .app-dev__visual-col {
-    height: 420px;
-    order: -1; /* Keep visual on top on tablets/mobile */
+  .app-dev__features-row {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    margin-bottom: 50px !important;
   }
 }
 
-@media (max-width: 576px) {
-  .app-dev__card {
-    width: 180px;
+@media (max-width: 768px) {
+  .app-showcase__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
   
-  .app-dev__card--1 {
-    transform: translateX(-30px) translateY(-10px) rotate(-4deg);
-  }
-  
-  .app-dev__card--2 {
-    transform: translateX(45px) translateY(15px) rotate(6deg);
-  }
-  
-  .app-dev__visual-col:hover .app-dev__card--1 {
-    transform: translateX(-40px) translateY(-20px) rotate(-2deg) scale(1.04);
-  }
-  
-  .app-dev__visual-col:hover .app-dev__card--2 {
-    transform: translateX(55px) translateY(25px) rotate(8deg) scale(0.98);
-  }
-  
-  .app-dev__floating-badge {
-    font-size: 11px;
-    padding: 8px 14px;
+  .app-showcase__title {
+    font-size: 1.3rem;
   }
 }
 
