@@ -1,6 +1,5 @@
 # WordPress Core Pages to Static Counterparts
-/portfolio            /portfolio.html       301
-/portfolio/           /portfolio.html       301
+/portfolio/           /portfolio            301
 /about                /#about-section       301
 /about/               /#about-section       301
 /about-us             /#about-section       301
@@ -9,14 +8,11 @@
 /contact/             /#contact-section     301
 /contact-us           /#contact-section     301
 /contact-us/          /#contact-section     301
-/careers              /careers.html         301
-/careers/             /careers.html         301
-/faq                  /faq.html             301
-/faq/                 /faq.html             301
-/partners             /partners.html        301
-/partners/            /partners.html        301
-/clients              /partners.html        301
-/clients/             /partners.html        301
+/careers/             /careers              301
+/faq/                 /faq                  301
+/partners/            /partners             301
+/clients              /partners             301
+/clients/             /partners             301
 
 # WordPress WooCommerce & Default Junk Pages to Home
 /checkout             /                     301
@@ -36,12 +32,10 @@
 /img14.png            /                     301
 
 # IT Services pretty URLs redirect
-/it-services          /it-services.html     301
-/it-services/         /it-services.html     301
+/it-services/         /it-services          301
 
 # Dental Clinic Accounting pretty URLs redirect
-/dental-accounting-payroll          /dental-accounting-payroll.html     301
-/dental-accounting-payroll/         /dental-accounting-payroll.html     301
+/dental-accounting-payroll/         /dental-accounting-payroll          301
 
 # Chatbot Serverless routing
 /api/chat                            /.netlify/functions/chat            200
