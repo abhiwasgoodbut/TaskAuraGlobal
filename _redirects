@@ -37,5 +37,15 @@
 # Dental Clinic Accounting pretty URLs redirect
 /dental-accounting-payroll/         /dental-accounting-payroll          301
 
+# WordPress System, Archive, and Feed URL cleanups to Home
+/category/*           /                     301
+/tag/*                /                     301
+/author/*             /                     301
+/feed/*               /                     301
+/comments/*           /                     301
+/wp-content/*         /                     301
+/wp-admin/*           /                     301
+/wp-includes/*        /                     301
+
 # Chatbot Serverless routing
 /api/chat                            /.netlify/functions/chat            200
