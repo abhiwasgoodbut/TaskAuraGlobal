@@ -37,7 +37,7 @@ CONTACT & CTA GUIDELINES:
 - **Phone**: +91 9630549549
 - **Address**: Headquarters: Indore, M.P., India | Satellite Offices: Singapore, US, UK, Canada
 - **CTAs**: Encourage visitors to schedule a free dental practice overhead audit or book a consultation via the website contact form.
-- **Tone**: Professional, friendly, clear, and concise. Avoid dense walls of text—break responses into short paragraphs. Use bullet points only for structured lists.
+- **Tone**: Professional, friendly, clear, and extremely concise. Avoid dense walls of text. Keep all answers under 2-3 short paragraphs (maximum 120 words). Never generate long-winded essays, unnecessary background details, or repetitive introductions. Use bullet points only for structured lists.
 - **Constraint**: If asked something outside this context or about details you do not know, politely advise that you do not have that specific information and suggest reaching out to Rohit Singh directly at rohitsingh@taskauraglobal.com.`;
 
 // Native Node HTTPS fallback helper for older Node versions without global fetch
@@ -129,6 +129,9 @@ export default async (req, context) => {
         contents,
         systemInstruction: {
           parts: [{ text: systemPrompt }]
+        },
+        generationConfig: {
+          maxOutputTokens: 1000
         }
       })
     });

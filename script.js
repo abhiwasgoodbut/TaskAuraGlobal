@@ -879,6 +879,38 @@ document.addEventListener('DOMContentLoaded', () => {
       chatMessages.scrollTop = chatMessages.scrollHeight;
     };
 
+    // Streaming Typewriter Message helper
+    const appendMessageStream = (role, text) => {
+      if (role === 'user') {
+        appendMessage('user', text);
+        return;
+      }
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-msg chat-msg--bot`;
+      msgDiv.innerHTML = `<div class="chat-msg__bubble"></div>`;
+      chatMessages.appendChild(msgDiv);
+      const bubble = msgDiv.querySelector('.chat-msg__bubble');
+
+      const chunks = text.match(/\S+|\s+/g) || [];
+      let currentText = '';
+      let i = 0;
+
+      const stream = () => {
+        if (i < chunks.length) {
+          currentText += chunks[i];
+          bubble.innerHTML = formatMarkdown(currentText);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          i++;
+          setTimeout(stream, 25);
+        } else {
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      };
+
+      stream();
+    };
+
     // Show/Hide Typing Indicator helpers
     let typingIndicator = null;
     const showTypingIndicator = () => {
@@ -940,7 +972,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           const data = await response.json();
           if (data.reply) {
-            appendMessage('bot', data.reply);
+            appendMessageStream('bot', data.reply);
             history.push({ role: 'bot', text: data.reply });
           } else {
             appendMessage('bot', 'Sorry, I am having trouble connecting to my brain right now. Please try again.');
