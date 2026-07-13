@@ -4,7 +4,7 @@
 
 // ---- Web3Forms Configuration ----
 // Enter your access key below (get a free key from https://web3forms.com/)
-const WEB3FORMS_ACCESS_KEY = "7c88ed05-f8ef-4b67-b199-2f455d752ac1";
+const WEB3FORMS_ACCESS_KEY = "45432626-be35-4072-bb2e-208d459d2dd5";
 
 document.addEventListener('DOMContentLoaded', () => {
   // ---- Force scroll to top on page refresh ----
