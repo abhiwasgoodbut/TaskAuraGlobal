@@ -63,11 +63,21 @@
           <ul class="navbar__links navbar__links--left">
             <li><a href="index.html#projects-section" class="navbar__link" id="nav-link-work">Work</a></li>
             <li><a href="index.html#why-us-section" class="navbar__link" id="nav-link-why-us">Why Us</a></li>
-            <li><a href="it-services.html" class="navbar__link" id="nav-link-it-services">IT Services</a></li>
-            <li><a href="dental-accounting-payroll.html" class="navbar__link" id="nav-link-dental-accounting">Dental Accounting</a></li>
-            <li><a href="ecommerce-services.html" class="navbar__link" id="nav-link-ecommerce">E-Commerce Services</a></li>
+            <li class="navbar__dropdown navbar__dropdown--services">
+              <a href="#" class="navbar__link navbar__link--dropdown" id="nav-link-services">
+                Services
+                <svg class="navbar__arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="navbar__dropdown-menu">
+                <a href="it-services.html" class="navbar__dropdown-item">IT Services</a>
+                <a href="dental-accounting-payroll.html" class="navbar__dropdown-item">Dental Accounting</a>
+                <a href="ecommerce-services.html" class="navbar__dropdown-item">E-Commerce Services</a>
+              </div>
+            </li>
             <li><a href="partners.html" class="navbar__link" id="nav-link-partners">Our Clients</a></li>
-            <li><a href="careers.html" class="navbar__link" id="nav-link-careers" style="color: var(--color-white); font-weight: 600;">Careers</a></li>
+            <li><a href="careers.html" class="navbar__link" style="color: var(--color-white); font-weight: 600;" id="nav-link-careers">Careers</a></li>
             <li><a href="faq.html" class="navbar__link" id="nav-link-faq">FAQ</a></li>
           </ul>
 

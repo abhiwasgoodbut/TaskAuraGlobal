@@ -63,9 +63,19 @@
           <ul class="navbar__links navbar__links--left">
             <li><a href="index.html#projects-section" class="navbar__link" id="nav-link-work">Work</a></li>
             <li><a href="index.html#why-us-section" class="navbar__link" id="nav-link-why-us">Why Us</a></li>
-            <li><a href="it-services.html" class="navbar__link" id="nav-link-it-services">IT Services</a></li>
-            <li><a href="dental-accounting-payroll.html" class="navbar__link" id="nav-link-dental-accounting">Dental Accounting</a></li>
-            <li><a href="ecommerce-services.html" class="navbar__link" id="nav-link-ecommerce" style="color: var(--color-white); font-weight: 600;">E-Commerce Services</a></li>
+            <li class="navbar__dropdown navbar__dropdown--services">
+              <a href="#" class="navbar__link navbar__link--dropdown" style="color: var(--color-white); font-weight: 600;" id="nav-link-services">
+                Services
+                <svg class="navbar__arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="navbar__dropdown-menu">
+                <a href="it-services.html" class="navbar__dropdown-item">IT Services</a>
+                <a href="dental-accounting-payroll.html" class="navbar__dropdown-item">Dental Accounting</a>
+                <a href="ecommerce-services.html" class="navbar__dropdown-item navbar__dropdown-item--active">E-Commerce Services</a>
+              </div>
+            </li>
             <li><a href="partners.html" class="navbar__link" id="nav-link-partners">Our Clients</a></li>
             <li><a href="careers.html" class="navbar__link" id="nav-link-careers">Careers</a></li>
             <li><a href="faq.html" class="navbar__link" id="nav-link-faq">FAQ</a></li>
@@ -365,68 +375,15 @@
     </div>
   </section>
 
-  <!-- ======== CONTACT/AUDIT FORM ======== -->
-  <section class="contact" id="contact-section" style="background: #040409; padding-top: 100px; padding-bottom: 120px;">
-    <div class="contact__container">
-      
-      <div class="section-header" style="text-align: center; margin-bottom: 60px;">
-        <span class="ai-spotlight-info__tag">Consultation</span>
-        <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--color-white); margin-top: 10px;">Request a Free E-Commerce Audit</h2>
-        <p style="color: var(--color-gray-text-dark); max-width: 600px; margin: 15px auto 0 auto; line-height: 1.6;">
-          Let us audit your payout reconciliations, state sales tax nexus, or custom development pipelines to identify margin optimizations.
-        </p>
-      </div>
-
-      <div class="contact__form-wrapper reveal" style="max-width: 680px; margin: 0 auto; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);">
-        <form class="contact__form">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
-            <div class="form-group">
-              <label style="color: var(--color-gray-text-light); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 8px;">Your Name</label>
-              <input type="text" style="width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 14px; color: var(--color-white); outline: none; font-size: 0.95rem;" placeholder="John Doe" required />
-            </div>
-            <div class="form-group">
-              <label style="color: var(--color-gray-text-light); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 8px;">Email Address</label>
-              <input type="email" style="width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 14px; color: var(--color-white); outline: none; font-size: 0.95rem;" placeholder="john@brand.com" required />
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
-            <div class="form-group">
-              <label style="color: var(--color-gray-text-light); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 8px;">Store URL / Company</label>
-              <input type="text" style="width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 14px; color: var(--color-white); outline: none; font-size: 0.95rem;" placeholder="myshopify.com" required />
-            </div>
-            <div class="form-group">
-              <label style="color: var(--color-gray-text-light); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 8px;">Monthly Store Revenue</label>
-              <select style="width: 100%; background: #0c0c16; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 14px; color: var(--color-white); outline: none; font-size: 0.95rem;">
-                <option value="under-10k">Under $10,000 / mo</option>
-                <option value="10k-50k">$10,000 - $50,000 / mo</option>
-                <option value="50k-250k">$50,000 - $250,000 / mo</option>
-                <option value="over-250k">Over $250,000 / mo</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group" style="margin-bottom: 32px;">
-            <label style="color: var(--color-gray-text-light); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 8px;">What are your operational bottlenecks?</label>
-            <textarea style="width: 100%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 14px; color: var(--color-white); outline: none; font-size: 0.95rem; min-height: 120px; resize: vertical;" placeholder="Tell us about your inventory sync issues, sales tax audits, or support ticket volumes..."></textarea>
-          </div>
-
-          <button type="submit" style="width: 100%; background: var(--color-gold); border: none; border-radius: 8px; padding: 16px; color: #040409; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.filter='brightness(1.15)';" onmouseout="this.style.filter='none';">Submit Request</button>
-        </form>
-      </div>
-
-    </div>
-  </section>
-
   <!-- ======== FOOTER ======== -->
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__grid">
         
-        <!-- Left Column: Company Identity -->
-        <div class="footer__info-col">
-          <a href="index.html" class="footer__logo">
-            <img src="asset/logo/image-removebg-preview.png" class="footer__logo-img" alt="TaskAura Logo" />
+        <!-- Left Column: Brand Info & Socials -->
+        <div class="footer__brand-col">
+          <a href="index.html" class="footer__logo-link">
+            <img src="asset/logo/image-removebg-preview.png" class="footer__logo" alt="TaskAura Logo" />
           </a>
           <p class="footer__description">
             TaskAura Global helps businesses scale with reliable, efficient, and high-quality backend and customer support solutions — so you can focus on what matters most: <span class="footer__highlight">Growth.</span>
@@ -446,8 +403,7 @@
             </a>
           </div>
         </div>
-
-        <!-- Middle Column: Useful Links -->
+        
         <div class="footer__links-col">
           <h4 class="footer__title">Useful Links</h4>
           <ul class="footer__links-list">
