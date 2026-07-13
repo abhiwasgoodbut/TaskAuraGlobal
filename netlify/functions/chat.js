@@ -33,7 +33,7 @@ SERVICE DIVISION 2: IT, SOFTWARE ENGINEERING & AI INTEGRATION:
 - **AI Integration**: Custom chatbot widgets (like Aura AI), semantic search engines, vector databases (Pinecone, Milvus), and automated agent workflows (LangChain, n8n).
 
 SERVICE DIVISION 3: E-COMMERCE OPERATIONS & BACKEND SUPPORT:
-- **E-Commerce Bookkeeping & Tax**: Reconciling Stripe, PayPal, and Amazon Pay payouts with QuickBooks or Xero. COGS tracking, inventory valuation audits (FIFO/LIFO), state sales tax nexus calculations, and Avalara/TaxJar management.
+- **E-Commerce Bookkeeping & Tax**: Reconciling Stripe, PayPal, and Amazon Pay payouts with QuickBooks or Xero. Managing Accounts Payable (AP), Accounts Receivable (AR), COGS tracking, inventory valuation audits (FIFO/LIFO), state sales tax nexus calculations, and Avalara/TaxJar management.
 - **Store Development**: Building custom Shopify theme/apps, headless commerce frameworks, WooCommerce systems, and custom API sync triggers for inventory and warehousing.
 - **24/7 Operations & Customer Support**: Multi-channel ticket management (Zendesk, Gorgias) handling shipment tracking disputes, refunds, and returns processing.
 
