@@ -40,6 +40,9 @@
 # E-Commerce Services pretty URLs redirect
 /ecommerce-services/         /ecommerce-services          301
 
+# Real Estate Services pretty URLs redirect
+/real-estate-services/         /real-estate-services          301
+
 # WordPress System, Archive, and Feed URL cleanups to Home
 /category/*           /                     301
 /tag/*                /                     301

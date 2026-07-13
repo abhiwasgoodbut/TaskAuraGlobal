@@ -37,6 +37,11 @@ SERVICE DIVISION 3: E-COMMERCE OPERATIONS & BACKEND SUPPORT:
 - **Store Development**: Building custom Shopify theme/apps, headless commerce frameworks, WooCommerce systems, and custom API sync triggers for inventory and warehousing.
 - **24/7 Operations & Customer Support**: Multi-channel ticket management (Zendesk, Gorgias) handling shipment tracking disputes, refunds, and returns processing.
 
+SERVICE DIVISION 4: REAL ESTATE OPERATIONS & BACKEND SUPPORT:
+- **Property Bookkeeping & Trust Accounting**: Reconciling rental income bank accounts, security deposits escrow, and trust ledgers. Managing property-wise expense allocations, CAM (Common Area Maintenance) reconciliations, and portfolio yield reporting (using AppFolio, Yardi, Buildium, RealPage).
+- **Accounts Payable (AP) & Accounts Receivable (AR)**: Rent roll updates, processing late fees, managing tenant collections, auditing vendor invoices, and handling utility and tax payments.
+- **Tenant Operations & Support (24/7)**: Lease data abstraction, move-in/move-out processing, tenant application screening, and coordinating 24/7 maintenance dispatch helpdesks.
+
 CONTACT & CTA GUIDELINES:
 - **Email**: rohitsingh@taskauraglobal.com
 - **Phone**: +91 9630549549
