@@ -12,9 +12,9 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Specialized offshore accounting and payroll services for dental practices and clinics. Bookkeeping, hygienist commissions, and associate guarantees calculations." />
-  <meta name="keywords" content="dental accounting, dental bookkeeping, dental payroll, hygienist commission, Dentrix accounting, Open Dental reconciliation" />
-  <title>Dental Clinic Accounting &amp; Payroll — TaskAura Global</title>
+  <meta name="description" content="Accurate offshore construction accounting, job costing, WIP reporting, and prevailing wage payroll compliance. Sage, QuickBooks Enterprise, and Procore bookkeeping integrations." />
+  <meta name="keywords" content="construction accounting, job costing, WIP reporting, prevailing wage, certified payroll, subcontractor retainage, sage 100 contractor, procore accounting, lcptracker certified payroll" />
+  <title>Construction Accounting &amp; Prevailing Wage Payroll — TaskAura Global</title>
   <link rel="icon" type="image/png" href="asset/logo/favicon.png" />
 
   <!-- Fonts -->
@@ -64,9 +64,9 @@
             <li><a href="index.html#projects-section" class="navbar__link" id="nav-link-work">Work</a></li>
             <li><a href="index.html#why-us-section" class="navbar__link" id="nav-link-why-us">Why Us</a></li>
             <li><a href="it-services.html" class="navbar__link" id="nav-link-it-services">IT Services</a></li>
-            <li><a href="dental-accounting-payroll.html" class="navbar__link" id="nav-link-dental-accounting" style="color: var(--color-white); font-weight: 600;">Dental Accounting</a></li>
+            <li><a href="dental-accounting-payroll.html" class="navbar__link" id="nav-link-dental-accounting">Dental Accounting</a></li>
             <li class="navbar__dropdown navbar__dropdown--services">
-              <a href="#" class="navbar__link navbar__link--dropdown" id="nav-link-services">
+              <a href="#" class="navbar__link navbar__link--dropdown" style="color: var(--color-white); font-weight: 600;" id="nav-link-services">
                 Services
                 <svg class="navbar__arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="6 9 12 15 18 9"></polyline>
@@ -75,7 +75,7 @@
               <div class="navbar__dropdown-menu">
                 <a href="ecommerce-services.html" class="navbar__dropdown-item">E-Commerce Services</a>
                 <a href="real-estate-services.html" class="navbar__dropdown-item">Real Estate Services</a>
-                <a href="construction-accounting.html" class="navbar__dropdown-item">Construction Accounting</a>
+                <a href="construction-accounting.html" class="navbar__dropdown-item navbar__dropdown-item--active">Construction Accounting</a>
               </div>
             </li>
             <li><a href="partners.html" class="navbar__link" id="nav-link-partners">Our Clients</a></li>
@@ -162,81 +162,45 @@
   </nav>
 
   <!-- ======== HERO SECTION ======== -->
-  <section class="services-hero" style="padding-top: 240px; padding-bottom: 120px; position: relative; overflow: hidden; background: #06060c;">
+  <section class="hero" id="hero-section" style="background: radial-gradient(circle at 80% 20%, rgba(212, 168, 83, 0.12) 0%, rgba(0, 0, 0, 0) 60%), radial-gradient(circle at 20% 80%, rgba(212, 168, 83, 0.04) 0%, rgba(0, 0, 0, 0) 60%), #06060c; position: relative; overflow: hidden;">
+    <!-- Ambient glowing yellow tint blobs -->
+    <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212, 168, 83, 0.06) 0%, rgba(0, 0, 0, 0) 70%); top: -200px; left: -200px; z-index: 1; pointer-events: none;"></div>
+    <div style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 168, 83, 0.04) 0%, rgba(0, 0, 0, 0) 70%); bottom: -150px; right: -150px; z-index: 1; pointer-events: none;"></div>
     
-    <!-- Background Video -->
-    <div class="services-hero__video-wrapper" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1; pointer-events: none;">
-      <video class="services-hero__video"
-             autoplay
-             loop
-             muted
-             playsinline
-             preload="auto"
-             style="width: 100%; height: 100%; object-fit: cover; opacity: 1; filter: saturate(0.9) brightness(0.95);">
-        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260302_085844_21a8f4b3-dea5-4ede-be16-d53f6973bb14.mp4" type="video/mp4">
-      </video>
-      <!-- Dark gradient overlay for typography readability -->
-      <div class="services-hero__video-overlay" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6, 6, 12, 0.25) 0%, rgba(6, 6, 12, 0.95) 100%);"></div>
-    </div>
-
-    <!-- Background styling blobs -->
-    <div class="faq__blob faq__blob--1" style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212, 168, 83, 0.05) 0%, rgba(0, 0, 0, 0) 70%); top: -200px; left: -200px; z-index: 2; pointer-events: none;"></div>
-    
-    <div class="ai-integration__container" style="position: relative; z-index: 3; text-align: center;">
-      <div class="projects__badge">DENTAL PRACTICE FINANCIALS</div>
-      <h1 class="projects__title" style="font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.15; margin-bottom: 24px;">
-        Dental Accounting <br>&amp; <span class="projects__title-gold">Payroll Management</span>
-      </h1>
-      <p class="projects__description" style="margin: 0 auto 40px auto; max-width: 750px; font-size: clamp(1rem, 1.3vw, 1.15rem); color: var(--color-gray-text-light); line-height: 1.75;">
-        Complete back-office financial solutions custom-tailored for dental practices, orthodontists, and oral surgery clinics. Optimize your cash flow, automate payroll, and audit practice overhead.
-      </p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="index.html#contact-section" class="navbar__btn-cta" style="padding: 14px 32px; border-radius: 100px; font-weight: 600;">Schedule a Dental Practice Audit</a>
-        <a href="#services-list" class="portfolio-card__link" style="align-self: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 12px 28px; border-radius: 100px; color: var(--color-white); font-weight: 500; transition: all 0.3s;">Explore Services</a>
+    <div class="hero__container">
+      <div class="hero__glass-panel reveal">
+        <div class="hero__content">
+          <span class="hero__tagline">Construction Accounting &amp; Prevailing Wage Payroll</span>
+          <h1 class="hero__heading">
+            Accurate Job Costing &amp; Certified Payroll for Contractors
+          </h1>
+          <p class="hero__description">
+            Audit-ready WIP reporting, subcontractor retainage accounts, and certified prevailing wage payroll compliance (Davis-Bacon Act) designed to reduce project cost variances by 12%+.
+          </p>
+          <div class="hero__ctas">
+            <a href="index.html#contact-section" class="hero__btn-primary">Schedule a Free Audit</a>
+            <a href="#case-study" class="hero__btn-secondary">Explore Case Studies</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== DENTAL ACCOUNTING SERVICES SECTION ======== -->
-  <section class="ai-integration" id="services-list" style="border-top: 1px solid rgba(255,255,255,0.03);">
-    <div class="ai-integration__container">
+  <!-- ======== CORE CAPABILITIES ======== -->
+  <section class="ai-capabilities" style="background: #030307; padding-top: 120px; padding-bottom: 100px;">
+    <div class="ai-capabilities__container">
       
-      <!-- Section Header -->
-      <div class="projects__header" style="margin-bottom: 60px; text-align: center;">
-        <div class="projects__badge">BOOKKEEPING &amp; AUDITS</div>
-        <h2 class="projects__title">
-          Specialized Dental <span class="projects__title-gold">Bookkeeping</span>
-        </h2>
-        <p class="projects__description" style="margin: 0 auto; max-width: 700px;">
-          Managing PPO insurance receipts, dental supplier ledgers, and laboratory costs reconciliation to keep practice overhead lean.
+      <div class="section-header reveal" style="text-align: center; margin-bottom: 70px;">
+        <span class="ai-spotlight-info__tag">What We Do</span>
+        <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--color-white); margin-top: 10px;">Our Construction Accounting Services</h2>
+        <p style="color: var(--color-gray-text-dark); max-width: 600px; margin: 15px auto 0 auto; line-height: 1.6;">
+          Reconcile direct job costs, track complex project margins, and automate certified government payroll reporting to maintain absolute compliance.
         </p>
       </div>
 
-      <!-- Services Grid -->
-      <div class="ai-capabilities__grid" style="margin-bottom: 80px;">
+      <div class="ai-capabilities__grid reveal">
         
-        <!-- Card 1 -->
-        <div class="ai-capability-card">
-          <div class="ai-capability-card__icon-wrapper">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-            </svg>
-          </div>
-          <div class="ai-capability-card__content">
-            <h4 class="ai-capability-card__title">PPO Insurance Reconciliation</h4>
-            <p class="ai-capability-card__desc">
-              Reconciling electronic funds transfers (EFTs) and credit card payments from PPO providers with claims reports from Dentrix, Open Dental, or Eaglesoft.
-            </p>
-            <div class="ai-capability-card__tags">
-              <span class="ai-capability-card__tag">EFT Audit</span>
-              <span class="ai-capability-card__tag">Reconciliations</span>
-              <span class="ai-capability-card__tag">PPO Claims</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
+        <!-- Card 1: Job Costing & WIP -->
         <div class="ai-capability-card">
           <div class="ai-capability-card__icon-wrapper">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -244,120 +208,58 @@
             </svg>
           </div>
           <div class="ai-capability-card__content">
-            <h4 class="ai-capability-card__title">Dental Overhead Benchmarking</h4>
+            <h4 class="ai-capability-card__title">Job Costing &amp; WIP Reporting</h4>
             <p class="ai-capability-card__desc">
-              Auditing monthly overhead costs against standard benchmarks (dental supplies below 6%, laboratory fees below 10%, facility rent under 7%).
+              Allocating direct equipment, labor, and materials to specific job codes. Producing audit-ready Work-in-Progress (WIP) percentage-of-completion calculations to track over/under billings.
             </p>
             <div class="ai-capability-card__tags">
-              <span class="ai-capability-card__tag">Overhead Analysis</span>
-              <span class="ai-capability-card__tag">Dental Supplies</span>
-              <span class="ai-capability-card__tag">KPI Tracking</span>
+              <span class="ai-capability-card__tag">Job Costing</span>
+              <span class="ai-capability-card__tag">WIP Audits</span>
+              <span class="ai-capability-card__tag">Direct Labor</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 2: AP, AR & Retainage -->
         <div class="ai-capability-card">
           <div class="ai-capability-card__icon-wrapper">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
             </svg>
           </div>
           <div class="ai-capability-card__content">
-            <h4 class="ai-capability-card__title">Associate Contract Bookkeeping</h4>
+            <h4 class="ai-capability-card__title">AP, AR &amp; Retainage Tracking</h4>
             <p class="ai-capability-card__desc">
-              Managing financial ledgers for multi-provider practices, separating chairside collections, supplies cost allocations, and individual lab fees.
+              Preparing progress billings (AIA G702/G703 forms). Managing subcontractor retainage holds (5-10%), collecting lien waivers, and auditing vendor invoice structures.
             </p>
             <div class="ai-capability-card__tags">
-              <span class="ai-capability-card__tag">Multi-Provider</span>
-              <span class="ai-capability-card__tag">Ledgers</span>
-              <span class="ai-capability-card__tag">Expense Split</span>
+              <span class="ai-capability-card__tag">AIA Billing</span>
+              <span class="ai-capability-card__tag">Retainage</span>
+              <span class="ai-capability-card__tag">Lien Waivers</span>
             </div>
           </div>
         </div>
 
-      </div>
-
-      <!-- Section Header for Payroll -->
-      <div class="projects__header" style="margin-bottom: 60px; text-align: center; margin-top: 40px;">
-        <div class="projects__badge">COMPENSATIONS &amp; WAGES</div>
-        <h2 class="projects__title">
-          Dental-Specific <span class="projects__title-gold">Payroll Management</span>
-        </h2>
-        <p class="projects__description" style="margin: 0 auto; max-width: 700px;">
-          Complex dentist associate payout formulas, hygienist daily production commission grids, and dental assistant hourly wage audits.
-        </p>
-      </div>
-
-      <!-- Payroll Grid -->
-      <div class="ai-capabilities__grid">
-        
-        <!-- Card 1 -->
-        <div class="ai-capability-card">
-          <div class="ai-capability-card__icon-wrapper">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="8.5" cy="7" r="4"></circle>
-              <polyline points="17 11 19 13 23 9"></polyline>
-            </svg>
-          </div>
-          <div class="ai-capability-card__content">
-            <h4 class="ai-capability-card__title">Hygienist Commission Calculations</h4>
-            <p class="ai-capability-card__desc">
-              Calculating daily base rates plus incentive tiers based on dental hygiene production metrics (such as sealants, scaling, and whitening treatments).
-            </p>
-            <div class="ai-capability-card__tags">
-              <span class="ai-capability-card__tag">Commissions</span>
-              <span class="ai-capability-card__tag">Hygiene Tiers</span>
-              <span class="ai-capability-card__tag">Daily Bonus</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="ai-capability-card">
-          <div class="ai-capability-card__icon-wrapper">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-          </div>
-          <div class="ai-capability-card__content">
-            <h4 class="ai-capability-card__title">Associate Dentist Guarantees</h4>
-            <p class="ai-capability-card__desc">
-              Managing complex payout models based on percentage of collection, percentage of production, or daily minimum guarantees, net of laboratory adjustments.
-            </p>
-            <div class="ai-capability-card__tags">
-              <span class="ai-capability-card__tag">Collections %</span>
-              <span class="ai-capability-card__tag">Lab Split</span>
-              <span class="ai-capability-card__tag">Payout Run</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
+        <!-- Card 3: Certified Prevailing Wage -->
         <div class="ai-capability-card">
           <div class="ai-capability-card__icon-wrapper">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="8.5" cy="7" r="4"></circle>
+              <circle cx="9" cy="7" r="4"></circle>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
           </div>
           <div class="ai-capability-card__content">
-            <h4 class="ai-capability-card__title">Practice Staff Wage Benchmarking</h4>
+            <h4 class="ai-capability-card__title">Certified Prevailing Wage Payroll</h4>
             <p class="ai-capability-card__desc">
-              Auditing practice staff hourly wages (front desk, dental assistants) to align total payroll metrics with industry standards (typically under 24-28%).
+              Calculating prevailing wage scales (Davis-Bacon Act), preparing certified payroll data reports, and uploading records directly to governmental databases (LCPtracker, eComply).
             </p>
             <div class="ai-capability-card__tags">
-              <span class="ai-capability-card__tag">Staff Cost</span>
-              <span class="ai-capability-card__tag">Hourly Wage</span>
-              <span class="ai-capability-card__tag">Ratio Audit</span>
+              <span class="ai-capability-card__tag">Prevailing Wage</span>
+              <span class="ai-capability-card__tag">Davis-Bacon</span>
+              <span class="ai-capability-card__tag">LCPtracker</span>
             </div>
           </div>
         </div>
@@ -367,10 +269,10 @@
     </div>
   </section>
 
-  <!-- ======== FEATURED CASE STUDY (APEX DENTAL GROUP) ======== -->
-  <section class="ai-integration" style="border-top: 1px solid rgba(255,255,255,0.03); background: #06060c; padding-top: 100px; padding-bottom: 100px;">
+  <!-- ======== FEATURED CASE STUDY (SUMMIT BUILDERS) ======== -->
+  <section class="ai-integration" id="case-study" style="border-top: 1px solid rgba(255,255,255,0.03); background: #05050a; padding-top: 100px; padding-bottom: 100px;">
     <div class="ai-integration__container">
-      <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+      <div class="section-header reveal" style="text-align: center; margin-bottom: 60px;">
         <span class="ai-spotlight-info__tag">Featured Case Study</span>
         <h2 style="font-family: var(--font-heading); font-size: 2.3rem; font-weight: 700; color: var(--color-white); margin-top: 10px;">Proven Impact in Action</h2>
       </div>
@@ -379,29 +281,29 @@
         <div class="ai-integration__spotlight-grid" style="gap: 48px;">
           <!-- Left: Large Widescreen Graphic -->
           <div style="position: relative; overflow: hidden; aspect-ratio: 16/9; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); width: 100%;">
-            <img src="asset/portfolio/dental_accounting_dashboard.png" alt="Apex Dental Practice Financial Dashboard Mockup" style="width: 100%; height: 100%; object-fit: cover;" />
+            <img src="asset/AppdevAssets/original-3da5983ff5667eada0d4347da1fa883a.webp" alt="Summit Builders Financial Job Costing Dashboard" style="width: 100%; height: 100%; object-fit: cover;" />
             <div style="position: absolute; inset: 0; background: linear-gradient(to right, transparent, rgba(6, 6, 12, 0.2));"></div>
           </div>
           <!-- Right: Case Study Content -->
           <div>
-            <span style="color: var(--color-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Apex Dental Group</span>
-            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--color-white); margin: 12px 0 20px 0; line-height: 1.3;">Practice Overhead Audit &amp; Bookkeeping</h3>
+            <span style="color: var(--color-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Summit Builders Group</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--color-white); margin: 12px 0 20px 0; line-height: 1.3;">WIP Restructuring &amp; Certified Payroll Auditing</h3>
             <p style="color: var(--color-gray-text-light); line-height: 1.6; margin-bottom: 24px; font-size: 0.95rem;">
-              A multi-location practice group was losing margins due to un-audited laboratory invoices, incorrect hygienist collection payouts, and over 60 days of uncollected insurance claims. TaskAura restructured the entire practice ledger inside QuickBooks Online, automated payroll tracking, and recovered backlogged claims.
+              Summit Builders faced cost slippages due to misallocated labor hours and was incurring fines for delayed LCPtracker prevailing wage reports. TaskAura restructured their WIP allocations inside Sage 100 Contractor, audited backlogged subcontractor retainages, and took over daily certified payroll submissions.
             </p>
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
               <div>
-                <div style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--color-gold);">5.8%</div>
-                <div style="color: var(--color-gray-text-dark); font-size: 0.85rem; font-weight: 600; margin-top: 4px;">Supply Overhead (Down from 8.5%)</div>
+                <div style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--color-gold);">-12.4%</div>
+                <div style="color: var(--color-gray-text-dark); font-size: 0.85rem; font-weight: 600; margin-top: 4px;">Project Cost Variance</div>
               </div>
               <div>
-                <div style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--color-gold);">$48K+</div>
-                <div style="color: var(--color-gray-text-dark); font-size: 0.85rem; font-weight: 600; margin-top: 4px;">PPO Insurance Claims Recovered</div>
+                <div style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--color-gold);">$142,500+</div>
+                <div style="color: var(--color-gray-text-dark); font-size: 0.85rem; font-weight: 600; margin-top: 4px;">Retainages Reconciled &amp; Recovered</div>
               </div>
             </div>
 
-            <a href="portfolio.html#dental-accounting" class="portfolio-card__link" style="display: inline-flex; align-items: center; gap: 8px; color: var(--color-gold); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease;">
+            <a href="portfolio.html#supplychain" class="portfolio-card__link" style="display: inline-flex; align-items: center; gap: 8px; color: var(--color-gold); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease;">
               Read Full Case Study
               <svg class="portfolio-card__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -413,17 +315,17 @@
     </div>
   </section>
 
-  <!-- ======== DENTAL VALUE PROP SECTION ======== -->
-  <section class="ai-integration" style="background: #090912; border-top: 1px solid rgba(255,255,255,0.03);">
+  <!-- ======== CONSTRUCTION VALUE PROP SECTION ======== -->
+  <section class="ai-integration" style="background: #08080f; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 100px; padding-bottom: 100px;">
     <div class="ai-integration__container">
-      <div class="ai-integration__spotlight-grid">
+      <div class="ai-integration__spotlight-grid reveal">
         
         <!-- Left: Details -->
         <div class="ai-spotlight-info">
           <span class="ai-spotlight-info__tag">Why Choose TaskAura Global</span>
-          <h3 class="ai-spotlight-info__title">Financial Clarity For Your Dental Practice</h3>
+          <h3 class="ai-spotlight-info__title">Specialized Project Margin Controls</h3>
           <p class="ai-spotlight-info__desc">
-            Most local CPAs review dental books once a year for tax returns. We provide daily and weekly bookkeeping support so you know your practice collections, associate payouts, and margins in real-time.
+            Offshore accounting shouldn't be generic. We provide dedicated construction accounting specialists who understand labor burdens, equipment depreciation, retainage, and certified state payroll structures.
           </p>
           
           <ul class="ai-features-list">
@@ -434,7 +336,7 @@
                 </svg>
               </span>
               <div>
-                <span class="ai-feature-title">HIPAA-Compliant Auditing:</span> We enforce strict data handling protocols so your patient billing records are kept secure.
+                <span class="ai-feature-title">Accurate Labor Burdens:</span> Allocating correct overhead rates (union benefits, insurance, workers' comp) to calculate true job yields.
               </div>
             </li>
             <li class="ai-feature-item">
@@ -444,7 +346,7 @@
                 </svg>
               </span>
               <div>
-                <span class="ai-feature-title">Dentrix &amp; Open Dental Integrations:</span> We map practice reports to QuickBooks Online or Xero automatically.
+                <span class="ai-feature-title">Lien Waiver Auditing:</span> Tracking unconditional lien waivers before releasing retainage checks to minimize legal risk.
               </div>
             </li>
             <li class="ai-feature-item">
@@ -454,24 +356,27 @@
                 </svg>
               </span>
               <div>
-                <span class="ai-feature-title">Overhead Audits:</span> Instantly flag cost overruns on dental laboratory bills or dental supply orders.
+                <span class="ai-feature-title">Government Portal Uploads:</span> Complete handling of submissions to eComply, DIR, and LCPtracker portals.
               </div>
             </li>
           </ul>
         </div>
 
-        <!-- Right: Graphic Card -->
-        <div style="background: radial-gradient(circle at top left, rgba(212, 168, 83, 0.05), rgba(212, 168, 83, 0.01) 70%), rgba(255, 255, 255, 0.01); border: 1px solid rgba(212, 168, 83, 0.2); padding: 48px; border-radius: 28px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
-          <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(212, 168, 83, 0.08); border: 1px solid rgba(212, 168, 83, 0.2); display: flex; align-items: center; justify-content: center; color: var(--color-gold); margin-bottom: 24px;">
-            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
+        <!-- Right: Tech Stack Grid -->
+        <div class="ai-spotlight-graphic" style="display: flex; flex-direction: column; justify-content: center;">
+          <h4 style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--color-white); margin-bottom: 24px; font-weight: 700;">Supported Construction Tech Stack</h4>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">Sage 100</div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">Sage 300</div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">QuickBooks Ent</div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">Foundation</div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">Procore</div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">CoConstruct</div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">LCPtracker</div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">eComply</div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center; color: var(--color-white); font-weight: 600; font-size: 0.9rem;">Xero</div>
           </div>
-          <h4 style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--color-white); margin-bottom: 12px;">Dental Practice Overhead Review</h4>
-          <p style="color: var(--color-gray-text-light); font-size: 0.95rem; line-height: 1.6; margin-bottom: 28px; max-width: 320px;">
-            Schedule a free practice audit. We will review your current bookkeeping structures and provide recommendations to reduce overhead.
-          </p>
-          <a href="index.html#contact-section" class="navbar__btn-cta" style="padding: 12px 28px; border-radius: 100px; text-decoration: none; font-weight: 600;">Request Audit Call</a>
         </div>
 
       </div>
@@ -482,8 +387,8 @@
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__grid">
-
-        <!-- Left Column: Brand & Description -->
+        
+        <!-- Left Column: Brand Info & Socials -->
         <div class="footer__brand-col">
           <a href="index.html" class="footer__logo-link">
             <img src="asset/logo/image-removebg-preview.png" class="footer__logo" alt="TaskAura Logo" />
@@ -491,7 +396,7 @@
           <p class="footer__description">
             TaskAura Global helps businesses scale with reliable, efficient, and high-quality backend and customer support solutions — so you can focus on what matters most: <span class="footer__highlight">Growth.</span>
           </p>
-                    <div class="footer__socials">
+          <div class="footer__socials">
             <a href="https://www.instagram.com/taskauraglobal/" target="_blank" rel="noopener noreferrer" class="footer__social-icon" aria-label="Instagram">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -515,10 +420,10 @@
             <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
             <li><a href="index.html#why-us-section" class="footer__link">Why Us</a></li>
             <li><a href="it-services.html" class="footer__link">IT Services</a></li>
-            <li><a href="dental-accounting-payroll.html" class="footer__link" style="color: var(--color-gold-light);">Dental Accounting</a></li>
+            <li><a href="dental-accounting-payroll.html" class="footer__link">Dental Accounting</a></li>
             <li><a href="ecommerce-services.html" class="footer__link">E-Commerce Services</a></li>
             <li><a href="real-estate-services.html" class="footer__link">Real Estate Services</a></li>
-            <li><a href="construction-accounting.html" class="footer__link">Construction Accounting</a></li>
+            <li><a href="construction-accounting.html" class="footer__link" style="color: var(--color-gold-light);">Construction Accounting</a></li>
             <li><a href="partners.html" class="footer__link">Our Clients</a></li>
             <li><a href="careers.html" class="footer__link">Careers</a></li>
             <li><a href="faq.html" class="footer__link">FAQ</a></li>
@@ -579,7 +484,7 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- ======== SCRIPTS ======== -->
   <script src="script.js"></script>
 </body>
 </html>

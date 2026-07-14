@@ -42,6 +42,11 @@ SERVICE DIVISION 4: REAL ESTATE OPERATIONS & BACKEND SUPPORT:
 - **Accounts Payable (AP) & Accounts Receivable (AR)**: Rent roll updates, processing late fees, managing tenant collections, auditing vendor invoices, and handling utility and tax payments.
 - **Tenant Operations & Support (24/7)**: Lease data abstraction, move-in/move-out processing, tenant application screening, and coordinating 24/7 maintenance dispatch helpdesks.
 
+SERVICE DIVISION 5: CONSTRUCTION ACCOUNTING & PREVAILING WAGE PAYROLL:
+- **Construction Bookkeeping & Job Costing**: Reconciling equipment costs, direct materials, labor allocations, and tracking direct vs indirect job costs. WIP (Work-in-Progress) reporting, percentage-of-completion accounting, and subcontractor retainages auditing.
+- **AP / AR & Progress Billings**: Progress billings preparation (AIA G702/G703 forms), subcontractor lien waivers collection, and processing utility and material invoices.
+- **Certified Prevailing Wage Payroll**: Davis-Bacon Act compliance audits, prevailing wage calculations, certified payroll reporting uploads to LCPtracker, eComply, DIR, and government portals.
+
 CONTACT & CTA GUIDELINES:
 - **Email**: rohitsingh@taskauraglobal.com
 - **Phone**: +91 9630549549
