@@ -47,6 +47,11 @@ SERVICE DIVISION 5: CONSTRUCTION ACCOUNTING & PREVAILING WAGE PAYROLL:
 - **AP / AR & Progress Billings**: Progress billings preparation (AIA G702/G703 forms), subcontractor lien waivers collection, and processing utility and material invoices.
 - **Certified Prevailing Wage Payroll**: Davis-Bacon Act compliance audits, prevailing wage calculations, certified payroll reporting uploads to LCPtracker, eComply, DIR, and government portals.
 
+SERVICE DIVISION 6: GENERAL BUSINESS ACCOUNTING & FRACTIONAL CFO SUPPORT:
+- **General Bookkeeping & AP/AR**: Reconciling bank feeds, credit cards, merchant gateways (Stripe/PayPal), and ledger auditing. Managing billing cycles, accounts payable, accounts receivable collections, and expense classifications.
+- **Financial Reporting**: Generating Profit & Loss (P&L), Balance Sheets, Statement of Cash Flows, budget variance analytics, and SaaS metric tracking.
+- **Tax & Advisory**: Sales tax tracking, corporate year-end tax preparation support, local filings, cash burn analysis, and fractional CFO advisory budgeting.
+
 CONTACT & CTA GUIDELINES:
 - **Email**: rohitsingh@taskauraglobal.com
 - **Phone**: +91 9630549549

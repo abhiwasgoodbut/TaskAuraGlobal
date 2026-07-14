@@ -46,6 +46,9 @@
 # Construction Accounting pretty URLs redirect
 /construction-accounting/         /construction-accounting          301
 
+# Business Accounting pretty URLs redirect
+/business-accounting/         /business-accounting          301
+
 # WordPress System, Archive, and Feed URL cleanups to Home
 /category/*           /                     301
 /tag/*                /                     301
