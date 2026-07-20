@@ -69,9 +69,8 @@
       transform: translateY(0);
     }
     .showcase-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 48px;
+      display: flex;
+      justify-content: center;
       align-items: center;
       background: rgba(255, 255, 255, 0.01);
       border: 1px solid rgba(255, 255, 255, 0.04);
@@ -392,18 +391,7 @@
         <!-- Tab 1: Monthly Financial Reports -->
         <div class="showcase-tab-content active" id="monthly-reports">
           <div class="showcase-layout">
-            <div class="showcase-text-side">
-              <h3 class="showcase-content-title">Accurate Monthly Financial Statements</h3>
-              <p class="showcase-content-desc">
-                We prepare comprehensive financial packages customized for dental clinics. Your Profit &amp; Loss statements, ledger audits, and cash flow reports are prepared on time every single month, keeping your practice 100% tax compliant and ready to scale.
-              </p>
-              <ul class="showcase-features-list">
-                <li><span>📊</span> Profit &amp; Loss (P&amp;L) compilations</li>
-                <li><span>⚖️</span> Reconciled bank and credit card ledgers</li>
-                <li><span>📈</span> Overhead expense margin analytics</li>
-              </ul>
-            </div>
-            <div class="showcase-visual-side" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="showcase-visual-side" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; width: 100%; max-width: 900px; justify-content: center;">
               <!-- Card 1 -->
               <div class="showcase-card">
                 <h4 style="color: var(--color-white); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
@@ -429,17 +417,6 @@
         <!-- Tab 2: QuickBooks Specialists -->
         <div class="showcase-tab-content" id="qb-specialists">
           <div class="showcase-layout">
-            <div class="showcase-text-side">
-              <h3 class="showcase-content-title">Intuit QuickBooks Certified ProAdvisors</h3>
-              <p class="showcase-content-desc">
-                Our specialists configure QBO accounts customized for medical and dental coding structures. We handle automatic bank feeds, record billing classifications, and optimize your charts of accounts to ensure your books are perfectly organized.
-              </p>
-              <ul class="showcase-features-list">
-                <li><span>🏷️</span> Supplies &amp; facility expense tagging</li>
-                <li><span>🔄</span> Automated banking feed integrations</li>
-                <li><span>📁</span> Tax-ready ledger classifications</li>
-              </ul>
-            </div>
             <div class="showcase-visual-side">
               <div class="certified-badge-wrapper">
                 <div class="certified-glow-card">
@@ -456,17 +433,6 @@
         <!-- Tab 3: Dedicated Bookkeeper -->
         <div class="showcase-tab-content" id="dedicated-bookkeeper">
           <div class="showcase-layout">
-            <div class="showcase-text-side">
-              <h3 class="showcase-content-title">Your Dedicated Dental Financial Partner</h3>
-              <p class="showcase-content-desc">
-                No tickets or automated answering pools. You work directly with a dedicated financial accountant who knows Dentrix, Open Dental, or Eaglesoft. Your bookkeeper reconciles claims deposits weekly and reviews practice margins with you monthly.
-              </p>
-              <ul class="showcase-features-list">
-                <li><span>👤</span> Direct WhatsApp &amp; Zoom communication</li>
-                <li><span>📅</span> Monthly virtual financial reviews</li>
-                <li><span>🔍</span> Weekly transaction auditing</li>
-              </ul>
-            </div>
             <div class="showcase-visual-side">
               <div class="dedicated-team-card-wrapper">
                 <div class="dedicated-team-card">
@@ -487,17 +453,6 @@
         <!-- Tab 4: Secure Cloud-Based Process -->
         <div class="showcase-tab-content" id="secure-process">
           <div class="showcase-layout">
-            <div class="showcase-text-side">
-              <h3 class="showcase-content-title">Bank-Grade Encryption &amp; Security</h3>
-              <p class="showcase-content-desc">
-                We secure your dental practice's financial records using encrypted cloud storage and view-only permissions. We manage invoicing and document collection using platforms like Hubdoc or Bill.com, meaning we never have access to move your funds.
-              </p>
-              <ul class="showcase-features-list">
-                <li><span>🔒</span> View-only bank accounts access</li>
-                <li><span>☁️</span> Secure Hubdoc document storage</li>
-                <li><span>🛡️</span> Zero unauthorized transfer risks</li>
-              </ul>
-            </div>
             <div class="showcase-visual-side">
               <div class="secure-cloud-wrapper">
                 <div class="secure-cloud-card">
