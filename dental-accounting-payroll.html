@@ -24,6 +24,187 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Tabs Layout */
+    .showcase-tab-btn {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 100px;
+      padding: 12px 24px;
+      color: var(--color-gray-text-light);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .showcase-tab-btn:hover {
+      background: rgba(212, 168, 83, 0.05);
+      border-color: rgba(212, 168, 83, 0.2);
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+    .showcase-tab-btn.active {
+      background: var(--gradient-gold);
+      border-color: transparent;
+      color: #06060c;
+      box-shadow: 0 10px 20px rgba(212, 168, 83, 0.2);
+    }
+    .showcase-tab-btn.active .tab-check {
+      filter: brightness(0.1);
+    }
+    
+    /* Content Layout */
+    .showcase-tab-content {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .showcase-tab-content.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .showcase-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+    }
+    
+    .showcase-content-title {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 20px;
+    }
+    .showcase-content-desc {
+      color: var(--color-gray-text-light);
+      line-height: 1.65;
+      font-size: 0.98rem;
+      margin-bottom: 30px;
+    }
+    .showcase-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .showcase-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--color-white);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .showcase-features-list li span {
+      font-size: 1.2rem;
+    }
+    
+    /* Image Overlap Layout */
+    .screenshot-overlap {
+      position: relative;
+      width: 100%;
+      height: 320px;
+    }
+    .screenshot-overlap__card {
+      position: absolute;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      transition: all 0.4s ease;
+      background: #000;
+    }
+    .screenshot-overlap__card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .screenshot-overlap__card.card-1 {
+      width: 80%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+    .screenshot-overlap__card.card-2 {
+      width: 80%;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+    }
+    .screenshot-overlap:hover .card-1 {
+      transform: translate(-10px, -10px) scale(1.02);
+      z-index: 1;
+    }
+    .screenshot-overlap:hover .card-2 {
+      transform: translate(10px, 10px) scale(1.02);
+      z-index: 3;
+    }
+    
+    /* Graphic Mockups */
+    .certified-badge-wrapper, .dedicated-team-card-wrapper, .secure-cloud-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 320px;
+    }
+    .certified-glow-card, .dedicated-team-card, .secure-cloud-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      width: 280px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+    .certified-glow-card:hover, .dedicated-team-card:hover, .secure-cloud-card:hover {
+      border-color: rgba(212, 168, 83, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 30px 50px rgba(212, 168, 83, 0.05);
+    }
+    .certified-logo-badge {
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;
+      background: #2ca01c;
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 70px;
+      margin: 0 auto;
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .showcase-layout {
+        grid-template-columns: 1fr;
+        padding: 32px;
+        gap: 32px;
+      }
+      .screenshot-overlap {
+        height: 240px;
+      }
+      .certified-badge-wrapper, .dedicated-team-card-wrapper, .secure-cloud-wrapper {
+        height: 240px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -194,6 +375,157 @@
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
         <a href="index.html#contact-section" class="navbar__btn-cta" style="padding: 14px 32px; border-radius: 100px; font-weight: 600;">Schedule a Dental Practice Audit</a>
         <a href="#services-list" class="portfolio-card__link" style="align-self: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 12px 28px; border-radius: 100px; color: var(--color-white); font-weight: 500; transition: all 0.3s;">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== OUR WORK SHOWCASE SECTION ======== -->
+  <section class="work-showcase" id="work-showcase" style="padding: 100px 0; background: #05050a; border-top: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden;">
+    <!-- Background glowing blob -->
+    <div style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 168, 83, 0.04) 0%, rgba(0, 0, 0, 0) 70%); top: 10%; right: -100px; z-index: 1; pointer-events: none;"></div>
+    
+    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2;">
+      <!-- Section Header -->
+      <div class="projects__header" style="margin-bottom: 60px; text-align: center;">
+        <div class="projects__badge">OUR WORK &amp; DELIVERABLES</div>
+        <h2 class="projects__title">
+          Showcasing Our <span class="projects__title-gold">Financial Expertise</span>
+        </h2>
+        <p class="projects__description" style="margin: 0 auto; max-width: 700px;">
+          An inside look at the high-fidelity bookkeeping workflows and certified systems we build for dental practices.
+        </p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="showcase-tabs" style="display: flex; justify-content: center; gap: 16px; margin-bottom: 50px; flex-wrap: wrap;">
+        <button class="showcase-tab-btn active" data-tab="monthly-reports">
+          <span class="tab-check">✔️</span> Monthly Financial Reports
+        </button>
+        <button class="showcase-tab-btn" data-tab="qb-specialists">
+          <span class="tab-check">✔️</span> QuickBooks Specialists
+        </button>
+        <button class="showcase-tab-btn" data-tab="dedicated-bookkeeper">
+          <span class="tab-check">✔️</span> Dedicated Bookkeeper
+        </button>
+        <button class="showcase-tab-btn" data-tab="secure-process">
+          <span class="tab-check">✔️</span> Secure Cloud-Based Process
+        </button>
+      </div>
+
+      <!-- Tab Contents Container -->
+      <div class="showcase-content-wrapper" style="position: relative; min-height: 400px;">
+        
+        <!-- Tab 1: Monthly Financial Reports -->
+        <div class="showcase-tab-content active" id="monthly-reports">
+          <div class="showcase-layout">
+            <div class="showcase-text-side">
+              <h3 class="showcase-content-title">Accurate Monthly Financial Statements</h3>
+              <p class="showcase-content-desc">
+                We prepare comprehensive financial packages customized for dental clinics. Your Profit &amp; Loss statements, ledger audits, and cash flow reports are prepared on time every single month, keeping your practice 100% tax compliant and ready to scale.
+              </p>
+              <ul class="showcase-features-list">
+                <li><span>📊</span> Profit &amp; Loss (P&amp;L) compilations</li>
+                <li><span>⚖️</span> Reconciled bank and credit card ledgers</li>
+                <li><span>📈</span> Overhead expense margin analytics</li>
+              </ul>
+            </div>
+            <div class="showcase-visual-side">
+              <div class="screenshot-overlap">
+                <div class="screenshot-overlap__card card-1">
+                  <img src="asset/bookeeping content/msedge_RkQD66c7EV.png" alt="QuickBooks Online Monthly Overview Dashboard" />
+                </div>
+                <div class="screenshot-overlap__card card-2">
+                  <img src="asset/bookeeping content/msedge_rQIqtOIe7V.png" alt="QuickBooks Online Profit and Loss Details" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: QuickBooks Specialists -->
+        <div class="showcase-tab-content" id="qb-specialists">
+          <div class="showcase-layout">
+            <div class="showcase-text-side">
+              <h3 class="showcase-content-title">Intuit QuickBooks Certified ProAdvisors</h3>
+              <p class="showcase-content-desc">
+                Our specialists configure QBO accounts customized for medical and dental coding structures. We handle automatic bank feeds, record billing classifications, and optimize your charts of accounts to ensure your books are perfectly organized.
+              </p>
+              <ul class="showcase-features-list">
+                <li><span>🏷️</span> Supplies &amp; facility expense tagging</li>
+                <li><span>🔄</span> Automated banking feed integrations</li>
+                <li><span>📁</span> Tax-ready ledger classifications</li>
+              </ul>
+            </div>
+            <div class="showcase-visual-side">
+              <div class="certified-badge-wrapper">
+                <div class="certified-glow-card">
+                  <div class="certified-logo-badge">QB</div>
+                  <h4 style="color: var(--color-white); margin-top: 20px; font-size: 1.25rem;">QuickBooks Certified</h4>
+                  <p style="color: var(--color-gray-text-dark); font-size: 0.9rem; margin-top: 8px;">ProAdvisor Program Integration</p>
+                  <div style="margin-top: 20px; display: inline-block; padding: 6px 16px; border-radius: 100px; background: rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.3); color: var(--color-gold); font-size: 0.8rem; font-weight: 600;">ACTIVE SPECIALISTS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Dedicated Bookkeeper -->
+        <div class="showcase-tab-content" id="dedicated-bookkeeper">
+          <div class="showcase-layout">
+            <div class="showcase-text-side">
+              <h3 class="showcase-content-title">Your Dedicated Dental Financial Partner</h3>
+              <p class="showcase-content-desc">
+                No tickets or automated answering pools. You work directly with a dedicated financial accountant who knows Dentrix, Open Dental, or Eaglesoft. Your bookkeeper reconciles claims deposits weekly and reviews practice margins with you monthly.
+              </p>
+              <ul class="showcase-features-list">
+                <li><span>👤</span> Direct WhatsApp &amp; Zoom communication</li>
+                <li><span>📅</span> Monthly virtual financial reviews</li>
+                <li><span>🔍</span> Weekly transaction auditing</li>
+              </ul>
+            </div>
+            <div class="showcase-visual-side">
+              <div class="dedicated-team-card-wrapper">
+                <div class="dedicated-team-card">
+                  <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-gold) 0%, #ffffff 100%); margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👤</div>
+                  <h4 style="color: var(--color-white); margin-bottom: 4px;">TaskAura Bookkeeper</h4>
+                  <p style="color: var(--color-gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Dedicated practice accountant</p>
+                  <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 16px 0;" />
+                  <div style="display: flex; justify-content: space-around; font-size: 0.85rem; color: var(--color-gray-text-light);">
+                    <div><span>💬</span> Live Support</div>
+                    <div><span>📞</span> Scheduled Zoom</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Secure Cloud-Based Process -->
+        <div class="showcase-tab-content" id="secure-process">
+          <div class="showcase-layout">
+            <div class="showcase-text-side">
+              <h3 class="showcase-content-title">Bank-Grade Encryption &amp; Security</h3>
+              <p class="showcase-content-desc">
+                We secure your dental practice's financial records using encrypted cloud storage and view-only permissions. We manage invoicing and document collection using platforms like Hubdoc or Bill.com, meaning we never have access to move your funds.
+              </p>
+              <ul class="showcase-features-list">
+                <li><span>🔒</span> View-only bank accounts access</li>
+                <li><span>☁️</span> Secure Hubdoc document storage</li>
+                <li><span>🛡️</span> Zero unauthorized transfer risks</li>
+              </ul>
+            </div>
+            <div class="showcase-visual-side">
+              <div class="secure-cloud-wrapper">
+                <div class="secure-cloud-card">
+                  <div style="font-size: 3rem; margin-bottom: 15px;">🛡️</div>
+                  <h4 style="color: var(--color-white); margin-bottom: 8px;">256-Bit Cloud Security</h4>
+                  <p style="color: var(--color-gray-text-dark); font-size: 0.9rem;">View-only bank links, encrypted file sharing, and HIPAA-compliant data practices.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -583,5 +915,34 @@
 
   <!-- Scripts -->
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabBtns = document.querySelectorAll('.showcase-tab-btn');
+      const tabContents = document.querySelectorAll('.showcase-tab-content');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetTab = btn.getAttribute('data-tab');
+
+          // Remove active classes
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => {
+            c.classList.remove('active');
+            c.style.display = 'none';
+          });
+
+          // Add active classes
+          btn.classList.add('active');
+          const activeContent = document.getElementById(targetTab);
+          if (activeContent) {
+            activeContent.style.display = 'block';
+            // Force redraw/reflow for transition animation
+            activeContent.offsetHeight; 
+            activeContent.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
