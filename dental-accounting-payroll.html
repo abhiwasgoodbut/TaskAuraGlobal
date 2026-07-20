@@ -179,73 +179,77 @@
       }
     }
 
-    /* Process Section Layout */
-    .process-grid-container {
+    /* Process Section Layout (Vertical Timeline) */
+    .process-timeline-container {
       position: relative;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      margin-top: 40px;
+      margin: 50px auto 0 auto;
+      padding-left: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1000px;
     }
     .process-timeline-line {
       position: absolute;
-      top: 56px;
-      left: 12.5%;
-      width: 75%;
-      height: 3px;
+      top: 10px;
+      bottom: 10px;
+      left: 28px;
+      width: 3px;
       background: rgba(255, 255, 255, 0.05);
       z-index: 1;
       border-radius: 10px;
       overflow: hidden;
     }
     .process-timeline-progress {
-      width: 0%;
-      height: 100%;
+      width: 100%;
+      height: 0%;
       background: var(--gradient-gold);
       box-shadow: 0 0 10px var(--color-gold);
-      transition: width 0.1s ease;
+      transition: height 0.1s ease;
     }
     
     .process-step-card {
       background: rgba(255, 255, 255, 0.015);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 20px;
-      padding: 32px 24px;
-      text-align: center;
+      padding: 32px 40px;
       position: relative;
       z-index: 2;
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       backdrop-filter: blur(10px);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
-      flex-direction: column;
       align-items: center;
+      gap: 32px;
       opacity: 0.15;
-      transform: translateY(20px);
+      transform: translateY(30px);
+      max-width: 900px;
+      width: 100%;
     }
     .process-step-card.reveal-active {
       opacity: 1;
       transform: translateY(0);
-      border-color: rgba(212, 168, 83, 0.2);
+      border-color: rgba(212, 168, 83, 0.25);
     }
     .process-step-card.reveal-active:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       border-color: rgba(212, 168, 83, 0.4);
       box-shadow: 0 30px 50px rgba(212, 168, 83, 0.08);
     }
     .process-step-number {
-      width: 48px;
-      height: 48px;
+      position: absolute;
+      left: -80px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: rgba(6, 6, 12, 0.9);
       border: 1.5px solid rgba(255,255,255,0.1);
       color: var(--color-gray-text-dark);
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
       transition: all 0.5s ease;
       font-family: var(--font-heading);
     }
@@ -257,57 +261,47 @@
     }
     .process-step-icon {
       color: var(--color-white);
-      margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0.9;
+      flex-shrink: 0;
+    }
+    .process-step-text {
+      flex: 1;
     }
     .process-step-title {
       font-family: var(--font-heading);
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--color-white);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .process-step-desc {
       color: var(--color-gray-text-light);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       line-height: 1.6;
-      max-width: 280px;
+      margin: 0;
     }
-    @media (max-width: 991px) {
-      .process-grid-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding-left: 40px;
+    @media (max-width: 767px) {
+      .process-timeline-container {
+        padding-left: 60px;
+        gap: 32px;
       }
       .process-timeline-line {
-        top: 24px;
-        bottom: 24px;
-        left: 24px;
-        width: 3px;
-        height: calc(100% - 48px);
-      }
-      .process-timeline-progress {
-        width: 100%;
-        height: 0%;
-        transition: height 0.1s ease;
+        left: 20px;
       }
       .process-step-card {
-        flex-direction: row;
-        text-align: left;
-        align-items: flex-start;
-        gap: 24px;
         padding: 24px;
-        margin-left: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
       }
       .process-step-number {
-        margin-bottom: 0;
-        flex-shrink: 0;
-      }
-      .process-step-desc {
-        max-width: 100%;
+        left: -60px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.15rem;
       }
     }
   </style>
@@ -793,10 +787,10 @@
         </p>
       </div>
 
-      <!-- Process Grid -->
-      <div class="process-grid-container">
+      <!-- Process Timeline Container -->
+      <div class="process-timeline-container">
         
-        <!-- Timeline connecting line -->
+        <!-- Timeline vertical line -->
         <div class="process-timeline-line">
           <div class="process-timeline-progress"></div>
         </div>
@@ -805,53 +799,59 @@
         <div class="process-step-card">
           <div class="process-step-number">1</div>
           <div class="process-step-icon">
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
             </svg>
           </div>
-          <h3 class="process-step-title">Free Call</h3>
-          <p class="process-step-desc">
-            Schedule a brief 15-minute consultation to discuss your practice setup, current dental billing systems, and payroll requirements.
-          </p>
+          <div class="process-step-text">
+            <h3 class="process-step-title">Free Call</h3>
+            <p class="process-step-desc">
+              Schedule a brief 15-minute consultation to discuss your practice setup, current dental billing systems, and payroll requirements.
+            </p>
+          </div>
         </div>
 
         <!-- Step 2: Review -->
         <div class="process-step-card">
           <div class="process-step-number">2</div>
           <div class="process-step-icon">
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="16" x2="12" y2="12"></line>
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
             </svg>
           </div>
-          <h3 class="process-step-title">Review</h3>
-          <p class="process-step-desc">
-            We audit your recent ledgers, supplier accounts, and claims tracking to identify discrepancies and overhead optimization areas.
-          </p>
+          <div class="process-step-text">
+            <h3 class="process-step-title">Review</h3>
+            <p class="process-step-desc">
+              We audit your recent ledgers, supplier accounts, and claims tracking to identify discrepancies and overhead optimization areas.
+            </p>
+          </div>
         </div>
 
         <!-- Step 3: Onboarding -->
         <div class="process-step-card">
           <div class="process-step-number">3</div>
           <div class="process-step-icon">
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="8.5" cy="7" r="4"></circle>
               <polyline points="17 11 19 13 23 9"></polyline>
             </svg>
           </div>
-          <h3 class="process-step-title">Onboarding</h3>
-          <p class="process-step-desc">
-            We securely connect view-only bank feeds, integrate QuickBooks Online, and assign your dedicated dental bookkeeping specialist.
-          </p>
+          <div class="process-step-text">
+            <h3 class="process-step-title">Onboarding</h3>
+            <p class="process-step-desc">
+              We securely connect view-only bank feeds, integrate QuickBooks Online, and assign your dedicated dental bookkeeping specialist.
+            </p>
+          </div>
         </div>
 
         <!-- Step 4: Monthly Reports -->
         <div class="process-step-card">
           <div class="process-step-number">4</div>
           <div class="process-step-icon">
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
               <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -859,10 +859,12 @@
               <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
           </div>
-          <h3 class="process-step-title">Monthly Reports</h3>
-          <p class="process-step-desc">
-            Receive clean, accurate financial packages, overhead reports, and hygienist production commissions on time every single month.
-          </p>
+          <div class="process-step-text">
+            <h3 class="process-step-title">Monthly Reports</h3>
+            <p class="process-step-desc">
+              Receive clean, accurate financial packages, overhead reports, and hygienist production commissions on time every single month.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -1097,28 +1099,22 @@
           const rect = processSection.getBoundingClientRect();
           const viewportHeight = window.innerHeight;
           
-          // Calculate scroll progress through the section
-          // Starts when top of section is 80% down viewport, ends when top is 25% down viewport
-          const startEval = viewportHeight * 0.8;
+          // Calculate scroll progress exactly relative to the timeline bounds
+          // Starts when top of section is 75% down viewport, ends when bottom is 25% down viewport
+          const startEval = viewportHeight * 0.75;
           const endEval = viewportHeight * 0.25;
           
           let progress = (startEval - rect.top) / (rect.height + (startEval - endEval));
           progress = Math.max(0, Math.min(1, progress));
           
-          const isMobile = window.innerWidth <= 991;
+          progressLine.style.height = `${progress * 100}%`;
+          progressLine.style.width = '100%';
           
-          if (isMobile) {
-            progressLine.style.width = '100%';
-            progressLine.style.height = `${progress * 100}%`;
-          } else {
-            progressLine.style.height = '100%';
-            progressLine.style.width = `${progress * 100}%`;
-          }
-          
-          // Staggered trigger points based on timeline progress
-          const thresholds = [0.15, 0.4, 0.65, 0.9];
-          stepCards.forEach((card, index) => {
-            if (progress >= thresholds[index]) {
+          // Activate step cards individually as their middle crosses 65% height of screen
+          stepCards.forEach((card) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardMiddle = cardRect.top + cardRect.height / 2;
+            if (cardMiddle <= viewportHeight * 0.65) {
               card.classList.add('reveal-active');
             } else {
               card.classList.remove('reveal-active');
