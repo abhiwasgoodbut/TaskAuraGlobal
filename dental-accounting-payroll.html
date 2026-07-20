@@ -70,13 +70,13 @@
     }
     .showcase-layout {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 48px;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 32px;
       align-items: center;
       background: rgba(255, 255, 255, 0.01);
       border: 1px solid rgba(255, 255, 255, 0.04);
       border-radius: 24px;
-      padding: 48px;
+      padding: 24px 32px;
       box-shadow: 0 30px 60px rgba(0,0,0,0.4);
       backdrop-filter: blur(10px);
     }
@@ -135,22 +135,23 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      height: 320px;
+      height: 350px;
     }
     .certified-glow-card, .dedicated-team-card, .secure-cloud-card {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 20px;
-      padding: 30px;
+      padding: 40px 30px;
       text-align: center;
-      width: 280px;
+      width: 100%;
+      max-width: 360px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       transition: all 0.3s ease;
     }
     .certified-glow-card:hover, .dedicated-team-card:hover, .secure-cloud-card:hover {
       border-color: rgba(212, 168, 83, 0.3);
       transform: translateY(-5px);
-      box-shadow: 0 30px 50px rgba(212, 168, 83, 0.05);
+      box-shadow: 0 30px 50px rgba(212, 168, 83, 0.08);
     }
     .certified-logo-badge {
       width: 70px;
