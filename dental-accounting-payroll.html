@@ -178,6 +178,79 @@
         height: 240px;
       }
     }
+
+    /* Process Section Layout */
+    .process-step-card {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .process-step-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(212, 168, 83, 0.3);
+      box-shadow: 0 30px 50px rgba(212, 168, 83, 0.08);
+    }
+    .process-step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(212, 168, 83, 0.08);
+      border: 1.5px solid var(--color-gold);
+      color: var(--color-gold);
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 0 15px rgba(212, 168, 83, 0.15);
+      font-family: var(--font-heading);
+    }
+    .process-step-icon {
+      color: var(--color-white);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.9;
+    }
+    .process-step-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 12px;
+    }
+    .process-step-desc {
+      color: var(--color-gray-text-light);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .process-timeline-line {
+      position: absolute;
+      top: 56px;
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(212,168,83,0) 0%, rgba(212,168,83,0.3) 15%, rgba(212,168,83,0.3) 85%, rgba(212,168,83,0) 100%);
+      z-index: 1;
+    }
+    @media (max-width: 991px) {
+      .process-timeline-line {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -641,6 +714,97 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- ======== OUR PROCESS SECTION ======== -->
+  <section class="work-process" id="work-process" style="padding: 60px 0; background: #06060c; border-top: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden;">
+    <!-- Background glowing blob -->
+    <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212, 168, 83, 0.03) 0%, rgba(0, 0, 0, 0) 70%); bottom: -200px; left: -100px; z-index: 1; pointer-events: none;"></div>
+    
+    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2;">
+      <!-- Section Header -->
+      <div class="projects__header" style="margin-bottom: 50px; text-align: center;">
+        <div class="projects__badge">HOW WE WORK</div>
+        <h2 class="projects__title">
+          Our Four-Step <span class="projects__title-gold">Bookkeeping Process</span>
+        </h2>
+        <p class="projects__description" style="margin: 0 auto; max-width: 700px;">
+          From initial audit call to monthly delivery, we make practice accounting completely hands-off.
+        </p>
+      </div>
+
+      <!-- Process Grid -->
+      <div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 20px;">
+        
+        <!-- Timeline connecting line -->
+        <div class="process-timeline-line"></div>
+        
+        <!-- Step 1: Free Call -->
+        <div class="process-step-card reveal" style="transition-delay: 0.1s;">
+          <div class="process-step-number">1</div>
+          <div class="process-step-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <h3 class="process-step-title">Free Call</h3>
+          <p class="process-step-desc">
+            Schedule a brief 15-minute consultation to discuss your practice setup, current dental billing systems, and payroll requirements.
+          </p>
+        </div>
+
+        <!-- Step 2: Review -->
+        <div class="process-step-card reveal" style="transition-delay: 0.25s;">
+          <div class="process-step-number">2</div>
+          <div class="process-step-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <h3 class="process-step-title">Review</h3>
+          <p class="process-step-desc">
+            We audit your recent ledgers, supplier accounts, and claims tracking to identify discrepancies and overhead optimization areas.
+          </p>
+        </div>
+
+        <!-- Step 3: Onboarding -->
+        <div class="process-step-card reveal" style="transition-delay: 0.4s;">
+          <div class="process-step-number">3</div>
+          <div class="process-step-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <polyline points="17 11 19 13 23 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="process-step-title">Onboarding</h3>
+          <p class="process-step-desc">
+            We securely connect view-only bank feeds, integrate QuickBooks Online, and assign your dedicated dental bookkeeping specialist.
+          </p>
+        </div>
+
+        <!-- Step 4: Monthly Reports -->
+        <div class="process-step-card reveal" style="transition-delay: 0.55s;">
+          <div class="process-step-number">4</div>
+          <div class="process-step-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="process-step-title">Monthly Reports</h3>
+          <p class="process-step-desc">
+            Receive clean, accurate financial packages, overhead reports, and hygienist production commissions on time every single month.
+          </p>
+        </div>
+
+      </div>
     </div>
   </section>
 
