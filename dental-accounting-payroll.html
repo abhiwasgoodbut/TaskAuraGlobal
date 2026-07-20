@@ -114,45 +114,19 @@
       font-size: 1.2rem;
     }
     
-    /* Image Overlap Layout */
-    .screenshot-overlap {
-      position: relative;
-      width: 100%;
-      height: 320px;
+    /* Visual Cards Layout */
+    .showcase-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
     }
-    .screenshot-overlap__card {
-      position: absolute;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      transition: all 0.4s ease;
-      background: #000;
-    }
-    .screenshot-overlap__card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .screenshot-overlap__card.card-1 {
-      width: 80%;
-      top: 0;
-      left: 0;
-      z-index: 2;
-    }
-    .screenshot-overlap__card.card-2 {
-      width: 80%;
-      bottom: 0;
-      right: 0;
-      z-index: 1;
-    }
-    .screenshot-overlap:hover .card-1 {
-      transform: translate(-10px, -10px) scale(1.02);
-      z-index: 1;
-    }
-    .screenshot-overlap:hover .card-2 {
-      transform: translate(10px, 10px) scale(1.02);
-      z-index: 3;
+    .showcase-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 168, 83, 0.25);
+      box-shadow: 0 30px 50px rgba(212, 168, 83, 0.06);
     }
     
     /* Graphic Mockups */
@@ -429,13 +403,23 @@
                 <li><span>📈</span> Overhead expense margin analytics</li>
               </ul>
             </div>
-            <div class="showcase-visual-side">
-              <div class="screenshot-overlap">
-                <div class="screenshot-overlap__card card-1">
-                  <img src="asset/bookeeping content/msedge_RkQD66c7EV.png" alt="QuickBooks Online Monthly Overview Dashboard" />
+            <div class="showcase-visual-side" style="display: flex; flex-direction: column; gap: 20px;">
+              <!-- Card 1 -->
+              <div class="showcase-card">
+                <h4 style="color: var(--color-white); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--color-gold);">📊</span> Monthly Business Performance Dashboard
+                </h4>
+                <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                  <img src="asset/bookeeping content/msedge_RkQD66c7EV.png" alt="QuickBooks Online Monthly Overview Dashboard" style="width: 100%; height: auto; display: block;" />
                 </div>
-                <div class="screenshot-overlap__card card-2">
-                  <img src="asset/bookeeping content/msedge_rQIqtOIe7V.png" alt="QuickBooks Online Profit and Loss Details" />
+              </div>
+              <!-- Card 2 -->
+              <div class="showcase-card">
+                <h4 style="color: var(--color-white); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--color-gold);">📈</span> Profit &amp; Loss Statement Ledger
+                </h4>
+                <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                  <img src="asset/bookeeping content/msedge_rQIqtOIe7V.png" alt="QuickBooks Online Profit and Loss Details" style="width: 100%; height: auto; display: block;" />
                 </div>
               </div>
             </div>
