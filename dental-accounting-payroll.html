@@ -69,8 +69,9 @@
       transform: translateY(0);
     }
     .showcase-layout {
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
       align-items: center;
       background: rgba(255, 255, 255, 0.01);
       border: 1px solid rgba(255, 255, 255, 0.04);
@@ -357,9 +358,9 @@
     <!-- Background glowing blob -->
     <div style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 168, 83, 0.04) 0%, rgba(0, 0, 0, 0) 70%); top: 10%; right: -100px; z-index: 1; pointer-events: none;"></div>
     
-    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2;">
+    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; display: flex; flex-direction: column; gap: 80px;">
       <!-- Section Header -->
-      <div class="projects__header" style="margin-bottom: 60px; text-align: center;">
+      <div class="projects__header" style="margin-bottom: 20px; text-align: center;">
         <div class="projects__badge">OUR WORK &amp; DELIVERABLES</div>
         <h2 class="projects__title">
           Showcasing Our <span class="projects__title-gold">Financial Expertise</span>
@@ -369,103 +370,107 @@
         </p>
       </div>
 
-      <!-- Tab Buttons -->
-      <div class="showcase-tabs" style="display: flex; justify-content: center; gap: 16px; margin-bottom: 50px; flex-wrap: wrap;">
-        <button class="showcase-tab-btn active" data-tab="monthly-reports">
-          <span class="tab-check">✔️</span> Monthly Financial Reports
-        </button>
-        <button class="showcase-tab-btn" data-tab="qb-specialists">
-          <span class="tab-check">✔️</span> QuickBooks Specialists
-        </button>
-        <button class="showcase-tab-btn" data-tab="dedicated-bookkeeper">
-          <span class="tab-check">✔️</span> Dedicated Bookkeeper
-        </button>
-        <button class="showcase-tab-btn" data-tab="secure-process">
-          <span class="tab-check">✔️</span> Secure Cloud-Based Process
-        </button>
+      <!-- Feature Row 1: Monthly Financial Reports -->
+      <div class="showcase-layout">
+        <div class="showcase-text-side">
+          <h3 class="showcase-content-title" style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">
+            <span style="color: var(--color-gold);">✔️</span> Monthly Financial Reports
+          </h3>
+          <p class="showcase-content-desc" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem;">
+            We prepare comprehensive monthly financial statements customized for dental practices. This includes Profit &amp; Loss accounts, bank reconciliations, and key overhead expense metrics. Our prompt reports keep practice owners informed of cash flow dynamics and ready for strategic decisions.
+          </p>
+        </div>
+        <div class="showcase-visual-side" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; width: 100%; max-width: 900px;">
+          <!-- Card 1 -->
+          <div class="showcase-card">
+            <h4 style="color: var(--color-white); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--color-gold);">📊</span> Monthly Business Performance Dashboard
+            </h4>
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+              <img src="asset/bookeeping content/msedge_RkQD66c7EV.png" alt="QuickBooks Online Monthly Overview Dashboard" style="width: 100%; height: auto; display: block;" />
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="showcase-card">
+            <h4 style="color: var(--color-white); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--color-gold);">📈</span> Profit &amp; Loss Statement Ledger
+            </h4>
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+              <img src="asset/bookeeping content/msedge_rQIqtOIe7V.png" alt="QuickBooks Online Profit and Loss Details" style="width: 100%; height: auto; display: block;" />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Tab Contents Container -->
-      <div class="showcase-content-wrapper" style="position: relative; min-height: 400px;">
-        
-        <!-- Tab 1: Monthly Financial Reports -->
-        <div class="showcase-tab-content active" id="monthly-reports">
-          <div class="showcase-layout">
-            <div class="showcase-visual-side" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; width: 100%; max-width: 900px; justify-content: center;">
-              <!-- Card 1 -->
-              <div class="showcase-card">
-                <h4 style="color: var(--color-white); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                  <span style="color: var(--color-gold);">📊</span> Monthly Business Performance Dashboard
-                </h4>
-                <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
-                  <img src="asset/bookeeping content/msedge_RkQD66c7EV.png" alt="QuickBooks Online Monthly Overview Dashboard" style="width: 100%; height: auto; display: block;" />
-                </div>
-              </div>
-              <!-- Card 2 -->
-              <div class="showcase-card">
-                <h4 style="color: var(--color-white); font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                  <span style="color: var(--color-gold);">📈</span> Profit &amp; Loss Statement Ledger
-                </h4>
-                <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
-                  <img src="asset/bookeeping content/msedge_rQIqtOIe7V.png" alt="QuickBooks Online Profit and Loss Details" style="width: 100%; height: auto; display: block;" />
-                </div>
-              </div>
+      <!-- Feature Row 2: QuickBooks Specialists -->
+      <div class="showcase-layout">
+        <div class="showcase-text-side">
+          <h3 class="showcase-content-title" style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">
+            <span style="color: var(--color-gold);">✔️</span> QuickBooks Specialists
+          </h3>
+          <p class="showcase-content-desc" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem;">
+            Our certified Intuit QuickBooks ProAdvisors configure custom ledger files tailored for dental and medical clinics. We automate bank feeds, streamline invoice tagging, and optimize charts of accounts to ensure your books are audit-ready and compliant.
+          </p>
+        </div>
+        <div class="showcase-visual-side">
+          <div class="certified-badge-wrapper">
+            <div class="certified-glow-card">
+              <div class="certified-logo-badge">QB</div>
+              <h4 style="color: var(--color-white); margin-top: 20px; font-size: 1.25rem;">QuickBooks Certified</h4>
+              <p style="color: var(--color-gray-text-dark); font-size: 0.9rem; margin-top: 8px;">ProAdvisor Program Integration</p>
+              <div style="margin-top: 20px; display: inline-block; padding: 6px 16px; border-radius: 100px; background: rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.3); color: var(--color-gold); font-size: 0.8rem; font-weight: 600;">ACTIVE SPECIALISTS</div>
             </div>
           </div>
         </div>
-
-        <!-- Tab 2: QuickBooks Specialists -->
-        <div class="showcase-tab-content" id="qb-specialists">
-          <div class="showcase-layout">
-            <div class="showcase-visual-side">
-              <div class="certified-badge-wrapper">
-                <div class="certified-glow-card">
-                  <div class="certified-logo-badge">QB</div>
-                  <h4 style="color: var(--color-white); margin-top: 20px; font-size: 1.25rem;">QuickBooks Certified</h4>
-                  <p style="color: var(--color-gray-text-dark); font-size: 0.9rem; margin-top: 8px;">ProAdvisor Program Integration</p>
-                  <div style="margin-top: 20px; display: inline-block; padding: 6px 16px; border-radius: 100px; background: rgba(212,168,83,0.1); border: 1px solid rgba(212,168,83,0.3); color: var(--color-gold); font-size: 0.8rem; font-weight: 600;">ACTIVE SPECIALISTS</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 3: Dedicated Bookkeeper -->
-        <div class="showcase-tab-content" id="dedicated-bookkeeper">
-          <div class="showcase-layout">
-            <div class="showcase-visual-side">
-              <div class="dedicated-team-card-wrapper">
-                <div class="dedicated-team-card">
-                  <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-gold) 0%, #ffffff 100%); margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👤</div>
-                  <h4 style="color: var(--color-white); margin-bottom: 4px;">TaskAura Bookkeeper</h4>
-                  <p style="color: var(--color-gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Dedicated practice accountant</p>
-                  <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 16px 0;" />
-                  <div style="display: flex; justify-content: space-around; font-size: 0.85rem; color: var(--color-gray-text-light);">
-                    <div><span>💬</span> Live Support</div>
-                    <div><span>📞</span> Scheduled Zoom</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 4: Secure Cloud-Based Process -->
-        <div class="showcase-tab-content" id="secure-process">
-          <div class="showcase-layout">
-            <div class="showcase-visual-side">
-              <div class="secure-cloud-wrapper">
-                <div class="secure-cloud-card">
-                  <div style="font-size: 3rem; margin-bottom: 15px;">🛡️</div>
-                  <h4 style="color: var(--color-white); margin-bottom: 8px;">256-Bit Cloud Security</h4>
-                  <p style="color: var(--color-gray-text-dark); font-size: 0.9rem;">View-only bank links, encrypted file sharing, and HIPAA-compliant data practices.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Feature Row 3: Dedicated Bookkeeper -->
+      <div class="showcase-layout">
+        <div class="showcase-text-side">
+          <h3 class="showcase-content-title" style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">
+            <span style="color: var(--color-gold);">✔️</span> Dedicated Bookkeeper
+          </h3>
+          <p class="showcase-content-desc" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem;">
+            You are paired with a dedicated back-office bookkeeper who has experience in dental software systems like Dentrix, Open Dental, or Eaglesoft. Instead of a generic support pool, you get weekly audit checks and monthly reviews with your primary financial assistant.
+          </p>
+        </div>
+        <div class="showcase-visual-side">
+          <div class="dedicated-team-card-wrapper">
+            <div class="dedicated-team-card">
+              <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-gold) 0%, #ffffff 100%); margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; font-size: 2rem;">👤</div>
+              <h4 style="color: var(--color-white); margin-bottom: 4px;">TaskAura Bookkeeper</h4>
+              <p style="color: var(--color-gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Dedicated practice accountant</p>
+              <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 16px 0;" />
+              <div style="display: flex; justify-content: space-around; font-size: 0.85rem; color: var(--color-gray-text-light);">
+                <div><span>💬</span> Live Support</div>
+                <div><span>📞</span> Scheduled Zoom</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Row 4: Secure Cloud-Based Process -->
+      <div class="showcase-layout">
+        <div class="showcase-text-side">
+          <h3 class="showcase-content-title" style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">
+            <span style="color: var(--color-gold);">✔️</span> Secure Cloud-Based Process
+          </h3>
+          <p class="showcase-content-desc" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem;">
+            We employ bank-grade security protocols and view-only permissions to reconcile and monitor accounts. Receipts and invoice approvals are processed securely via encrypted cloud storage using Hubdoc or Bill.com, ensuring zero unauthorized access to your funds.
+          </p>
+        </div>
+        <div class="showcase-visual-side">
+          <div class="secure-cloud-wrapper">
+            <div class="secure-cloud-card">
+              <div style="font-size: 3rem; margin-bottom: 15px;">🛡️</div>
+              <h4 style="color: var(--color-white); margin-bottom: 8px;">256-Bit Cloud Security</h4>
+              <p style="color: var(--color-gray-text-dark); font-size: 0.9rem;">View-only bank links, encrypted file sharing, and HIPAA-compliant data practices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -854,34 +859,5 @@
 
   <!-- Scripts -->
   <script src="script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabBtns = document.querySelectorAll('.showcase-tab-btn');
-      const tabContents = document.querySelectorAll('.showcase-tab-content');
-
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const targetTab = btn.getAttribute('data-tab');
-
-          // Remove active classes
-          tabBtns.forEach(b => b.classList.remove('active'));
-          tabContents.forEach(c => {
-            c.classList.remove('active');
-            c.style.display = 'none';
-          });
-
-          // Add active classes
-          btn.classList.add('active');
-          const activeContent = document.getElementById(targetTab);
-          if (activeContent) {
-            activeContent.style.display = 'block';
-            // Force redraw/reflow for transition animation
-            activeContent.offsetHeight; 
-            activeContent.classList.add('active');
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
