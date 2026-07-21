@@ -496,6 +496,267 @@
         grid-template-columns: repeat(2, 1fr) !important;
       }
     }
+    /* Multi-step Form Section Styles */
+    .lead-capture-section {
+      padding: 80px 0;
+      background: #05050a;
+      border-top: 1px solid rgba(255,255,255,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-container-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(212, 168, 83, 0.15);
+      border-radius: 24px;
+      padding: 40px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+      position: relative;
+      z-index: 2;
+    }
+    .step-progress-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .step-progress-bar::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    .progress-line-fill {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--gradient-gold);
+      transform: translateY(-50%);
+      z-index: 1;
+      transition: width 0.4s ease;
+    }
+    .progress-step-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #0d0d16;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      color: var(--color-gray-text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 2;
+      transition: all 0.4s ease;
+    }
+    .progress-step-dot.active {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+      background: #11111d;
+      box-shadow: 0 0 15px rgba(212, 168, 83, 0.25);
+    }
+    .progress-step-dot.completed {
+      background: var(--gradient-gold);
+      border-color: transparent;
+      color: var(--color-dark);
+    }
+    .form-step-content {
+      display: none;
+    }
+    .form-step-content.active {
+      display: block;
+      animation: fadeInForm 0.5s ease forwards;
+    }
+    @keyframes fadeInForm {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step-title-desc {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .step-title-desc h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 8px;
+    }
+    .step-title-desc p {
+      font-size: 0.92rem;
+      color: var(--color-gray-text-dark);
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .option-pill-label {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      color: var(--color-gray-text-light);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .option-pill-label:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(212, 168, 83, 0.25);
+    }
+    .option-pill-input {
+      display: none;
+    }
+    .option-pill-input:checked + .option-pill-label {
+      border-color: var(--color-gold);
+      background: rgba(212, 168, 83, 0.04);
+      color: var(--color-white);
+      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.05);
+    }
+    .custom-radio-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .option-pill-input:checked + .option-pill-label .custom-radio-dot {
+      border-color: var(--color-gold);
+    }
+    .custom-radio-dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.3s ease;
+    }
+    .option-pill-input:checked + .option-pill-label .custom-radio-dot::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .custom-checkbox-box {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .option-pill-input:checked + .option-pill-label .custom-checkbox-box {
+      border-color: var(--color-gold);
+      background: var(--color-gold);
+    }
+    .custom-checkbox-box svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--color-dark);
+      stroke-width: 3.5;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.2s ease;
+    }
+    .option-pill-input:checked + .option-pill-label .custom-checkbox-box svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .input-field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 575px) {
+      .input-field-group {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+    .form-text-input {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: var(--color-white);
+      font-size: 0.95rem;
+      font-family: inherit;
+      width: 100%;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .form-text-input:focus {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 10px rgba(212, 168, 83, 0.15);
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .form-textarea {
+      height: 100px;
+      resize: none;
+    }
+    .form-navigation-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+      gap: 16px;
+    }
+    .btn-step-prev {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--color-gray-text-light);
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-step-prev:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      color: var(--color-white);
+    }
+    .btn-step-next, .btn-step-submit {
+      padding: 12px 32px;
+      border-radius: 100px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-step-next {
+      background: var(--gradient-gold);
+      color: var(--color-dark);
+      border: none;
+      margin-left: auto;
+    }
+    .btn-step-next:hover {
+      box-shadow: 0 8px 24px rgba(212, 168, 83, 0.25);
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 <body>
@@ -665,7 +926,7 @@
         We help growing dental practices, orthodontists, and oral surgeons manage bookkeeping, payroll, and overhead audits. We handle your back-office finances so your practice stays profitable and compliant, letting you focus entirely on patient care.
       </p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="index.html#contact-section" class="navbar__btn-cta" style="padding: 14px 32px; border-radius: 100px; font-weight: 600;">Book a complimentary 30-minute consultation</a>
+        <a href="#consultation-section" class="navbar__btn-cta" style="padding: 14px 32px; border-radius: 100px; font-weight: 600;">Book a complimentary 30-minute consultation</a>
         <a href="#services-list" class="portfolio-card__link" style="align-self: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 12px 28px; border-radius: 100px; color: var(--color-white); font-weight: 500; transition: all 0.3s;">Explore Services</a>
       </div>
     </div>
@@ -1071,6 +1332,306 @@
     </div>
   </section>
 
+  <!-- ======== LEAD CAPTURE SECTION ======== -->
+  <section class="lead-capture-section" id="consultation-section">
+    <div style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 168, 83, 0.03) 0%, rgba(0, 0, 0, 0) 70%); bottom: -200px; right: -100px; z-index: 1; pointer-events: none;"></div>
+    
+    <div class="form-container-card">
+      <!-- Progress Bar -->
+      <div class="step-progress-bar">
+        <div class="progress-line-fill"></div>
+        <div class="progress-step-dot active">1</div>
+        <div class="progress-step-dot">2</div>
+        <div class="progress-step-dot">3</div>
+      </div>
+      
+      <!-- Multi-step Form -->
+      <form id="dental-lead-form" novalidate>
+        
+        <!-- Step 1 Content -->
+        <div class="form-step-content active">
+          <div class="step-title-desc">
+            <h3>Step 1: Company Size</h3>
+            <p>How many team members does your practice have?</p>
+          </div>
+          <div class="options-grid">
+            <!-- Option 1 -->
+            <input type="radio" name="company_size" id="size-1-10" value="1–10 Employees" class="option-pill-input">
+            <label for="size-1-10" class="option-pill-label">
+              <span class="custom-radio-dot"></span>
+              <span>1–10 Employees</span>
+            </label>
+            <!-- Option 2 -->
+            <input type="radio" name="company_size" id="size-11-25" value="11–25 Employees" class="option-pill-input">
+            <label for="size-11-25" class="option-pill-label">
+              <span class="custom-radio-dot"></span>
+              <span>11–25 Employees</span>
+            </label>
+            <!-- Option 3 -->
+            <input type="radio" name="company_size" id="size-26-50" value="26–50 Employees" class="option-pill-input">
+            <label for="size-26-50" class="option-pill-label">
+              <span class="custom-radio-dot"></span>
+              <span>26–50 Employees</span>
+            </label>
+            <!-- Option 4 -->
+            <input type="radio" name="company_size" id="size-51-100" value="51–100 Employees" class="option-pill-input">
+            <label for="size-51-100" class="option-pill-label">
+              <span class="custom-radio-dot"></span>
+              <span>51–100 Employees</span>
+            </label>
+            <!-- Option 5 -->
+            <input type="radio" name="company_size" id="size-100" value="100+ Employees" class="option-pill-input">
+            <label for="size-100" class="option-pill-label">
+              <span class="custom-radio-dot"></span>
+              <span>100+ Employees</span>
+            </label>
+          </div>
+        </div>
+        
+        <!-- Step 2 Content -->
+        <div class="form-step-content">
+          <div class="step-title-desc">
+            <h3>Step 2: What can we help you with?</h3>
+            <p>Allow multiple selections</p>
+          </div>
+          <div class="options-grid">
+            <!-- Option 1 -->
+            <input type="checkbox" name="services[]" id="srv-bookkeeping" value="Bookkeeping" class="option-pill-input">
+            <label for="srv-bookkeeping" class="option-pill-label">
+              <span class="custom-checkbox-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Bookkeeping</span>
+            </label>
+            <!-- Option 2 -->
+            <input type="checkbox" name="services[]" id="srv-payroll" value="Payroll" class="option-pill-input">
+            <label for="srv-payroll" class="option-pill-label">
+              <span class="custom-checkbox-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Payroll</span>
+            </label>
+            <!-- Option 3 -->
+            <input type="checkbox" name="services[]" id="srv-support" value="Accounting Support" class="option-pill-input">
+            <label for="srv-support" class="option-pill-label">
+              <span class="custom-checkbox-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Accounting Support</span>
+            </label>
+            <!-- Option 4 -->
+            <input type="checkbox" name="services[]" id="srv-catchup" value="Catch-Up Bookkeeping" class="option-pill-input">
+            <label for="srv-catchup" class="option-pill-label">
+              <span class="custom-checkbox-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Catch-Up Bookkeeping</span>
+            </label>
+            <!-- Option 5 -->
+            <input type="checkbox" name="services[]" id="srv-cleanup" value="QuickBooks Cleanup" class="option-pill-input">
+            <label for="srv-cleanup" class="option-pill-label">
+              <span class="custom-checkbox-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>QuickBooks Cleanup</span>
+            </label>
+            <!-- Option 6 -->
+            <input type="checkbox" name="services[]" id="srv-reporting" value="Financial Reporting" class="option-pill-input">
+            <label for="srv-reporting" class="option-pill-label">
+              <span class="custom-checkbox-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Financial Reporting</span>
+            </label>
+            <!-- Option 7 -->
+            <input type="checkbox" name="services[]" id="srv-notsure" value="I'm Not Sure Yet" class="option-pill-input">
+            <label for="srv-notsure" class="option-pill-label">
+              <span class="custom-checkbox-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>I'm Not Sure Yet</span>
+            </label>
+          </div>
+        </div>
+        
+        <!-- Step 3 Content -->
+        <div class="form-step-content">
+          <div class="step-title-desc">
+            <h3>Step 3: Tell Us About Your Practice</h3>
+            <p>We will review your details before our consultation call.</p>
+          </div>
+          
+          <div class="input-field-group">
+            <input type="text" name="practice_name" placeholder="Practice Name (Optional)" class="form-text-input">
+            <input type="text" name="name" id="lead-name" placeholder="Your Name (Required)" class="form-text-input" required>
+          </div>
+          <div class="input-field-group">
+            <input type="email" name="email" id="lead-email" placeholder="Business Email (Required)" class="form-text-input" required>
+            <input type="tel" name="phone" placeholder="Phone Number (Optional)" class="form-text-input">
+          </div>
+          <div style="margin-bottom: 24px;">
+            <textarea name="message" placeholder="Tell us a little about your practice or the bookkeeping challenge you're facing..." class="form-text-input form-textarea"></textarea>
+          </div>
+        </div>
+        
+        <!-- Form Navigation Actions -->
+        <div class="form-navigation-actions">
+          <button type="button" class="btn-step-prev" id="btn-prev" style="display: none;">Back</button>
+          <button type="button" class="btn-step-next" id="btn-next">
+            Next 
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <button type="submit" class="btn-step-submit" id="btn-submit" style="display: none; background: var(--gradient-gold); color: var(--color-dark); border: none; margin-left: auto;">
+            Book My Free Consultation
+          </button>
+        </div>
+        
+      </form>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("dental-lead-form");
+      const steps = document.querySelectorAll(".form-step-content");
+      const dots = document.querySelectorAll(".progress-step-dot");
+      const lineFill = document.querySelector(".progress-line-fill");
+      const btnPrev = document.getElementById("btn-prev");
+      const btnNext = document.getElementById("btn-next");
+      const btnSubmit = document.getElementById("btn-submit");
+      
+      let currentStep = 0;
+      
+      function updateFormStep() {
+        steps.forEach((step, idx) => {
+          if (idx === currentStep) {
+            step.classList.add("active");
+          } else {
+            step.classList.remove("active");
+          }
+        });
+        
+        dots.forEach((dot, idx) => {
+          if (idx < currentStep) {
+            dot.classList.add("completed");
+            dot.classList.remove("active");
+            dot.innerHTML = "✓";
+          } else if (idx === currentStep) {
+            dot.classList.remove("completed");
+            dot.classList.add("active");
+            dot.innerHTML = idx + 1;
+          } else {
+            dot.classList.remove("completed", "active");
+            dot.innerHTML = idx + 1;
+          }
+        });
+        
+        const progressPercentage = (currentStep / (steps.length - 1)) * 100;
+        if (lineFill) {
+          lineFill.style.width = progressPercentage + "%";
+        }
+        
+        if (currentStep === 0) {
+          btnPrev.style.display = "none";
+        } else {
+          btnPrev.style.display = "block";
+        }
+        
+        if (currentStep === steps.length - 1) {
+          btnNext.style.display = "none";
+          btnSubmit.style.display = "flex";
+        } else {
+          btnNext.style.display = "flex";
+          btnSubmit.style.display = "none";
+        }
+      }
+      
+      btnNext.addEventListener("click", function() {
+        if (currentStep === 0) {
+          const selected = form.querySelector('input[name="company_size"]:checked');
+          if (!selected) {
+            alert("Please select your practice size to continue.");
+            return;
+          }
+        }
+        if (currentStep === 1) {
+          const selected = form.querySelectorAll('input[name="services[]"]:checked');
+          if (selected.length === 0) {
+            alert("Please select at least one area we can help you with.");
+            return;
+          }
+        }
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          updateFormStep();
+        }
+      });
+      
+      btnPrev.addEventListener("click", function() {
+        if (currentStep > 0) {
+          currentStep--;
+          updateFormStep();
+        }
+      });
+      
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        
+        const name = document.getElementById("lead-name").value.trim();
+        const email = document.getElementById("lead-email").value.trim();
+        
+        if (!name || !email) {
+          alert("Please fill in all required fields (Name and Email).");
+          return;
+        }
+        
+        btnSubmit.disabled = true;
+        btnSubmit.style.opacity = "0.7";
+        btnSubmit.innerHTML = "Sending Request...";
+        
+        const formData = new FormData(form);
+        formData.append("access_key", "bfc14f9f-7037-4217-b56a-ea8fe9f8b38e");
+        formData.append("subject", "New Dental Consultation Lead from " + name);
+        formData.append("from_name", "TaskAura Global");
+        
+        const checkedServices = [];
+        form.querySelectorAll('input[name="services[]"]:checked').forEach(cb => {
+          checkedServices.push(cb.value);
+        });
+        formData.delete("services[]");
+        formData.append("Selected Services", checkedServices.join(", "));
+        
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        })
+        .then(async (response) => {
+          const result = await response.json();
+          if (response.status === 200 && result.success) {
+            window.location.href = "thankyou.html";
+          } else {
+            console.error(result);
+            alert("Failed to submit request. Please try again or email us directly.");
+            btnSubmit.disabled = false;
+            btnSubmit.style.opacity = "1";
+            btnSubmit.innerHTML = "Book My Free Consultation";
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("A network connection error occurred. Please check your internet connection.");
+          btnSubmit.disabled = false;
+          btnSubmit.style.opacity = "1";
+          btnSubmit.innerHTML = "Book My Free Consultation";
+        });
+      });
+      
+      updateFormStep();
+    });
+  </script>
 
   <!-- ======== FOOTER ======== -->
   <footer class="footer">
