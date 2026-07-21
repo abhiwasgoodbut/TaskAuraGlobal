@@ -598,37 +598,80 @@
       font-size: 0.92rem;
       color: var(--color-gray-text-dark);
     }
-    .options-grid {
+    .options-grid-step1 {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
       margin-bottom: 24px;
     }
-    .option-pill-label {
-      background: rgba(255, 255, 255, 0.01);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 14px;
-      padding: 16px 20px;
+    .options-grid-step2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 767px) {
+      .options-grid-step2 {
+        grid-template-columns: 1fr;
+      }
+    }
+    .option-card-label {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(212, 168, 83, 0.15);
+      border-radius: 18px;
+      padding: 24px 20px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 14px;
+      text-align: center;
+      gap: 12px;
       cursor: pointer;
       color: var(--color-gray-text-light);
-      font-weight: 500;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
     }
-    .option-pill-label:hover {
-      background: rgba(255, 255, 255, 0.02);
-      border-color: rgba(212, 168, 83, 0.25);
+    .option-card-label:hover {
+      background: rgba(212, 168, 83, 0.02);
+      border-color: rgba(212, 168, 83, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(212, 168, 83, 0.08);
     }
     .option-pill-input {
       display: none;
     }
-    .option-pill-input:checked + .option-pill-label {
+    .option-pill-input:checked + .option-card-label {
       border-color: var(--color-gold);
-      background: rgba(212, 168, 83, 0.04);
+      background: rgba(212, 168, 83, 0.08);
       color: var(--color-white);
-      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.05);
+      box-shadow: 0 15px 30px rgba(212, 168, 83, 0.18);
+      transform: scale(1.02);
+    }
+    .option-card-label .option-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+    .option-pill-input:checked + .option-card-label .option-title {
+      color: var(--color-gold);
+    }
+    .option-card-label .option-desc {
+      font-size: 0.82rem;
+      color: var(--color-gray-text-dark);
+      line-height: 1.4;
+    }
+    .option-card-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
+    @media (min-width: 768px) {
+      .span-two-columns {
+        grid-column: span 2;
+      }
     }
     .custom-radio-dot {
       width: 18px;
@@ -1354,36 +1397,51 @@
             <h3>Step 1: Company Size</h3>
             <p>How many team members does your practice have?</p>
           </div>
-          <div class="options-grid">
+          <div class="options-grid-step1">
             <!-- Option 1 -->
             <input type="radio" name="company_size" id="size-1-10" value="1–10 Employees" class="option-pill-input">
-            <label for="size-1-10" class="option-pill-label">
-              <span class="custom-radio-dot"></span>
-              <span>1–10 Employees</span>
+            <label for="size-1-10" class="option-card-label">
+              <div class="option-card-indicator">
+                <span class="custom-radio-dot"></span>
+              </div>
+              <div class="option-title">1–10 Employees</div>
+              <div class="option-desc">Solo practitioner or small private clinic team.</div>
             </label>
             <!-- Option 2 -->
             <input type="radio" name="company_size" id="size-11-25" value="11–25 Employees" class="option-pill-input">
-            <label for="size-11-25" class="option-pill-label">
-              <span class="custom-radio-dot"></span>
-              <span>11–25 Employees</span>
+            <label for="size-11-25" class="option-card-label">
+              <div class="option-card-indicator">
+                <span class="custom-radio-dot"></span>
+              </div>
+              <div class="option-title">11–25 Employees</div>
+              <div class="option-desc">Established mid-sized family dental clinic.</div>
             </label>
             <!-- Option 3 -->
             <input type="radio" name="company_size" id="size-26-50" value="26–50 Employees" class="option-pill-input">
-            <label for="size-26-50" class="option-pill-label">
-              <span class="custom-radio-dot"></span>
-              <span>26–50 Employees</span>
+            <label for="size-26-50" class="option-card-label">
+              <div class="option-card-indicator">
+                <span class="custom-radio-dot"></span>
+              </div>
+              <div class="option-title">26–50 Employees</div>
+              <div class="option-desc">Multi-chair clinic or regional specialty group.</div>
             </label>
             <!-- Option 4 -->
             <input type="radio" name="company_size" id="size-51-100" value="51–100 Employees" class="option-pill-input">
-            <label for="size-51-100" class="option-pill-label">
-              <span class="custom-radio-dot"></span>
-              <span>51–100 Employees</span>
+            <label for="size-51-100" class="option-card-label">
+              <div class="option-card-indicator">
+                <span class="custom-radio-dot"></span>
+              </div>
+              <div class="option-title">51–100 Employees</div>
+              <div class="option-desc">Large multi-location dental practice group.</div>
             </label>
             <!-- Option 5 -->
             <input type="radio" name="company_size" id="size-100" value="100+ Employees" class="option-pill-input">
-            <label for="size-100" class="option-pill-label">
-              <span class="custom-radio-dot"></span>
-              <span>100+ Employees</span>
+            <label for="size-100" class="option-card-label">
+              <div class="option-card-indicator">
+                <span class="custom-radio-dot"></span>
+              </div>
+              <div class="option-title">100+ Employees</div>
+              <div class="option-desc">Enterprise Dental Service Organization (DSO).</div>
             </label>
           </div>
         </div>
@@ -1394,62 +1452,83 @@
             <h3>Step 2: What can we help you with?</h3>
             <p>Allow multiple selections</p>
           </div>
-          <div class="options-grid">
+          <div class="options-grid-step2">
             <!-- Option 1 -->
             <input type="checkbox" name="services[]" id="srv-bookkeeping" value="Bookkeeping" class="option-pill-input">
-            <label for="srv-bookkeeping" class="option-pill-label">
-              <span class="custom-checkbox-box">
+            <label for="srv-bookkeeping" class="option-card-label" style="flex-direction: row; text-align: left; align-items: flex-start; gap: 16px;">
+              <span class="custom-checkbox-box" style="margin-top: 4px; flex-shrink: 0;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
-              <span>Bookkeeping</span>
+              <div>
+                <div class="option-title">Bookkeeping</div>
+                <div class="option-desc">Monthly bank reconciliations, expense categorizations, and overhead analysis.</div>
+              </div>
             </label>
             <!-- Option 2 -->
             <input type="checkbox" name="services[]" id="srv-payroll" value="Payroll" class="option-pill-input">
-            <label for="srv-payroll" class="option-pill-label">
-              <span class="custom-checkbox-box">
+            <label for="srv-payroll" class="option-card-label" style="flex-direction: row; text-align: left; align-items: flex-start; gap: 16px;">
+              <span class="custom-checkbox-box" style="margin-top: 4px; flex-shrink: 0;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
-              <span>Payroll</span>
+              <div>
+                <div class="option-title">Payroll</div>
+                <div class="option-desc">W-2 setup, associate payout splits, tax filings, and wage tracking.</div>
+              </div>
             </label>
             <!-- Option 3 -->
             <input type="checkbox" name="services[]" id="srv-support" value="Accounting Support" class="option-pill-input">
-            <label for="srv-support" class="option-pill-label">
-              <span class="custom-checkbox-box">
+            <label for="srv-support" class="option-card-label" style="flex-direction: row; text-align: left; align-items: flex-start; gap: 16px;">
+              <span class="custom-checkbox-box" style="margin-top: 4px; flex-shrink: 0;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
-              <span>Accounting Support</span>
+              <div>
+                <div class="option-title">Accounting Support</div>
+                <div class="option-desc">Vendor ledger reconciliation, general ledger management, and auditor assistance.</div>
+              </div>
             </label>
             <!-- Option 4 -->
             <input type="checkbox" name="services[]" id="srv-catchup" value="Catch-Up Bookkeeping" class="option-pill-input">
-            <label for="srv-catchup" class="option-pill-label">
-              <span class="custom-checkbox-box">
+            <label for="srv-catchup" class="option-card-label" style="flex-direction: row; text-align: left; align-items: flex-start; gap: 16px;">
+              <span class="custom-checkbox-box" style="margin-top: 4px; flex-shrink: 0;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
-              <span>Catch-Up Bookkeeping</span>
+              <div>
+                <div class="option-title">Catch-Up Bookkeeping</div>
+                <div class="option-desc">Reconstructing historic backlog books and resolving ledger deficits.</div>
+              </div>
             </label>
             <!-- Option 5 -->
             <input type="checkbox" name="services[]" id="srv-cleanup" value="QuickBooks Cleanup" class="option-pill-input">
-            <label for="srv-cleanup" class="option-pill-label">
-              <span class="custom-checkbox-box">
+            <label for="srv-cleanup" class="option-card-label" style="flex-direction: row; text-align: left; align-items: flex-start; gap: 16px;">
+              <span class="custom-checkbox-box" style="margin-top: 4px; flex-shrink: 0;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
-              <span>QuickBooks Cleanup</span>
+              <div>
+                <div class="option-title">QuickBooks Cleanup</div>
+                <div class="option-desc">Fixing charts of accounts, bank feed exceptions, and matching transactions.</div>
+              </div>
             </label>
             <!-- Option 6 -->
             <input type="checkbox" name="services[]" id="srv-reporting" value="Financial Reporting" class="option-pill-input">
-            <label for="srv-reporting" class="option-pill-label">
-              <span class="custom-checkbox-box">
+            <label for="srv-reporting" class="option-card-label" style="flex-direction: row; text-align: left; align-items: flex-start; gap: 16px;">
+              <span class="custom-checkbox-box" style="margin-top: 4px; flex-shrink: 0;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
-              <span>Financial Reporting</span>
+              <div>
+                <div class="option-title">Financial Reporting</div>
+                <div class="option-desc">Custom P&Ls, cash flow projections, and visual dental overhead dashboards.</div>
+              </div>
             </label>
             <!-- Option 7 -->
             <input type="checkbox" name="services[]" id="srv-notsure" value="I'm Not Sure Yet" class="option-pill-input">
-            <label for="srv-notsure" class="option-pill-label">
-              <span class="custom-checkbox-box">
+            <label for="srv-notsure" class="option-card-label span-two-columns" style="flex-direction: row; text-align: left; align-items: flex-start; gap: 16px;">
+              <span class="custom-checkbox-box" style="margin-top: 4px; flex-shrink: 0;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </span>
-              <span>I'm Not Sure Yet</span>
+              <div>
+                <div class="option-title">I'm Not Sure Yet</div>
+                <div class="option-desc">I know my books need help, but I'd like to discuss the right options with an advisor.</div>
+              </div>
             </label>
           </div>
         </div>
