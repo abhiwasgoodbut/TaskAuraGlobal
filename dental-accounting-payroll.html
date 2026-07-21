@@ -507,12 +507,12 @@
     .form-container-card {
       max-width: 680px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.01);
-      border: 1px solid rgba(212, 168, 83, 0.15);
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(212, 168, 83, 0.28);
       border-radius: 24px;
       padding: 40px;
       backdrop-filter: blur(15px);
-      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.4), 0 0 35px rgba(212, 168, 83, 0.06);
       position: relative;
       z-index: 2;
     }
@@ -672,7 +672,7 @@
       justify-content: center;
       transition: all 0.3s ease;
     }
-    .option-pill-input:checked + .option-pill-label .custom-radio-dot {
+    .option-pill-input:checked + .option-card-label .custom-radio-dot {
       border-color: var(--color-gold);
     }
     .custom-radio-dot::after {
@@ -685,7 +685,7 @@
       transform: scale(0);
       transition: all 0.3s ease;
     }
-    .option-pill-input:checked + .option-pill-label .custom-radio-dot::after {
+    .option-pill-input:checked + .option-card-label .custom-radio-dot::after {
       opacity: 1;
       transform: scale(1);
     }
@@ -699,7 +699,7 @@
       justify-content: center;
       transition: all 0.3s ease;
     }
-    .option-pill-input:checked + .option-pill-label .custom-checkbox-box {
+    .option-pill-input:checked + .option-card-label .custom-checkbox-box {
       border-color: var(--color-gold);
       background: var(--color-gold);
     }
@@ -712,7 +712,7 @@
       transform: scale(0.5);
       transition: all 0.2s ease;
     }
-    .option-pill-input:checked + .option-pill-label .custom-checkbox-box svg {
+    .option-pill-input:checked + .option-card-label .custom-checkbox-box svg {
       opacity: 1;
       transform: scale(1);
     }
