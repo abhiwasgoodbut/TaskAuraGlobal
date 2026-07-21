@@ -441,6 +441,65 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Software Support Section Styles */
+    .software-card {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .software-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 168, 83, 0.25);
+      background: rgba(212, 168, 83, 0.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    .software-logo-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      transition: transform 0.3s ease;
+    }
+    .software-card:hover .software-logo-wrapper {
+      transform: scale(1.08);
+    }
+    .software-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin: 0 0 4px 0;
+    }
+    .software-card p {
+      font-size: 0.8rem;
+      color: var(--color-gray-text-dark);
+      margin: 0;
+    }
+    @media (max-width: 991px) {
+      .software-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+    @media (max-width: 575px) {
+      .software-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -823,6 +882,61 @@
           </div>
           <h3>Multi-Location Dental Practices</h3>
           <p>Consolidating regional branch P&Ls, clinic-to-clinic ledger transfers, and centralized overhead audits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SOFTWARE WE SUPPORT SECTION ======== -->
+  <section class="software-support" style="padding: 60px 0; background: #06060c; border-top: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden;">
+    <div style="position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212, 168, 83, 0.02) 0%, rgba(0, 0, 0, 0) 70%); top: -50px; left: -100px; z-index: 1; pointer-events: none;"></div>
+    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; text-align: center;">
+      <!-- Section Header -->
+      <div class="projects__header" style="margin-bottom: 40px; text-align: center; margin-left: auto !important; margin-right: auto !important;">
+        <div class="projects__badge">SYSTEMS &amp; INTEGRATIONS</div>
+        <h2 class="projects__title" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 8px;">Software We Work With</h2>
+        <p class="projects__description" style="margin: 0 auto; max-width: 700px;">
+          Seamless integration with your existing accounting, payroll, and merchant payment platforms.
+        </p>
+      </div>
+
+      <!-- Software Grid -->
+      <div class="software-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto;">
+        <!-- QuickBooks -->
+        <div class="software-card">
+          <div class="software-logo-wrapper" style="background: #2CA01C; box-shadow: 0 4px 15px rgba(44, 160, 28, 0.25);">QB</div>
+          <h3>QuickBooks</h3>
+          <p>Online &amp; Desktop</p>
+        </div>
+        <!-- Xero -->
+        <div class="software-card">
+          <div class="software-logo-wrapper" style="background: #00b7e5; box-shadow: 0 4px 15px rgba(0, 183, 229, 0.25);">X</div>
+          <h3>Xero</h3>
+          <p>Cloud Accounting</p>
+        </div>
+        <!-- Gusto -->
+        <div class="software-card">
+          <div class="software-logo-wrapper" style="background: #FF5C39; box-shadow: 0 4px 15px rgba(255, 92, 57, 0.25); font-size: 1.6rem; font-weight: 700;">g</div>
+          <h3>Gusto</h3>
+          <p>Payroll &amp; HR</p>
+        </div>
+        <!-- ADP -->
+        <div class="software-card">
+          <div class="software-logo-wrapper" style="background: #D0271D; box-shadow: 0 4px 15px rgba(208, 39, 29, 0.25); font-size: 1.1rem; letter-spacing: -0.5px;">ADP</div>
+          <h3>ADP</h3>
+          <p>Wage Management</p>
+        </div>
+        <!-- Stripe -->
+        <div class="software-card">
+          <div class="software-logo-wrapper" style="background: #635BFF; box-shadow: 0 4px 15px rgba(99, 91, 255, 0.25);">S</div>
+          <h3>Stripe</h3>
+          <p>Payment Processing</p>
+        </div>
+        <!-- Bill.com -->
+        <div class="software-card">
+          <div class="software-logo-wrapper" style="background: #0052FF; box-shadow: 0 4px 15px rgba(0, 82, 255, 0.25); font-style: italic; font-size: 1.25rem;">bill</div>
+          <h3>Bill.com</h3>
+          <p>Receivables &amp; AP</p>
         </div>
       </div>
     </div>
