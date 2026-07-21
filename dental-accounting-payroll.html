@@ -460,17 +460,13 @@
       background: rgba(212, 168, 83, 0.02);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
+
     .software-logo-wrapper {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 64px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 800;
       margin-bottom: 16px;
       transition: transform 0.3s ease;
     }
@@ -904,37 +900,69 @@
       <div class="software-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto;">
         <!-- QuickBooks -->
         <div class="software-card">
-          <div class="software-logo-wrapper" style="background: #2CA01C; box-shadow: 0 4px 15px rgba(44, 160, 28, 0.25);">QB</div>
+          <div class="software-logo-wrapper">
+            <svg viewBox="0 0 32 32" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" fill="#2CA01C"/>
+              <circle cx="16" cy="8" r="4.5" fill="#ffffff"/>
+              <circle cx="24" cy="16" r="4.5" fill="#ffffff" fill-opacity="0.85"/>
+              <circle cx="16" cy="24" r="4.5" fill="#ffffff" fill-opacity="0.7"/>
+              <circle cx="8" cy="16" r="4.5" fill="#ffffff" fill-opacity="0.85"/>
+            </svg>
+          </div>
           <h3>QuickBooks</h3>
           <p>Online &amp; Desktop</p>
         </div>
         <!-- Xero -->
         <div class="software-card">
-          <div class="software-logo-wrapper" style="background: #00b7e5; box-shadow: 0 4px 15px rgba(0, 183, 229, 0.25);">X</div>
+          <div class="software-logo-wrapper">
+            <svg viewBox="0 0 32 32" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" fill="#00b7e5"/>
+              <path d="M11 11L21 21M21 11L11 21" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
           <h3>Xero</h3>
           <p>Cloud Accounting</p>
         </div>
         <!-- Gusto -->
         <div class="software-card">
-          <div class="software-logo-wrapper" style="background: #FF5C39; box-shadow: 0 4px 15px rgba(255, 92, 57, 0.25); font-size: 1.6rem; font-weight: 700;">g</div>
+          <div class="software-logo-wrapper">
+            <svg viewBox="0 0 32 32" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#FF5C39"/>
+              <text x="9" y="22" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="700" font-size="18px">g</text>
+            </svg>
+          </div>
           <h3>Gusto</h3>
           <p>Payroll &amp; HR</p>
         </div>
         <!-- ADP -->
         <div class="software-card">
-          <div class="software-logo-wrapper" style="background: #D0271D; box-shadow: 0 4px 15px rgba(208, 39, 29, 0.25); font-size: 1.1rem; letter-spacing: -0.5px;">ADP</div>
+          <div class="software-logo-wrapper">
+            <svg viewBox="0 0 48 32" width="56" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="2" y="25" fill="#D0271D" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="24px" font-style="italic" letter-spacing="-0.5px">ADP</text>
+            </svg>
+          </div>
           <h3>ADP</h3>
           <p>Wage Management</p>
         </div>
         <!-- Stripe -->
         <div class="software-card">
-          <div class="software-logo-wrapper" style="background: #635BFF; box-shadow: 0 4px 15px rgba(99, 91, 255, 0.25);">S</div>
+          <div class="software-logo-wrapper">
+            <svg viewBox="0 0 32 32" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="8" fill="#635BFF"/>
+              <path d="M12 22.5c0-1.8 1.4-2.5 3.2-3.1l2.5-.8c2.4-.8 4.3-1.8 4.3-4.6 0-3.3-2.7-4.5-6-4.5-3.3 0-5.8 1.2-5.8 3.5h3.2c0-1.1.9-1.5 2.6-1.5 1.6 0 2.6.5 2.6 1.5 0 .9-.8 1.3-2.5 1.8l-2.6.8c-2.8.9-4.6 2.1-4.6 4.9 0 3.3 2.7 4.5 6 4.5 3.3 0 6-1.2 6-3.5h-3.2c0 1.1-.9 1.5-2.8 1.5-1.7 0-2.8-.5-2.8-1.5z" fill="#ffffff"/>
+            </svg>
+          </div>
           <h3>Stripe</h3>
           <p>Payment Processing</p>
         </div>
         <!-- Bill.com -->
         <div class="software-card">
-          <div class="software-logo-wrapper" style="background: #0052FF; box-shadow: 0 4px 15px rgba(0, 82, 255, 0.25); font-style: italic; font-size: 1.25rem;">bill</div>
+          <div class="software-logo-wrapper">
+            <svg viewBox="0 0 32 32" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#0052FF"/>
+              <text x="10" y="22" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="900" font-size="18px" font-style="italic">b</text>
+            </svg>
+          </div>
           <h3>Bill.com</h3>
           <p>Receivables &amp; AP</p>
         </div>
