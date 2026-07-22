@@ -888,6 +888,27 @@
         text-align: left;
       }
     }
+    /* Who We Help Fit Cards Styles */
+    .fit-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fit-card:hover {
+      transform: translateY(-4px);
+    }
+    .fit-card--nofit:hover {
+      box-shadow: 0 15px 35px rgba(255, 77, 77, 0.08), 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+      border-color: rgba(255, 77, 77, 0.4) !important;
+    }
+    .fit-card--greatfit:hover {
+      box-shadow: 0 15px 35px rgba(57, 229, 142, 0.08), 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+      border-color: rgba(57, 229, 142, 0.4) !important;
+    }
+    @media (max-width: 768px) {
+      .who-we-help div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1265,91 +1286,65 @@
   </section>
 
   <!-- ======== WHO WE HELP SECTION ======== -->
-  <section class="who-we-help" style="padding: 60px 0; background: #05050a; border-top: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden;">
-    <div style="position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(212, 168, 83, 0.02) 0%, rgba(0, 0, 0, 0) 70%); bottom: -100px; right: -100px; z-index: 1; pointer-events: none;"></div>
-    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; text-align: center;">
+  <section class="who-we-help" style="padding: 80px 0; background: #05050a; border-top: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden;">
+    <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212, 168, 83, 0.03) 0%, rgba(0, 0, 0, 0) 70%); bottom: -200px; left: -100px; z-index: 1; pointer-events: none;"></div>
+    
+    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2;">
       <!-- Section Header -->
-      <div class="projects__header" style="margin-bottom: 40px; text-align: center; margin-left: auto !important; margin-right: auto !important;">
+      <div class="projects__header" style="margin-bottom: 50px; text-align: center; margin-left: auto !important; margin-right: auto !important;">
         <div class="projects__badge">WHO WE HELP</div>
-        <h2 class="projects__title" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 8px;">We Support</h2>
+        <h2 class="projects__title" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 8px;">Are We the <span class="projects__title-gold">Right Fit?</span></h2>
         <p class="projects__description" style="margin: 0 auto; max-width: 700px;">
-          Tailored back-office bookkeeping and specialized reporting for every dental specialty.
+          We believe in mutual alignment. Let's make sure our goals, workflows, and expectations match perfectly.
         </p>
       </div>
-      
-      <!-- Grid Container -->
-      <div class="who-we-help-grid">
-        <!-- Card 1 -->
-        <div class="who-we-help-card">
-          <div class="who-we-help-icon-wrapper">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C9.5 2 7.5 3.5 7.5 6.5c0 2.5 1.5 4 2 5.5.5 1.5.5 3 .5 4 0 .5-.2 1-.5 1.5l-.5.5c-.3.3-.1 1 .5 1h1.5c1.5 0 2-1 2-2.5v-1c0 1.5.5 2.5 2 2.5h1.5c.6 0 .8-.7.5-1l-.5-.5c-.3-.5-.5-1-.5-1.5 0-1 .0-2.5.5-4 .5-1.5 2-3 2-5.5C16.5 3.5 14.5 2 12 2z"></path>
-            </svg>
-          </div>
-          <h3>General Dentistry</h3>
-          <p>Streamlining high-volume PPO claims reconciliation, patient co-pay tracking, and supply overhead auditing.</p>
+
+      <!-- Fit Grid -->
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto;">
+        <!-- Card 1: Not the Right Fit -->
+        <div class="fit-card fit-card--nofit" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 77, 77, 0.2); border-radius: 20px; padding: 36px 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          <h3 style="font-family: var(--font-heading); color: #ff4d4d; font-size: 1.35rem; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.5rem;">⚠️</span> We May Not Be the Right Fit If...
+          </h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; text-align: left;">
+            <li style="display: flex; align-items: flex-start; gap: 12px; color: var(--color-gray-text-light); font-size: 0.98rem; line-height: 1.5;">
+              <span style="color: #ff4d4d; font-weight: bold; flex-shrink: 0; margin-top: 2px;">❌</span>
+              <span>You're looking for the cheapest bookkeeping service.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px; color: var(--color-gray-text-light); font-size: 0.98rem; line-height: 1.5;">
+              <span style="color: #ff4d4d; font-weight: bold; flex-shrink: 0; margin-top: 2px;">❌</span>
+              <span>You only need bookkeeping once a year.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px; color: var(--color-gray-text-light); font-size: 0.98rem; line-height: 1.5;">
+              <span style="color: #ff4d4d; font-weight: bold; flex-shrink: 0; margin-top: 2px;">❌</span>
+              <span>You don't value accurate financial reporting.</span>
+            </li>
+          </ul>
         </div>
-        <!-- Card 2 -->
-        <div class="who-we-help-card">
-          <div class="who-we-help-icon-wrapper">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3C9.8 3 8 4.5 8 7c0 2.2 1.3 3.5 1.8 4.8.4 1.3.4 2.6.4 3.5 0 .4-.2.9-.4 1.3l-.4.4c-.3.3-.1.9.4.9h1.3c1.3 0 1.8-.9 1.8-2.2v-.9c0 1.3.4 2.2 1.8 2.2h1.3c.5 0 .7-.6.4-.9l-.4-.4c-.3-.4-.4-.9-.4-1.3 0-.9.0-2.2.4-3.5.4-1.3 1.8-2.6 1.8-4.8C16 4.5 14.2 3 12 3z" opacity="0.4"></path>
-              <path d="M4 10c4-1.5 8-1.5 12 0" stroke="currentColor" stroke-width="2"></path>
-              <rect x="7" y="8.5" width="2" height="3" rx="0.5" fill="currentColor"></rect>
-              <rect x="11" y="8.5" width="2" height="3" rx="0.5" fill="currentColor"></rect>
-              <rect x="15" y="8.5" width="2" height="3" rx="0.5" fill="currentColor"></rect>
-            </svg>
-          </div>
-          <h3>Orthodontists</h3>
-          <p>Tracking recurring patient contracts, multi-year treatment plans, and interest-free installment receivables.</p>
-        </div>
-        <!-- Card 3 -->
-        <div class="who-we-help-card">
-          <div class="who-we-help-icon-wrapper">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C9.8 2 8 3.5 8 5.5c0 1.5 1 2.5 1.5 3.5.3.7.3 1.5.3 2 0 .5-.2 1-.5 1.5l-.3.3c-.2.2-.1.7.3.7h1c1 0 1.5-.7 1.5-1.7v-.5c0 1 .5 1.7 1.5 1.7h1c.4 0 .5-.5.3-.7l-.3-.3c-.3-.5-.5-1-.5-1.5 0-.5.0-1.3.3-2C15 8 16 7 16 5.5 16 3.5 14.5 2 12 2z"></path>
-              <circle cx="10.5" cy="7" r="0.75" fill="currentColor"></circle>
-              <circle cx="13.5" cy="7" r="0.75" fill="currentColor"></circle>
-              <path d="M10.5 9.5c.5.8 1.5.8 2 0" stroke-linecap="round"></path>
-            </svg>
-          </div>
-          <h3>Pediatric Dentists</h3>
-          <p>Managing multi-dentist production splits, recall reward lists, and advance booking deposits.</p>
-        </div>
-        <!-- Card 4 -->
-        <div class="who-we-help-card">
-          <div class="who-we-help-icon-wrapper">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3C9.8 3 8 4.5 8 7c0 2.2 1.3 3.5 1.8 4.8.4 1.3.4 2.6.4 3.5 0 .4-.2.9-.4 1.3l-.4.4c-.3.3-.1.9.4.9h1.3c1.3 0 1.8-.9 1.8-2.2v-.9c0 1.3.4 2.2 1.8 2.2h1.3c.5 0 .7-.6.4-.9l-.4-.4c-.3-.4-.4-.9-.4-1.3 0-.9.0-2.2.4-3.5.4-1.3 1.8-2.6 1.8-4.8C16 4.5 14.2 3 12 3z"></path>
-              <path d="M12 6v6M9 9h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-            </svg>
-          </div>
-          <h3>Oral Surgeons</h3>
-          <p>Auditing high-value surgical materials, implant supplies ledger logs, and medical cross-billing insurance codes.</p>
-        </div>
-        <!-- Card 5 -->
-        <div class="who-we-help-card">
-          <div class="who-we-help-icon-wrapper">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3C9.8 3 8 4.5 8 7c0 2.2 1.3 3.5 1.8 4.8.4 1.3.4 2.6.4 3.5 0 .4-.2.9-.4 1.3l-.4.4c-.3.3-.1.9.4.9h1.3c1.3 0 1.8-.9 1.8-2.2v-.9c0 1.3.4 2.2 1.8 2.2h1.3c.5 0 .7-.6.4-.9l-.4-.4c-.3-.4-.4-.9-.4-1.3 0-.9.0-2.2.4-3.5.4-1.3 1.8-2.6 1.8-4.8C16 4.5 14.2 3 12 3z"></path>
-              <path d="M17.5 3l.5 1 .5-1-.5-1zm-11 4.5l.3.7.7-.3-.7-.3z" fill="currentColor"></path>
-            </svg>
-          </div>
-          <h3>Cosmetic Dentists</h3>
-          <p>Tracking elective procedure fee-for-service cash flows, custom lab fee splits, and patient financing ledgers.</p>
-        </div>
-        <!-- Card 6 -->
-        <div class="who-we-help-card">
-          <div class="who-we-help-icon-wrapper">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 5c-1.5 0-2.5 1-2.5 2.5 0 1.5 1 2.2 1.3 3.2.3.9.3 1.8.3 2.5 0 .3-.1.6-.3.9l-.3.3c-.2.2-.1.6.3.6h1c.9 0 1.3-.6 1.3-1.5V13c0 .9.5 1.5 1.3 1.5h1c.3 0 .5-.4.3-.6l-.3-.3c-.2-.3-.3-.6-.3-.9 0-.7.0-1.6.3-2.5.3-1 1.3-1.7 1.3-3.2C14.5 6 13.5 5 12 5z"></path>
-              <path d="M6 9c-.8 0-1.3.5-1.3 1.3 0 .8.5 1.2.7 1.7.2.5.2 1 .2 1.3 0 .2 0 .3-.2.5l-.2.2c-.1.1 0 .3.2.3h.5c.5 0 .7-.3.7-.8v-.3c0 .5.2.8.7.8h.5c.2 0 .3-.2.2-.3l-.2-.2c-.1-.2-.2-.3-.2-.5 0-.4 0-.8.2-1.3.2-.5.7-.9.7-1.7C8.7 9.5 8.2 9 7.5 9c-.5 0-.9.5-1.5.5z" opacity="0.6"></path>
-              <path d="M18 9c-.8 0-1.3.5-1.3 1.3 0 .8.5 1.2.7 1.7.2.5.2 1 .2 1.3 0 .2 0 .3-.2.5l-.2.2c-.1.1 0 .3.2.3h.5c.5 0 .7-.3.7-.8v-.3c0 .5.2.8.7.8h.5c.2 0 .3-.2.2-.3l-.2-.2c-.1-.2-.2-.3-.2-.5 0-.4 0-.8.2-1.3.2-.5.7-.9.7-1.7C20.7 9.5 20.2 9 19.5 9c-.5 0-.9.5-1.5.5z" opacity="0.6"></path>
-              <path d="M7.5 11h9" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"></path>
-            </svg>
-          </div>
-          <h3>Multi-Location Dental Practices</h3>
-          <p>Consolidating regional branch P&Ls, clinic-to-clinic ledger transfers, and centralized overhead audits.</p>
+
+        <!-- Card 2: Great Fit -->
+        <div class="fit-card fit-card--greatfit" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(57, 229, 142, 0.2); border-radius: 20px; padding: 36px 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          <h3 style="font-family: var(--font-heading); color: #39e58e; font-size: 1.35rem; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.5rem;">🌟</span> But We Are a Great Fit If...
+          </h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; text-align: left;">
+            <li style="display: flex; align-items: flex-start; gap: 12px; color: var(--color-gray-text-light); font-size: 0.98rem; line-height: 1.5;">
+              <span style="color: #39e58e; font-weight: bold; flex-shrink: 0; margin-top: 2px;">✅</span>
+              <span>You want reliable monthly bookkeeping.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px; color: var(--color-gray-text-light); font-size: 0.98rem; line-height: 1.5;">
+              <span style="color: #39e58e; font-weight: bold; flex-shrink: 0; margin-top: 2px;">✅</span>
+              <span>You need payroll handled accurately.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px; color: var(--color-gray-text-light); font-size: 0.98rem; line-height: 1.5;">
+              <span style="color: #39e58e; font-weight: bold; flex-shrink: 0; margin-top: 2px;">✅</span>
+              <span>You want financial reports you can actually use.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px; color: var(--color-gray-text-light); font-size: 0.98rem; line-height: 1.5;">
+              <span style="color: #39e58e; font-weight: bold; flex-shrink: 0; margin-top: 2px;">✅</span>
+              <span>You're growing and need scalable support.</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
