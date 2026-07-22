@@ -927,6 +927,22 @@
         padding: 16px !important;
       }
     }
+
+    /* Responsive Text Visibility Utilities */
+    .desktop-text {
+      display: block !important;
+    }
+    .mobile-text {
+      display: none !important;
+    }
+    @media (max-width: 767px) {
+      .desktop-text {
+        display: none !important;
+      }
+      .mobile-text {
+        display: block !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1092,10 +1108,14 @@
       <h1 class="projects__title" style="font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.15; margin-bottom: 24px;">
         If Your Books Are Already Perfect... <br><span class="projects__title-gold" style="font-size: 0.8em; display: inline-block; margin-top: 8px;">...there's probably no reason to be here.</span>
       </h1>
-      <p class="projects__description" style="margin: 0 auto 40px auto; max-width: 800px; font-size: clamp(1rem, 1.3vw, 1.15rem); color: var(--color-gray-text-light); line-height: 1.75;">
+      <div class="projects__description desktop-text" style="margin: 0 auto 40px auto; max-width: 800px; font-size: clamp(1rem, 1.3vw, 1.15rem); color: var(--color-gray-text-light); line-height: 1.75;">
+        But if bookkeeping is taking time away from growing your business, delaying financial decisions, or becoming another monthly headache, we should talk. <br><br>
+        TaskAura Global helps businesses across the United States outsource bookkeeping, accounting, and payroll—so owners can focus on running their companies, not their spreadsheets.
+      </div>
+      <div class="projects__description mobile-text" style="margin: 0 auto 40px auto; max-width: 800px; font-size: clamp(1rem, 1.3vw, 1.15rem); color: var(--color-gray-text-light); line-height: 1.75;">
         Bookkeeping taking time away from growing your business? <br><br>
         We handle your books, payroll, and accounting so you can focus on scaling.
-      </p>
+      </div>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
         <a href="#consultation-section" class="navbar__btn-cta" style="padding: 14px 32px; border-radius: 100px; font-weight: 600;">Book Your Free Consultation</a>
         <a href="#services-list" class="portfolio-card__link" style="align-self: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 12px 28px; border-radius: 100px; color: var(--color-white); font-weight: 500; transition: all 0.3s;">Explore Services</a>
@@ -1176,7 +1196,10 @@
       <h3 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 600; color: var(--color-gold); margin-bottom: 24px;">
         Outsourcing your bookkeeping might be the smarter move.
       </h3>
-      <p style="margin: 0 auto; max-width: 750px; font-size: clamp(0.98rem, 1.2vw, 1.12rem); color: var(--color-gray-text-light); line-height: 1.8;">
+      <p class="desktop-text" style="margin: 0 auto; max-width: 750px; font-size: clamp(0.98rem, 1.2vw, 1.12rem); color: var(--color-gray-text-light); line-height: 1.8;">
+        Instead of recruiting, training, and managing another in-house employee, work with an experienced bookkeeping team that scales with your business.
+      </p>
+      <p class="mobile-text" style="margin: 0 auto; max-width: 750px; font-size: clamp(0.98rem, 1.2vw, 1.12rem); color: var(--color-gray-text-light); line-height: 1.8;">
         Skip the recruiting and training. Get an experienced bookkeeping team that scales with your business.
       </p>
     </div>
@@ -1205,9 +1228,12 @@
           <h3 class="showcase-content-title" style="display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; text-align: center; width: 100%;">
             <span style="color: var(--color-gold);">✔️</span> Monthly Financial Reports
           </h3>
-          <p class="showcase-content-desc" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
+          <div class="showcase-content-desc desktop-text" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
+            We prepare comprehensive monthly financial statements customized for growing businesses. This includes Profit &amp; Loss accounts, bank reconciliations, and key business expense metrics. Our prompt reports keep business owners informed of cash flow dynamics and ready for strategic decisions.
+          </div>
+          <div class="showcase-content-desc mobile-text" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
             P&amp;L, bank reconciliations, and expense summaries — delivered clean every month.
-          </p>
+          </div>
         </div>
         <div class="showcase-visual-side" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; width: 100%; max-width: 900px;">
           <!-- Card 1 -->
@@ -1237,9 +1263,12 @@
           <h3 class="showcase-content-title" style="display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; text-align: center; width: 100%;">
             <span style="color: var(--color-gold);">✔️</span> QuickBooks Specialists
           </h3>
-          <p class="showcase-content-desc" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
+          <div class="showcase-content-desc desktop-text" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
+            Our certified Intuit QuickBooks ProAdvisors configure custom ledger files tailored for growing businesses. We automate bank feeds, streamline invoice tagging, and optimize charts of accounts to ensure your books are audit-ready and compliant.
+          </div>
+          <div class="showcase-content-desc mobile-text" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
             Certified ProAdvisors who automate bank feeds, tag invoices, and keep your books audit-ready.
-          </p>
+          </div>
         </div>
         <div class="showcase-visual-side">
           <div class="certified-badge-wrapper">
@@ -1259,9 +1288,12 @@
           <h3 class="showcase-content-title" style="display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; text-align: center; width: 100%;">
             <span style="color: var(--color-gold);">✔️</span> Dedicated Bookkeeper
           </h3>
-          <p class="showcase-content-desc" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
+          <div class="showcase-content-desc desktop-text" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
+            You are paired with a dedicated back-office bookkeeper who has experience in leading cloud accounting and payroll platforms. Instead of a generic support pool, you get weekly audit checks and monthly reviews with your primary financial assistant.
+          </div>
+          <div class="showcase-content-desc mobile-text" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
             One dedicated bookkeeper. Not a support pool — your own financial point of contact.
-          </p>
+          </div>
         </div>
         <div class="showcase-visual-side">
           <div class="dedicated-team-card-wrapper">
@@ -1285,9 +1317,12 @@
           <h3 class="showcase-content-title" style="display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; text-align: center; width: 100%;">
             <span style="color: var(--color-gold);">✔️</span> Secure Cloud-Based Process
           </h3>
-          <p class="showcase-content-desc" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
+          <div class="showcase-content-desc desktop-text" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
+            We employ bank-grade security protocols and view-only permissions to reconcile and monitor accounts. Receipts and invoice approvals are processed securely via encrypted cloud storage using Hubdoc or Bill.com, ensuring zero unauthorized access to your funds.
+          </div>
+          <div class="showcase-content-desc mobile-text" style="color: var(--color-gray-text-light); line-height: 1.7; font-size: 0.98rem; text-align: center;">
             We reconcile accounts using view-only access and bank-grade security. Receipts and invoices are processed securely, ensuring zero unauthorized access to your funds.
-          </p>
+          </div>
         </div>
         <div class="showcase-visual-side">
           <div class="secure-cloud-wrapper">
@@ -1312,9 +1347,12 @@
       <div class="projects__header" style="margin-bottom: 50px; text-align: center; margin-left: auto !important; margin-right: auto !important;">
         <div class="projects__badge">WHO WE HELP</div>
         <h2 class="projects__title" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 8px;">Are We the <span class="projects__title-gold">Right Fit?</span></h2>
-        <p class="projects__description" style="margin: 0 auto; max-width: 700px;">
+        <div class="projects__description desktop-text" style="margin: 0 auto; max-width: 700px; color: var(--color-gray-text-light);">
+          We believe in mutual alignment. Let's make sure our goals, workflows, and expectations match perfectly.
+        </div>
+        <div class="projects__description mobile-text" style="margin: 0 auto; max-width: 700px; color: var(--color-gray-text-light);">
           Not every business is the right client. Here's how to know.
-        </p>
+        </div>
       </div>
 
       <!-- Fit Grid -->
