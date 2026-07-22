@@ -789,6 +789,105 @@
       box-shadow: 0 8px 24px rgba(212, 168, 83, 0.25);
       transform: translateY(-1px);
     }
+    /* Deliverables Grid & Cards Styles */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 40px 0 24px 0;
+    }
+    .deliverable-card {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(212, 168, 83, 0.2);
+      border-radius: 16px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    .deliverable-card:hover {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 20px rgba(212, 168, 83, 0.25), 0 8px 32px rgba(0, 0, 0, 0.3);
+      transform: translateY(-4px);
+    }
+    .deliverable-tick {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(212, 168, 83, 0.1);
+      border: 1.5px solid rgba(212, 168, 83, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+    .deliverable-tick svg {
+      width: 20px;
+      height: 20px;
+    }
+    .deliverable-text {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--color-white);
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .deliverables-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .deliverable-card {
+        padding: 20px 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      .deliverables-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 in a row on phone screens! */
+        gap: 8px;
+        margin: 24px 0 16px 0;
+      }
+      .deliverable-card {
+        padding: 12px 6px;
+        border-radius: 12px;
+        gap: 8px;
+      }
+      .deliverable-tick {
+        width: 28px;
+        height: 28px;
+        border-width: 1px;
+      }
+      .deliverable-tick svg {
+        width: 12px;
+        height: 12px;
+      }
+      .deliverable-text {
+        font-size: 0.75rem;
+        line-height: 1.3;
+      }
+      .deliverable-card--last {
+        grid-column: span 3; /* Centers the 4th item full-width on mobile */
+        flex-direction: row;
+        justify-content: center;
+        padding: 10px 12px;
+        gap: 10px;
+      }
+      .deliverable-card--last .deliverable-tick {
+        width: 24px;
+        height: 24px;
+      }
+      .deliverable-card--last .deliverable-tick svg {
+        width: 10px;
+        height: 10px;
+      }
+      .deliverable-card--last .deliverable-text {
+        text-align: left;
+      }
+    }
   </style>
 </head>
 <body>
@@ -962,6 +1061,85 @@
         <a href="#consultation-section" class="navbar__btn-cta" style="padding: 14px 32px; border-radius: 100px; font-weight: 600;">Book Your Free Consultation</a>
         <a href="#services-list" class="portfolio-card__link" style="align-self: center; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 12px 28px; border-radius: 100px; color: var(--color-white); font-weight: 500; transition: all 0.3s;">Explore Services</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ======== SECOND SECTION: THE SOLUTION ======== -->
+  <section class="solution-section" style="padding: 80px 0 60px 0; background: #05050a; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.03);">
+    <!-- Glowing Blob -->
+    <div style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 168, 83, 0.03) 0%, rgba(0, 0, 0, 0) 70%); top: -100px; left: -100px; z-index: 1; pointer-events: none;"></div>
+    
+    <div class="work-showcase__container" style="max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; text-align: center;">
+      <div class="projects__badge">THE REAL NEED</div>
+      <h2 class="projects__title" style="margin-bottom: 12px; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--color-white);">
+        You're Probably Not Looking for <span class="projects__title-gold">Another Bookkeeper.</span>
+      </h2>
+      <p class="projects__description" style="margin: 0 auto 32px auto; max-width: 600px; font-size: 1.05rem; color: var(--color-gray-text-light);">
+        You're looking for:
+      </p>
+
+      <!-- Deliverables Grid -->
+      <div class="deliverables-grid">
+        <!-- Card 1 -->
+        <div class="deliverable-card">
+          <div class="deliverable-tick">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="deliverable-text">Accurate numbers.</span>
+        </div>
+        <!-- Card 2 -->
+        <div class="deliverable-card">
+          <div class="deliverable-tick">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="deliverable-text">Reports you can actually trust.</span>
+        </div>
+        <!-- Card 3 -->
+        <div class="deliverable-card">
+          <div class="deliverable-tick">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="deliverable-text">Payroll that runs on time.</span>
+        </div>
+        <!-- Card 4 -->
+        <div class="deliverable-card deliverable-card--last">
+          <div class="deliverable-tick">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="deliverable-text">Someone who responds when you need them.</span>
+        </div>
+      </div>
+
+      <p style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--color-gold); margin-top: 24px; text-shadow: 0 0 15px rgba(212, 168, 83, 0.2);">
+        That's exactly what we deliver.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======== THIRD SECTION: WHY OUTSOURCE ======== -->
+  <section class="why-outsource-section" style="padding: 60px 0 80px 0; background: #05050a; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);">
+    <!-- Glowing Blob -->
+    <div style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 168, 83, 0.03) 0%, rgba(0, 0, 0, 0) 70%); bottom: -100px; right: -100px; z-index: 1; pointer-events: none;"></div>
+    
+    <div class="work-showcase__container" style="max-width: 1000px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; text-align: center;">
+      <div class="projects__badge">WHY OUTSOURCE</div>
+      <h2 class="projects__title" style="margin-bottom: 16px; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--color-white);">
+        If Hiring Another Employee <span class="projects__title-gold">Doesn't Make Sense...</span>
+      </h2>
+      <h3 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 600; color: var(--color-gold); margin-bottom: 24px;">
+        Outsourcing your bookkeeping could.
+      </h3>
+      <p style="margin: 0 auto; max-width: 750px; font-size: clamp(0.98rem, 1.2vw, 1.12rem); color: var(--color-gray-text-light); line-height: 1.8;">
+        Instead of recruiting, training, and managing another in-house employee, work with an experienced bookkeeping team that scales with your business.
+      </p>
     </div>
   </section>
 
