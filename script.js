@@ -55,6 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMenu);
   overlay.addEventListener('click', toggleMenu);
 
+  // Close mobile menu on Escape keypress
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      toggleMenu();
+    }
+  });
+
   // Close mobile menu when clicking normal links (not dropdown toggles)
   document.querySelectorAll('.navbar__link:not(.navbar__link--dropdown), .navbar__dropdown-item, .navbar__btn-cta').forEach(link => {
     link.addEventListener('click', () => {
