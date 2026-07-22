@@ -943,6 +943,29 @@
         display: block !important;
       }
     }
+
+    /* Industries We Serve Grid Styles */
+    .industry-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .industry-card:hover {
+      transform: translateY(-5px) !important;
+      border-color: rgba(212, 168, 83, 0.35) !important;
+      box-shadow: 0 15px 35px rgba(212, 168, 83, 0.08), 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+      background: rgba(212, 168, 83, 0.02) !important;
+    }
+    @media (max-width: 991px) {
+      .industries-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+    @media (max-width: 575px) {
+      .industries-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1401,6 +1424,80 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== INDUSTRIES WE SERVE SECTION ======== -->
+  <section class="industries-serve" style="padding: 40px 0; background: #06060c; border-top: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden;">
+    <div style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 168, 83, 0.02) 0%, rgba(0, 0, 0, 0) 70%); top: -100px; right: -100px; z-index: 1; pointer-events: none;"></div>
+    
+    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; text-align: center;">
+      <!-- Section Header -->
+      <div class="projects__header" style="margin-bottom: 32px; text-align: center; margin-left: auto !important; margin-right: auto !important;">
+        <div class="projects__badge">INDUSTRIES WE SERVE</div>
+        <h2 class="projects__title" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 8px;">Tailored Bookkeeping for <span class="projects__title-gold">Your Industry</span></h2>
+        <p class="projects__description" style="margin: 0 auto; max-width: 700px;">
+          Expert back-office support custom-configured for the specific workflows and software tools of your industry.
+        </p>
+      </div>
+
+      <!-- Industries Grid -->
+      <div class="industries-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto;">
+        <!-- Card 1: Dental -->
+        <div class="industry-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 20px; transition: all 0.3s ease; box-shadow: 0 10px 35px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; display: inline-block;">🏥</div>
+          <h3 style="color: var(--color-white); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Dental</h3>
+          <p style="color: var(--color-gray-text-dark); font-size: 0.85rem; margin: 0; line-height: 1.5;">Hygienist commissions, practice software integrations, and overhead audit support.</p>
+        </div>
+        <!-- Card 2: Real Estate -->
+        <div class="industry-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 20px; transition: all 0.3s ease; box-shadow: 0 10px 35px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; display: inline-block;">🏢</div>
+          <h3 style="color: var(--color-white); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Real Estate</h3>
+          <p style="color: var(--color-gray-text-dark); font-size: 0.85rem; margin: 0; line-height: 1.5;">Property-level P&amp;L ledgers, trust accounts, agent commissions, and agent metrics.</p>
+        </div>
+        <!-- Card 3: Law Firms -->
+        <div class="industry-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 20px; transition: all 0.3s ease; box-shadow: 0 10px 35px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; display: inline-block;">⚖️</div>
+          <h3 style="color: var(--color-white); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Law Firms</h3>
+          <p style="color: var(--color-gray-text-dark); font-size: 0.85rem; margin: 0; line-height: 1.5;">Trust accounting (IOLTA), retainer tracking, and billing invoice software integrations.</p>
+        </div>
+        <!-- Card 4: E-commerce -->
+        <div class="industry-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 20px; transition: all 0.3s ease; box-shadow: 0 10px 35px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; display: inline-block;">🛒</div>
+          <h3 style="color: var(--color-white); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">E-commerce</h3>
+          <p style="color: var(--color-gray-text-dark); font-size: 0.85rem; margin: 0; line-height: 1.5;">Shopify/Amazon sync, inventory reconciliations, sales tax metrics, and payment gateway feeds.</p>
+        </div>
+        <!-- Card 5: Construction -->
+        <div class="industry-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 20px; transition: all 0.3s ease; box-shadow: 0 10px 35px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; display: inline-block;">🏗️</div>
+          <h3 style="color: var(--color-white); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Construction</h3>
+          <p style="color: var(--color-gray-text-dark); font-size: 0.85rem; margin: 0; line-height: 1.5;">Job costing ledgers, subcontractor compliance, AIA billing, and equipment depreciation.</p>
+        </div>
+        <!-- Card 6: Healthcare -->
+        <div class="industry-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 20px; transition: all 0.3s ease; box-shadow: 0 10px 35px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; display: inline-block;">🏥</div>
+          <h3 style="color: var(--color-white); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Healthcare</h3>
+          <p style="color: var(--color-gray-text-dark); font-size: 0.85rem; margin: 0; line-height: 1.5;">HIPAA-compliant bookkeeping, medical billing sync, insurance feeds, and provider payroll.</p>
+        </div>
+        <!-- Card 7: Logistics -->
+        <div class="industry-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 20px; transition: all 0.3s ease; box-shadow: 0 10px 35px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; display: inline-block;">🚚</div>
+          <h3 style="color: var(--color-white); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Logistics</h3>
+          <p style="color: var(--color-gray-text-dark); font-size: 0.85rem; margin: 0; line-height: 1.5;">Fuel tax (IFTA) accounting, fleet maintenance audits, and multi-state route billings.</p>
+        </div>
+        <!-- Card 8: Technology -->
+        <div class="industry-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 20px; transition: all 0.3s ease; box-shadow: 0 10px 35px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px; display: inline-block;">💻</div>
+          <h3 style="color: var(--color-white); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Technology</h3>
+          <p style="color: var(--color-gray-text-dark); font-size: 0.85rem; margin: 0; line-height: 1.5;">SaaS recurring revenue (MRR/ARR), R&amp;D tax credit metrics, and venture capital reporting.</p>
+        </div>
+      </div>
+
+      <!-- trusted and rated section -->
+      <div style="margin-top: 32px; display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span style="font-size: 1.4rem; letter-spacing: 2px;">⭐⭐⭐⭐⭐</span>
+        <span style="color: var(--color-white); font-size: 0.95rem; font-weight: 600;">5-Star Rated Bookkeeping Solutions for Nationwide Businesses</span>
       </div>
     </div>
   </section>
