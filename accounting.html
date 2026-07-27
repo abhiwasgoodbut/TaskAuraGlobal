@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Specialized offshore accounting, bookkeeping, and payroll services for growing businesses and professional practices across the United States." />
   <meta name="keywords" content="business accounting, business bookkeeping, business payroll, outsourced bookkeeping, QuickBooks bookkeeping, bookkeeping service" />
-  <title>Business Bookkeeping &amp; Payroll Services — TaskAura Global</title>
+  <title>Accounting &amp; Payroll Services — TaskAura Global</title>
   <link rel="icon" type="image/png" href="asset/logo/favicon.png" />
 
   <!-- Fonts -->
@@ -966,6 +966,42 @@
         gap: 14px !important;
       }
     }
+
+    /* Pricing Grid Styles */
+    .pricing-card {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px) !important;
+      border-color: rgba(212, 168, 83, 0.3) !important;
+      box-shadow: 0 15px 35px rgba(212, 168, 83, 0.05), 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+      background: rgba(255, 255, 255, 0.02) !important;
+    }
+    .pricing-card--featured:hover {
+      transform: scale(1.03) translateY(-6px) !important;
+      border-color: rgba(212, 168, 83, 0.6) !important;
+      box-shadow: 0 20px 45px rgba(212, 168, 83, 0.1), 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+      background: rgba(212, 168, 83, 0.03) !important;
+    }
+    @media (max-width: 991px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+      .pricing-card--featured {
+        transform: none !important;
+      }
+      .pricing-card--featured:hover {
+        transform: translateY(-6px) !important;
+      }
+    }
+    @media (max-width: 767px) {
+      .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        padding: 0 12px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1007,7 +1043,7 @@
             <li><a href="index.html#projects-section" class="navbar__link" id="nav-link-work">Work</a></li>
             <li><a href="index.html#why-us-section" class="navbar__link" id="nav-link-why-us">Why Us</a></li>
             <li><a href="it-services.html" class="navbar__link" id="nav-link-it-services">IT Services</a></li>
-            <li><a href="dental-accounting-payroll.html" class="navbar__link" id="nav-link-dental-accounting" style="color: var(--color-white); font-weight: 600;">Accounting</a></li>
+            <li><a href="accounting.html" class="navbar__link" id="nav-link-dental-accounting" style="color: var(--color-white); font-weight: 600;">Accounting</a></li>
             <li class="navbar__dropdown navbar__dropdown--services">
               <a href="#" class="navbar__link navbar__link--dropdown" id="nav-link-services">
                 Services
@@ -1082,7 +1118,7 @@
                   <div class="mega-col">
                     <span class="mega-title">Cloud &amp; Platform</span>
                     <div class="mega-links">
-                      <a href="portfolio.html#dental-accounting" class="mega-link">Apex Business Bookkeeping<br><span class="client-tag">Our Client</span></a>
+                      <a href="portfolio.html#dental-accounting" class="mega-link">Apex Business Accounting<br><span class="client-tag">Our Client</span></a>
                       <a href="portfolio.html#foresthill" class="mega-link">Foresthill Community Portal</a>
                     </div>
                   </div>
@@ -1687,6 +1723,129 @@
     </div>
   </section>
 
+  </section>
+
+  <!-- ======== PRICING SECTION ======== -->
+  <section class="pricing-section" id="pricing-section" style="padding: 60px 0; background: #05050a; border-top: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden;">
+    <div style="position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212, 168, 83, 0.02) 0%, rgba(0, 0, 0, 0) 70%); top: -100px; left: -100px; z-index: 1; pointer-events: none;"></div>
+    
+    <div class="work-showcase__container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; text-align: center;">
+      <!-- Section Header with Negative CTA -->
+      <div class="projects__header" style="margin-bottom: 40px; text-align: center; margin-left: auto !important; margin-right: auto !important; padding: 0 20px;">
+        <div class="projects__badge">TRANSPARENT PRICING</div>
+        <h2 class="projects__title" style="font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 16px; line-height: 1.35; max-width: 900px; margin-left: auto; margin-right: auto;">
+          Not Ready to Invest in <span class="projects__title-gold">Professional Accounting?</span>
+        </h2>
+        <p class="projects__description" style="margin: 0 auto; max-width: 750px; line-height: 1.7; font-size: 1.05rem; color: var(--color-gray-text-light);">
+          If you're completely happy spending your evenings balancing ledgers, debugging payroll errors, and guessing your cash flow — then our packages aren't for you. <br><br>
+          But if you want audit-ready financials, direct expert support, and complete peace of mind starting from just <strong style="color: var(--color-gold);">$150/month</strong>, choose a plan below.
+        </p>
+      </div>
+
+      <!-- Pricing Grid -->
+      <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto 32px auto;">
+        
+        <!-- Starter Tier -->
+        <div class="pricing-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 36px 28px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          <div>
+            <div style="color: var(--color-gold); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;">Starter Bookkeeping</div>
+            <div style="display: flex; align-items: baseline; margin-bottom: 16px;">
+              <span style="color: var(--color-white); font-size: 2.5rem; font-weight: 800;">$150</span>
+              <span style="color: var(--color-gray-text-dark); font-size: 0.95rem; margin-left: 4px;">/mo</span>
+            </div>
+            <p style="color: var(--color-gray-text-light); font-size: 0.9rem; line-height: 1.5; margin-bottom: 24px;">Perfect for side projects, startups, and small businesses needing bookkeeping essentials.</p>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: 24px;" />
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;">
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Up to 1 bank or credit card account
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Weekly transaction categorization
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Monthly P&amp;L and Balance Sheet
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Basic email support
+              </li>
+            </ul>
+          </div>
+          <a href="#consultation-section" class="navbar__btn-cta" style="padding: 12px 24px; border-radius: 100px; font-weight: 600; text-align: center; text-decoration: none; width: 100%; display: block;">Get Started Now</a>
+        </div>
+
+        <!-- Growth Tier (Highlighted) -->
+        <div class="pricing-card pricing-card--featured" style="background: rgba(212, 168, 83, 0.02); border: 2px solid rgba(212, 168, 83, 0.4); border-radius: 20px; padding: 36px 28px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 15px 45px rgba(212,168,83,0.06), 0 10px 30px rgba(0,0,0,0.3); position: relative; transform: scale(1.03);">
+          <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gradient-gold); color: #000; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; padding: 4px 16px; border-radius: 100px; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(212,168,83,0.3); z-index: 5;">Most Popular</div>
+          <div>
+            <div style="color: var(--color-gold); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;">Growth Accounting</div>
+            <div style="display: flex; align-items: baseline; margin-bottom: 16px;">
+              <span style="color: var(--color-white); font-size: 2.5rem; font-weight: 800;">$299</span>
+              <span style="color: var(--color-gray-text-dark); font-size: 0.95rem; margin-left: 4px;">/mo</span>
+            </div>
+            <p style="color: var(--color-gray-text-light); font-size: 0.9rem; line-height: 1.5; margin-bottom: 24px;">Complete hands-off back-office management for scaling teams and active service providers.</p>
+            <hr style="border: 0; border-top: 1px solid rgba(212,168,83,0.15); margin-bottom: 24px;" />
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;">
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Up to 3 bank or credit card accounts
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Receipt processing &amp; document match
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Dedicated bookkeeper assignment
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Zoom consultations &amp; review calls
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Priority email &amp; chat support
+              </li>
+            </ul>
+          </div>
+          <a href="#consultation-section" class="navbar__btn-cta" style="padding: 12px 24px; border-radius: 100px; font-weight: 700; text-align: center; text-decoration: none; width: 100%; display: block; box-shadow: 0 4px 20px rgba(212,168,83,0.3);">Connect with Specialist</a>
+        </div>
+
+        <!-- Premium Tier -->
+        <div class="pricing-card" style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 36px 28px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+          <div>
+            <div style="color: var(--color-gold); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;">Premium Enterprise</div>
+            <div style="display: flex; align-items: baseline; margin-bottom: 16px;">
+              <span style="color: var(--color-white); font-size: 2.5rem; font-weight: 800;">$499</span>
+              <span style="color: var(--color-gray-text-dark); font-size: 0.95rem; margin-left: 4px;">/mo</span>
+            </div>
+            <p style="color: var(--color-gray-text-light); font-size: 0.9rem; line-height: 1.5; margin-bottom: 24px;">Advanced controller integrations, payroll support, and custom KPI reporting.</p>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: 24px;" />
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;">
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Unlimited bank &amp; credit card accounts
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Payroll administration &amp; reporting
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Sales tax filing &amp; multi-state ledger
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Custom performance KPI dashboards
+              </li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 0.92rem;">
+                <span style="color: var(--color-gold);">✓</span> Direct Slack &amp; phone line access
+              </li>
+            </ul>
+          </div>
+          <a href="#consultation-section" class="navbar__btn-cta" style="padding: 12px 24px; border-radius: 100px; font-weight: 600; text-align: center; text-decoration: none; width: 100%; display: block;">Contact Enterprise Sales</a>
+        </div>
+
+      </div>
+
+      <!-- Trust rating below grid -->
+      <div style="display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span style="font-size: 1.2rem; letter-spacing: 2px;">⭐⭐⭐⭐⭐</span>
+        <span style="color: var(--color-white); font-size: 0.9rem; font-weight: 500;">Flat rates, no hidden implementation fees, cancel anytime.</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ======== LEAD CAPTURE SECTION ======== -->
   <section class="lead-capture-section" id="consultation-section" style="padding: 60px 0;">
     <div style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 168, 83, 0.03) 0%, rgba(0, 0, 0, 0) 70%); bottom: -200px; right: -100px; z-index: 1; pointer-events: none;"></div>
@@ -2037,7 +2196,7 @@
             <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
             <li><a href="index.html#why-us-section" class="footer__link">Why Us</a></li>
             <li><a href="it-services.html" class="footer__link">IT Services</a></li>
-            <li><a href="dental-accounting-payroll.html" class="footer__link" style="color: var(--color-gold-light);">Accounting</a></li>
+            <li><a href="accounting.html" class="footer__link" style="color: var(--color-gold-light);">Accounting</a></li>
             <li><a href="ecommerce-services.html" class="footer__link">E-Commerce Services</a></li>
             <li><a href="real-estate-services.html" class="footer__link">Real Estate Services</a></li>
             <li><a href="construction-accounting.html" class="footer__link">Construction Accounting</a></li>
