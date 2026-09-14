@@ -63,5 +63,9 @@
 /wp-admin/*           /                     301
 /wp-includes/*        /                     301
 
+# Capacity Model pretty URLs redirect
+/capacity-model/             /capacity-model.html          301
+/capacity-model              /capacity-model.html          301
+
 # Chatbot Serverless routing
 /api/chat                            /.netlify/functions/chat            200

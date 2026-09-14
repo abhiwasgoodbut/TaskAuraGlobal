@@ -1,0 +1,2741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Capacity Model — TaskAura Global | Australian Accounting Practice Strategic Analysis</title>
+  <meta name="description" content="A private, interactive strategic capacity model built for Australian accounting & CPA practices to absorb growing client workloads without hiring drag." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="asset/logo/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Global TaskAura Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ==========================================================================
+       BESPOKE FINTECH THEME & CAPACITY MODEL EXTENSIONS
+       ========================================================================== */
+    :root {
+      --bg-base: #06060c;
+      --bg-surface: #0c0d17;
+      --bg-card: rgba(18, 20, 32, 0.65);
+      --bg-card-hover: rgba(26, 29, 46, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(212, 168, 83, 0.45);
+      --border-gold: rgba(212, 168, 83, 0.28);
+      
+      --gold-primary: #d4a853;
+      --gold-light: #f3d78c;
+      --gold-dark: #a87e2f;
+      --gold-gradient: linear-gradient(135deg, #f5da93 0%, #d4a853 50%, #9e7529 100%);
+      --gold-glow: rgba(212, 168, 83, 0.16);
+      
+      --cyan-accent: #38bdf8;
+      --emerald-accent: #10b981;
+      --rose-accent: #f43f5e;
+      --indigo-accent: #6366f1;
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-pill: 9999px;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 0%, rgba(30, 27, 75, 0.3) 0%, transparent 60%),
+                  radial-gradient(circle at 100% 40%, rgba(212, 168, 83, 0.05) 0%, transparent 50%),
+                  radial-gradient(circle at 0% 70%, rgba(56, 189, 248, 0.04) 0%, transparent 50%),
+                  var(--bg-base);
+    }
+
+    /* Ambient Noise & Glow */
+    .bg-grid-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .font-mono {
+      font-family: var(--font-mono);
+    }
+
+    .text-gold {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(212, 168, 83, 0.08);
+      border: 1px solid rgba(212, 168, 83, 0.25);
+      color: var(--gold-light);
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+      box-shadow: 0 0 8px var(--gold-primary);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Executive Glass Card */
+    .glass-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .glass-panel:hover {
+      border-color: rgba(212, 168, 83, 0.25);
+    }
+
+    .glass-panel-glow {
+      box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.6),
+                  0 0 50px rgba(212, 168, 83, 0.09),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    /* Top Personalization Control Bar */
+    .personalization-bar {
+      margin-top: 0;
+      margin-bottom: 28px;
+      padding: 0;
+      font-size: 0.84rem;
+      position: relative;
+      z-index: 10;
+      background: transparent;
+      border: none;
+    }
+
+    .personalization-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .firm-live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .firm-live-pill strong {
+      color: var(--gold-light);
+    }
+
+    .btn-customise-trigger {
+      background: rgba(212, 168, 83, 0.12);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      color: var(--gold-light);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-customise-trigger:hover {
+      background: rgba(212, 168, 83, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* Modal / Drawer for Customising Prospect Variables */
+    .prospect-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .prospect-modal.active {
+      display: flex;
+    }
+
+    .prospect-modal-card {
+      width: 100%;
+      max-width: 520px;
+      background: #0f101d;
+      border: 1px solid rgba(212, 168, 83, 0.35);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 168, 83, 0.1);
+    }
+
+    .input-row {
+      margin-bottom: 18px;
+    }
+
+    .input-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .input-field {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .input-field:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 12px var(--gold-glow);
+    }
+
+    /* Section Spacing */
+    .model-section {
+      padding: 100px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .model-section {
+        padding: 65px 0;
+      }
+    }
+
+    /* Hero Section with Full-Bleed Video Background from Top */
+    .hero-section {
+      position: relative;
+      padding: 130px 0 110px;
+      text-align: center;
+      overflow: hidden;
+      isolation: isolate;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .hero-video-bg-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      mix-blend-mode: screen;
+      filter: contrast(1.15) brightness(1.05);
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at 50% 35%, rgba(6, 6, 12, 0.2) 0%, rgba(6, 6, 12, 0.6) 65%, #06060c 100%),
+                  linear-gradient(180deg, rgba(6, 6, 12, 0.25) 0%, transparent 20%, transparent 65%, rgba(6, 6, 12, 0.95) 90%, #06060c 100%);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 24px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-subtext {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 740px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 50px;
+    }
+
+    .microcopy {
+      font-size: 0.84rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Animated Growth Cycle Visual */
+    .growth-cycle-board {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 36px;
+      background: rgba(14, 16, 28, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      position: relative;
+    }
+
+    .cycle-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .cycle-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .cycle-step-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 16px 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .cycle-step-card.active-question {
+      border-color: var(--gold-primary);
+      background: rgba(212, 168, 83, 0.06);
+      box-shadow: 0 0 20px rgba(212, 168, 83, 0.12);
+    }
+
+    .cycle-step-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .cycle-step-val {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.12rem;
+      color: var(--text-main);
+    }
+
+    .cycle-step-val.gold {
+      color: var(--gold-light);
+    }
+
+    .cycle-question-banner {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      border-left: 3px solid var(--gold-primary);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    /* The Growth Problem Cascade */
+    .problem-cascade {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 700px;
+      margin: 40px auto;
+    }
+
+    .cascade-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      padding: 14px 22px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+
+    .cascade-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.14);
+      transform: translateX(4px);
+    }
+
+    .cascade-num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--gold-primary);
+      font-weight: 700;
+      background: rgba(212, 168, 83, 0.1);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cascade-highlight {
+      background: rgba(244, 63, 94, 0.08);
+      border-color: rgba(244, 63, 94, 0.3);
+      color: #fecdd3;
+      font-weight: 600;
+    }
+
+    .cascade-highlight .cascade-num {
+      background: rgba(244, 63, 94, 0.2);
+      color: #fda4af;
+    }
+
+    /* Simulator Grid */
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 960px) {
+      .simulator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sim-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 36px;
+    }
+
+    .slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slider-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .slider-val-box {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 4px 12px;
+      min-width: 70px;
+      text-align: right;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(212, 168, 83, 0.5);
+      border: 2px solid #0c0d17;
+      transition: transform 0.15s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .sim-results {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(145deg, rgba(20, 23, 38, 0.8) 0%, rgba(12, 13, 23, 0.95) 100%);
+      border: 1px solid rgba(212, 168, 83, 0.25);
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .metric-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .metric-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-main);
+    }
+
+    .metric-val.big-gold {
+      font-size: 1.65rem;
+      color: var(--gold-light);
+    }
+
+    .metric-val.cyan {
+      color: var(--cyan-accent);
+    }
+
+    .capacity-bar-wrap {
+      margin: 20px 0 10px;
+    }
+
+    .bar-label-group {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      display: flex;
+    }
+
+    .progress-fill-current {
+      height: 100%;
+      background: #475569;
+      transition: width 0.4s ease;
+    }
+
+    .progress-fill-growth {
+      height: 100%;
+      background: var(--gold-gradient);
+      box-shadow: 0 0 12px var(--gold-primary);
+      transition: width 0.4s ease;
+    }
+
+    /* Realisation Callout */
+    .realisation-banner {
+      padding: 56px 40px;
+      text-align: center;
+      border: 1px solid rgba(212, 168, 83, 0.35);
+      background: radial-gradient(circle at 50% 50%, rgba(212, 168, 83, 0.08) 0%, rgba(12, 13, 23, 0.95) 75%);
+    }
+
+    .target-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .target-pill {
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      background: rgba(212, 168, 83, 0.12);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+    }
+
+    .realisation-switch {
+      margin-top: 24px;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .strikethrough-old {
+      color: var(--text-dim);
+      text-decoration: line-through;
+      font-size: 0.85em;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* Comparison Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 840px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .compare-card {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .compare-header {
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+      font-size: 0.92rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-muted);
+    }
+
+    .check-item svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .calc-input-compact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 16px;
+      border-radius: var(--radius-md);
+    }
+
+    .calc-input-item label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .calc-input-item input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    /* Workflow Chain */
+    .workflow-chain {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .workflow-node {
+      flex: 1;
+      min-width: 140px;
+      padding: 16px 12px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .workflow-node.node-highlight {
+      border-color: var(--gold-primary);
+      background: rgba(212, 168, 83, 0.08);
+      box-shadow: 0 0 20px rgba(212, 168, 83, 0.15);
+    }
+
+    .workflow-node-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .workflow-node-sub {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .workflow-connector {
+      color: var(--gold-primary);
+      font-size: 1.1rem;
+      font-weight: 700;
+      opacity: 0.7;
+    }
+
+    .workload-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .workload-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .workload-card {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .workload-card:hover, .workload-card.active {
+      background: rgba(212, 168, 83, 0.08);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .workload-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .workload-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .workflow-disclaimer {
+      margin-top: 24px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      text-align: center;
+    }
+
+    /* Partner Time Pyramid */
+    .value-pyramid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .value-pyramid-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tier-box {
+      padding: 32px;
+      border-radius: var(--radius-xl);
+    }
+
+    .tier-box.low-value {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .tier-box.high-value {
+      background: rgba(212, 168, 83, 0.04);
+      border: 1px solid rgba(212, 168, 83, 0.25);
+      box-shadow: 0 0 30px rgba(212, 168, 83, 0.06);
+    }
+
+    .tier-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tier-pill {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    .tier-pill.gold {
+      background: rgba(212, 168, 83, 0.1);
+      border-color: rgba(212, 168, 83, 0.3);
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    /* Chart Container */
+    .chart-container {
+      padding: 36px;
+      background: rgba(10, 12, 22, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      margin-top: 40px;
+    }
+
+    .chart-svg-wrap {
+      width: 100%;
+      height: 280px;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .chart-legend {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-line {
+      width: 20px;
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    .legend-line.fixed {
+      background: #64748b;
+      border-top: 2px dashed #94a3b8;
+    }
+
+    .legend-line.flexible {
+      background: var(--gold-primary);
+      box-shadow: 0 0 8px var(--gold-primary);
+    }
+
+    /* 4-Model Matrix */
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 992px) {
+      .models-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .models-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .model-card {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.018);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .model-card.featured {
+      background: rgba(212, 168, 83, 0.04);
+      border-color: rgba(212, 168, 83, 0.35);
+      box-shadow: 0 0 30px rgba(212, 168, 83, 0.08);
+    }
+
+    .model-bullet {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    /* Risk Reversal */
+    .risk-reversal-card {
+      padding: 60px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(20, 23, 38, 0.9) 0%, rgba(10, 11, 20, 0.95) 100%);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      border-radius: var(--radius-xl);
+    }
+
+    .giant-hero-number {
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1;
+      margin: 16px 0;
+      font-family: var(--font-heading);
+    }
+
+    .criteria-chips {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 32px 0 40px;
+    }
+
+    .chip-item {
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Compliance Cards */
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    @media (max-width: 840px) {
+      .compliance-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .compliance-card {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-lg);
+    }
+
+    .compliance-notice-box {
+      margin-top: 36px;
+      padding: 24px;
+      background: rgba(56, 189, 248, 0.04);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: var(--radius-md);
+      font-size: 0.86rem;
+      color: #bae6fd;
+      line-height: 1.6;
+    }
+
+    /* Final CTA */
+    .principles-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px auto;
+      max-width: 960px;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      .principles-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .principle-card {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-lg);
+    }
+
+    .action-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .negative-response-feedback {
+      display: none;
+      margin-top: 24px;
+      padding: 18px 24px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    /* Floating AI Assistant Widget */
+    .ai-assistant-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 990;
+      background: var(--gold-gradient);
+      color: #0b0c10;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(212, 168, 83, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ai-assistant-toggle:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(212, 168, 83, 0.5);
+    }
+
+    .ai-assistant-drawer {
+      position: fixed;
+      bottom: 90px;
+      right: 28px;
+      width: 400px;
+      max-width: calc(100vw - 36px);
+      height: 540px;
+      max-height: calc(100vh - 120px);
+      background: #0d0f1c;
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 168, 83, 0.1);
+      z-index: 991;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+    }
+
+    .ai-assistant-drawer.open {
+      display: flex;
+      animation: drawerSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes drawerSlide {
+      from { opacity: 0; transform: translateY(16px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .ai-drawer-header {
+      padding: 18px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ai-chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.88rem;
+    }
+
+    .chat-msg {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      line-height: 1.5;
+      max-width: 88%;
+    }
+
+    .chat-msg.bot {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      align-self: flex-start;
+    }
+
+    .chat-msg.user {
+      background: rgba(212, 168, 83, 0.15);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      color: #fff;
+      align-self: flex-end;
+    }
+
+    .scenario-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .scenario-pill:hover {
+      background: rgba(212, 168, 83, 0.1);
+      border-color: rgba(212, 168, 83, 0.3);
+      color: var(--gold-light);
+    }
+
+    .ai-chat-input-bar {
+      padding: 12px 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      gap: 8px;
+    }
+
+    .ai-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-pill);
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      color: #fff;
+      outline: none;
+    }
+
+    .ai-send-btn {
+      background: var(--gold-gradient);
+      border: none;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #000;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Grid & Glow -->
+  <div class="bg-grid-overlay"></div>
+  <div class="ambient-glow" style="width: 600px; height: 600px; background: rgba(212, 168, 83, 0.04); top: 5%; left: 50%; transform: translateX(-50%);"></div>
+  <div class="ambient-glow" style="width: 500px; height: 500px; background: rgba(56, 189, 248, 0.03); top: 35%; right: 5%;"></div>
+  <div class="ambient-glow" style="width: 600px; height: 600px; background: rgba(99, 102, 241, 0.03); top: 65%; left: 5%;"></div>
+
+  <!-- ======== PRELOADER ======== -->
+  <div id="preloader" class="preloader">
+    <div class="preloader__content">
+      <img src="asset/logo/image-removebg-preview.png" class="preloader__logo" alt="TaskAura Logo" />
+      <div class="preloader__line-wrapper">
+        <div class="preloader__line"></div>
+      </div>
+      <span class="preloader__text">Loading Strategic Model...</span>
+    </div>
+  </div>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar" id="navbar">
+    <!-- Logo -->
+    <a href="index.html" class="navbar__logo" id="nav-logo">
+      <img src="https://i0.wp.com/taskauraglobal.com/wp-content/uploads/2025/11/taskaura_new_logo-removebg-preview-1-e1764436845776.png?w=352&ssl=1" class="navbar__logo-img" alt="TaskAura Logo" />
+    </a>
+
+    <!-- Capsule Container -->
+    <div class="navbar__capsule" id="navbar-capsule">
+      <div class="navbar__inner">
+
+        <!-- Mobile Hamburger -->
+        <button class="navbar__hamburger" id="nav-hamburger" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Menu (Desktop: Left items and Right utilities) -->
+        <div class="navbar__menu" id="nav-menu">
+          
+          <!-- Left Menu Links -->
+          <ul class="navbar__links navbar__links--left">
+            <li><a href="index.html#projects-section" class="navbar__link" id="nav-link-work">Work</a></li>
+            <li><a href="index.html#why-us-section" class="navbar__link" id="nav-link-why-us">Why Us</a></li>
+            <li><a href="it-services.html" class="navbar__link" id="nav-link-it-services">IT Services</a></li>
+            <li><a href="accounting.html" class="navbar__link" id="nav-link-dental-accounting">Accounting</a></li>
+            <li class="navbar__dropdown navbar__dropdown--services">
+              <a href="#" class="navbar__link navbar__link--dropdown" id="nav-link-services">
+                Services
+                <svg class="navbar__arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="navbar__dropdown-menu">
+                <a href="capacity-model.html" class="navbar__dropdown-item" style="color: #d4a853; font-weight: 500;">AU Capacity Model <span style="font-size: 10px; background: rgba(212,168,83,0.18); border: 1px solid rgba(212,168,83,0.35); padding: 1px 4px; border-radius: 4px; margin-left: 3px;">AU CPA</span></a>
+                <a href="ecommerce-services.html" class="navbar__dropdown-item">E-Commerce Services</a>
+                <a href="real-estate-services.html" class="navbar__dropdown-item">Real Estate Services</a>
+                <a href="construction-accounting.html" class="navbar__dropdown-item">Construction Accounting</a>
+                <a href="business-accounting.html" class="navbar__dropdown-item">Business Accounting</a>
+              </div>
+            </li>
+            <li><a href="partners.html" class="navbar__link" id="nav-link-partners">Our Clients</a></li>
+            <li><a href="careers.html" class="navbar__link" id="nav-link-careers">Careers</a></li>
+            <li><a href="faq.html" class="navbar__link" id="nav-link-faq">FAQ</a></li>
+          </ul>
+
+          <!-- Right Utilities & Buttons -->
+          <div class="navbar__menu-right">
+            <!-- Portfolio Dropdown -->
+            <div class="navbar__dropdown navbar__dropdown--portfolio">
+              <a href="portfolio.html" class="navbar__link navbar__link--dropdown" id="nav-link-portfolio">
+                Portfolio
+                <svg class="navbar__arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="navbar__dropdown-menu--mega">
+                <div class="mega-grid">
+                  <!-- Column 1: Software Engineering -->
+                  <div class="mega-col">
+                    <span class="mega-title">Software Engineering</span>
+                    <div class="mega-links">
+                      <a href="portfolio.html#astexai" class="mega-link">
+                        AstexAI QA Dashboard<br>
+                        <span class="client-tag">Our Client</span>
+                      </a>
+                      <a href="portfolio.html#enterpriselogistics" class="mega-link">
+                        Enterprise Logistics Portal
+                      </a>
+                      <a href="portfolio.html#supplychain" class="mega-link">
+                        Global Supply Chain Portal
+                      </a>
+                      <a href="portfolio.html#healyy" class="mega-link">
+                        Healyy Health App
+                      </a>
+                      <a href="portfolio.html#supplements" class="mega-link">
+                        NuSupplement E-Commerce App
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Column 2: Product & Expertise -->
+                  <div class="mega-col">
+                    <span class="mega-title">Product &amp; Expertise</span>
+                    <div class="mega-links">
+                      <a href="portfolio.html#snapperfect" class="mega-link">
+                        Snap Perfect Engagement<br>
+                        <span class="client-tag">Our Client</span>
+                      </a>
+                       <a href="portfolio.html#telemetryhub" class="mega-link">
+                        Decentralized Telemetry Hub
+                      </a>
+                      <a href="portfolio.html#omnichannel" class="mega-link">
+                        Omnichannel Real-Time Hub
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Column 3: Design -->
+                  <div class="mega-col">
+                    <span class="mega-title">Design</span>
+                    <div class="mega-links">
+                      <a href="portfolio.html#wakeupmonster" class="mega-link">
+                        WakeUp Monster Outbound<br>
+                        <span class="client-tag">Our Client</span>
+                      </a>
+                      <a href="portfolio.html#eosnode" class="mega-link">
+                        EOS Node Validator Gateway
+                      </a>
+                      <a href="portfolio.html#launchpadd" class="mega-link">
+                        Launch Padd Sports Tracker
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Column 4: AI & Data -->
+                  <div class="mega-col">
+                    <span class="mega-title">AI &amp; Data</span>
+                    <div class="mega-links">
+                      <a href="portfolio.html#newglobe" class="mega-link">NewGlobe Lesson Guides</a>
+                      <a href="portfolio.html#arceurope" class="mega-link">ARC Europe Chatbot</a>
+                      <a href="portfolio.html#iti" class="mega-link">ITI Catalog Assistant</a>
+                      <a href="portfolio.html#aethera" class="mega-link">Aethera Intelligent Workflows</a>
+                    </div>
+                  </div>
+                  <!-- Column 5: Cloud & Platform -->
+                  <div class="mega-col">
+                    <span class="mega-title">Cloud &amp; Platform</span>
+                    <div class="mega-links">
+                      <a href="portfolio.html#dental-accounting" class="mega-link">
+                        Apex Business Accounting<br>
+                        <span class="client-tag">Our Client</span>
+                      </a>
+                      <a href="portfolio.html#foresthill" class="mega-link">Foresthill Community Portal</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Auth / CTA Buttons -->
+            <div class="navbar__buttons">
+              <a href="#strategy-call" class="navbar__btn-cta" id="nav-btn-cta" onclick="openConsultationModal('Navbar 15-Minute Strategy Call'); return false;">Get started</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mobile overlay -->
+        <div class="navbar__mobile-overlay" id="nav-overlay"></div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       SECTION 1: HERO / OPENING (Full-Bleed Top Background Video)
+       ========================================================================== -->
+  <section class="hero-section">
+    <!-- Hero Background Video (Starts from top behind navbar) -->
+    <div class="hero-video-bg-wrapper">
+      <video
+        class="hero-video-bg"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+      >
+        <source src="asset/video/agent-wave-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <!-- Top Personalization Control Bar -->
+    <div class="personalization-bar">
+      <div class="container-wide">
+        <div class="personalization-inner">
+          <div class="firm-live-pill">
+            <span>Private Strategy Model for: <strong class="var-firm-name">Smith & Partners</strong></span>
+            <span style="color: var(--text-dim);">·</span>
+            <span>Lead Partner: <strong class="var-partner-name">Michael</strong></span>
+            <span style="color: var(--text-dim);">·</span>
+            <span>Location: <span class="var-city-name">Brisbane</span></span>
+          </div>
+          <button class="btn-customise-trigger" onclick="openProspectModal()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            Configure Prospect Profile
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        Private Capacity Model · Prepared for <span class="var-firm-name">Smith & Partners</span>
+      </div>
+
+      <h1 class="hero-title">
+        WHAT IF GROWTH<br />
+        <span class="text-gold">DIDN’T REQUIRE ANOTHER HIRE?</span>
+      </h1>
+
+      <p class="hero-subtext">
+        We built a different way to look at how <strong class="var-firm-name" style="color: #fff;">Smith & Partners</strong> could increase delivery capacity as client workload grows — without immediately increasing permanent headcount.
+      </p>
+
+      <div class="hero-cta-wrap">
+        <a href="#simulator" class="btn btn-gold">
+          SHOW ME THE MODEL
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <span class="microcopy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Built around <span class="var-firm-name">Smith & Partners</span> · Interactive · Takes ~2 minutes
+        </span>
+      </div>
+
+      <!-- Growth Cycle Animation Diagram -->
+      <div class="growth-cycle-board glass-panel">
+        <div class="cycle-steps">
+          <div class="cycle-step-card">
+            <div class="cycle-step-label">Stage 01</div>
+            <div class="cycle-step-val">CLIENT GROWTH ↑</div>
+          </div>
+          <div class="cycle-step-card">
+            <div class="cycle-step-label">Stage 02</div>
+            <div class="cycle-step-val">WORKLOAD ↑</div>
+          </div>
+          <div class="cycle-step-card active-question">
+            <div class="cycle-step-label">Traditional Default</div>
+            <div class="cycle-step-val gold">HEADCOUNT ↑</div>
+          </div>
+          <div class="cycle-step-card">
+            <div class="cycle-step-label">Consequence</div>
+            <div class="cycle-step-val" style="color: #f87171;">FIXED COST ↑</div>
+          </div>
+        </div>
+        <div class="cycle-question-banner">
+          <strong>Strategic Question:</strong> Does the third line always have to follow the first? What if capacity could scale linearly with client workload rather than in stepped salary leaps?
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: THE GROWTH PROBLEM
+       ========================================================================== -->
+  <section class="model-section" id="bottleneck">
+    <div class="container-narrow">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <div class="badge-pill">OPERATIONAL BOTTLENECK</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px;">
+          MORE CLIENTS SHOULD BE GOOD NEWS.
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.15rem;">
+          Until delivery capacity becomes the constraint on quality and partner time.
+        </p>
+      </div>
+
+      <div class="problem-cascade">
+        <div class="cascade-item">
+          <span class="cascade-num">01</span>
+          <span>10 New Monthly Retainer Clients Won in <span class="var-city-name">Brisbane</span></span>
+          <span style="margin-left: auto; color: var(--text-dim);">↓</span>
+        </div>
+        <div class="cascade-item">
+          <span class="cascade-num">02</span>
+          <span>+400 Additional Bank & Credit Card Transactions</span>
+          <span style="margin-left: auto; color: var(--text-dim);">↓</span>
+        </div>
+        <div class="cascade-item">
+          <span class="cascade-num">03</span>
+          <span>Multi-entity Reconciliations & AP/AR Processing</span>
+          <span style="margin-left: auto; color: var(--text-dim);">↓</span>
+        </div>
+        <div class="cascade-item">
+          <span class="cascade-num">04</span>
+          <span>Month-end Working Paper Prep & Review Assemblies</span>
+          <span style="margin-left: auto; color: var(--text-dim);">↓</span>
+        </div>
+        <div class="cascade-item">
+          <span class="cascade-num">05</span>
+          <span>Senior CPAs Diverted into Administrative Prep Work</span>
+          <span style="margin-left: auto; color: var(--text-dim);">↓</span>
+        </div>
+        <div class="cascade-item cascade-highlight">
+          <span class="cascade-num">?</span>
+          <span>The Default Reaction: Start Another A$ 85,000+ Recruitment Search?</span>
+        </div>
+      </div>
+
+      <div style="text-align: center; max-width: 620px; margin: 36px auto 0;">
+        <p style="font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 8px;">
+          “Growth creates revenue. But it also creates operational weight.”
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          The question isn’t whether <span class="var-firm-name">Smith & Partners</span> can attract clients. It’s how cleanly the firm can absorb them without overloading current staff.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: INTERACTIVE CAPACITY SIMULATOR (CENTREPIECE)
+       ========================================================================== -->
+  <section class="model-section" id="simulator">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div class="badge-pill">DYNAMIC PRACTICE SIMULATOR</div>
+        <h2 style="font-size: clamp(2rem, 4.5vw, 3.2rem);">
+          LET’S USE YOUR NUMBERS.
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 12px auto 0;">
+          No assumptions from us. Adjust the practice dials below to reflect your actual operational profile.
+        </p>
+      </div>
+
+      <div class="simulator-grid">
+        <!-- Sliders Controls -->
+        <div class="sim-controls glass-panel">
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-title">Current Recurring Clients</span>
+              <span class="slider-val-box" id="val-current-clients">50</span>
+            </div>
+            <input type="range" id="input-current-clients" min="10" max="250" value="50" step="5" oninput="updateSimulator()" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-title">Avg. Backend Operational Hours / Client / Mo</span>
+              <span class="slider-val-box" id="val-hours-per-client">4.0 hrs</span>
+            </div>
+            <input type="range" id="input-hours-per-client" min="1" max="15" value="4" step="0.5" oninput="updateSimulator()" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-title">New Clients You Would Like Capacity For</span>
+              <span class="slider-val-box" id="val-growth-clients">+20</span>
+            </div>
+            <input type="range" id="input-growth-clients" min="5" max="100" value="20" step="5" oninput="updateSimulator()" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-title">Internal Employment Cost / Hour</span>
+              <span class="slider-val-box" id="val-hourly-cost">A$ 55</span>
+            </div>
+            <input type="range" id="input-hourly-cost" min="30" max="120" value="55" step="5" oninput="updateSimulator()" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span class="slider-title">Productive Monthly Hours Per Internal Staff</span>
+              <span class="slider-val-box" id="val-staff-hours">140 hrs</span>
+            </div>
+            <input type="range" id="input-staff-hours" min="100" max="160" value="140" step="5" oninput="updateSimulator()" />
+          </div>
+
+          <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 4px;">
+            * Illustrative model. All variables editable in real-time.
+          </div>
+        </div>
+
+        <!-- Live Calculation Outputs -->
+        <div class="sim-results glass-panel glass-panel-glow">
+          <div>
+            <div style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-primary); margin-bottom: 8px;">
+              Live Practice Workload Impact
+            </div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 20px;">
+              Capacity Requirements
+            </h3>
+
+            <div class="metric-row">
+              <span class="metric-label">Current Monthly Backend Workload</span>
+              <span class="metric-val" id="out-current-workload">200 hrs/mo</span>
+            </div>
+
+            <div class="metric-row">
+              <span class="metric-label">Additional Workload from Target Growth</span>
+              <span class="metric-val cyan" id="out-growth-workload">+80 hrs/mo</span>
+            </div>
+
+            <div class="metric-row">
+              <span class="metric-label">Total Projected Delivery Requirement</span>
+              <span class="metric-val" id="out-total-workload">280 hrs/mo</span>
+            </div>
+
+            <div class="capacity-bar-wrap">
+              <div class="bar-label-group">
+                <span>Existing Baseline (<span id="pct-current">71%</span>)</span>
+                <span>Growth Capacity (<span id="pct-growth">29%</span>)</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill-current" id="bar-current" style="width: 71%;"></div>
+                <div class="progress-fill-growth" id="bar-growth" style="width: 29%;"></div>
+              </div>
+            </div>
+
+            <div class="metric-row" style="background: rgba(212, 168, 83, 0.06); border-radius: var(--radius-md); padding: 16px; margin-top: 14px; border: 1px solid rgba(212, 168, 83, 0.2);">
+              <div>
+                <span class="metric-label" style="color: var(--gold-light); font-weight: 600; display: block;">Equivalent FTE Staffing Need</span>
+                <span style="font-size: 0.76rem; color: var(--text-dim);">Based on 140 productive hrs/month</span>
+              </div>
+              <span class="metric-val big-gold" id="out-fte-equivalent">0.57 FTE</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <a href="#comparison" class="btn btn-outline" style="width: 100%; font-size: 0.88rem;">
+              Compare Delivery Models Below ↓
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: THE MOMENT OF REALISATION
+       ========================================================================== -->
+  <section style="padding: 40px 0;">
+    <div class="container">
+      <div class="realisation-banner glass-panel">
+        <div class="target-callout">
+          <span>YOUR GROWTH TARGET:</span>
+          <span class="target-pill" id="realisation-clients">+20 CLIENTS</span>
+          <span>CREATES APPROXIMATELY</span>
+          <span class="target-pill" id="realisation-hours">+80 HOURS / MO</span>
+          <span>OF BACKEND WORK.</span>
+        </div>
+
+        <div class="realisation-switch">
+          <span class="strikethrough-old">“Who do we hire next in <span class="var-city-name">Brisbane</span>?”</span>
+          <span class="text-gold">“What if the better question is: How much capacity do we actually need right now?”</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: SIDE-BY-SIDE COMPARISON
+       ========================================================================== -->
+  <section class="model-section" id="comparison">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div class="badge-pill">STRUCTURAL ANALYSIS</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem);">
+          TWO WAYS TO CREATE DELIVERY CAPACITY.
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          Compare the commitments of a full-time internal hire versus dedicated flexible backend capacity.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Option A: Direct Employee -->
+        <div class="compare-card glass-panel">
+          <div class="compare-header">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px;">Option A</div>
+            <div style="font-size: 1.4rem; font-weight: 700;">Add Full-Time Employee</div>
+          </div>
+
+          <div class="check-list">
+            <div class="check-item">
+              <svg fill="none" stroke="#f43f5e" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+              <span>Fixed permanent overhead regardless of seasonal workload peaks</span>
+            </div>
+            <div class="check-item">
+              <svg fill="none" stroke="#f43f5e" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+              <span>Recruitment fees, onboarding, and partner training drag</span>
+            </div>
+            <div class="check-item">
+              <svg fill="none" stroke="#f43f5e" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+              <span>Superannuation (11.5%+), leave coverage, equipment & software seats</span>
+            </div>
+            <div class="check-item">
+              <svg fill="none" stroke="#f43f5e" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+              <span>Creates stepped capacity (1.0 FTE blocks) for fractional needs</span>
+            </div>
+          </div>
+
+          <div class="calc-input-compact">
+            <div class="calc-input-item">
+              <label>Expected Base Salary (A$)</label>
+              <input type="number" id="emp-salary" value="85000" oninput="updateEmployeeCost()" />
+            </div>
+            <div class="calc-input-item">
+              <label>On-Cost % (Super, etc.)</label>
+              <input type="number" id="emp-oncost" value="20" oninput="updateEmployeeCost()" />
+            </div>
+            <div class="calc-input-item" style="grid-column: span 2;">
+              <label>Recruitment & Setup Estimate (A$)</label>
+              <input type="number" id="emp-recruitment" value="8000" oninput="updateEmployeeCost()" />
+            </div>
+          </div>
+
+          <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Est. 1st Year Total Commitment:</span>
+            <span class="font-mono" id="emp-total-cost" style="font-size: 1.25rem; font-weight: 700; color: #fecdd3;">A$ 110,000</span>
+          </div>
+        </div>
+
+        <!-- Option B: TaskAura Flexible Capacity -->
+        <div class="compare-card glass-panel" style="border-color: rgba(212, 168, 83, 0.35); background: linear-gradient(180deg, rgba(26, 29, 46, 0.7) 0%, rgba(14, 16, 28, 0.85) 100%);">
+          <div class="compare-header">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--gold-light); margin-bottom: 6px;">Option B</div>
+            <div style="font-size: 1.4rem; font-weight: 700;" class="text-gold">Flexible Backend Capacity</div>
+          </div>
+
+          <div class="check-list">
+            <div class="check-item">
+              <svg fill="none" stroke="#10b981" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Capacity flexes up or down directly matching client workload</span>
+            </div>
+            <div class="check-item">
+              <svg fill="none" stroke="#10b981" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Start small with 1 client or 1 defined workflow — zero long-term lock-in</span>
+            </div>
+            <div class="check-item">
+              <svg fill="none" stroke="#10b981" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong class="var-firm-name">Smith & Partners</strong> maintains 100% client relationship & review control</span>
+            </div>
+            <div class="check-item">
+              <svg fill="none" stroke="#10b981" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Frees your local Brisbane team for high-margin advisory & tax strategy</span>
+            </div>
+          </div>
+
+          <div style="background: rgba(212, 168, 83, 0.08); border: 1px solid rgba(212, 168, 83, 0.25); border-radius: var(--radius-md); padding: 18px; margin-top: auto;">
+            <div style="font-size: 0.85rem; color: var(--gold-light); font-weight: 600; margin-bottom: 4px;">
+              Agile Practice Architecture
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
+              Pay only for productive backend execution. Expand scope only when your trust in our process is 100% verified.
+            </div>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <a href="#workflow" class="btn btn-gold" style="width: 100%;">
+              BUILD MY CAPACITY MODEL →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: "WHAT WOULD YOU ACTUALLY HAND OVER?"
+       ========================================================================== -->
+  <section class="model-section" id="workflow">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <div class="badge-pill">OPERATIONAL INTEGRATION</div>
+        <h2 style="font-size: clamp(1.8rem, 3.8vw, 2.8rem); max-width: 900px; margin: 0 auto 12px;">
+          YOU WOULDN’T HAND OVER YOUR FIRM.<br />
+          <span class="text-gold">YOU’D HAND OVER THE WORK THAT SLOWS IT DOWN.</span>
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          Your firm remains firmly positioned between TaskAura and your end client at all times.
+        </p>
+      </div>
+
+      <!-- Process Chain Visual -->
+      <div class="workflow-chain">
+        <div class="workflow-node">
+          <div class="workflow-node-title">End Client</div>
+          <div class="workflow-node-sub">Source Documents</div>
+        </div>
+        <div class="workflow-connector">→</div>
+        <div class="workflow-node node-highlight">
+          <div class="workflow-node-title var-firm-name">Smith & Partners</div>
+          <div class="workflow-node-sub">Client Relationship</div>
+        </div>
+        <div class="workflow-connector">→</div>
+        <div class="workflow-node" style="border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.05);">
+          <div class="workflow-node-title" style="color: var(--cyan-accent);">TaskAura Backend</div>
+          <div class="workflow-node-sub">Operational Processing</div>
+        </div>
+        <div class="workflow-connector">→</div>
+        <div class="workflow-node node-highlight">
+          <div class="workflow-node-title var-firm-name">Smith & Partners</div>
+          <div class="workflow-node-sub">Review & Sign-off</div>
+        </div>
+        <div class="workflow-connector">→</div>
+        <div class="workflow-node">
+          <div class="workflow-node-title">End Client</div>
+          <div class="workflow-node-sub">Advisory & Reports</div>
+        </div>
+      </div>
+
+      <!-- Selectable workload cards -->
+      <div class="workload-grid">
+        <div class="workload-card active" onclick="selectWorkload(this, 'Bookkeeping & Bank Feeds', 'Daily or weekly reconciliation of bank feeds, rules management, and categorisation across Xero, MYOB, and QuickBooks.')">
+          <div class="workload-title">Bookkeeping</div>
+          <div class="workload-desc">Daily/weekly reconciliations & ledger tidy up.</div>
+        </div>
+
+        <div class="workload-card" onclick="selectWorkload(this, 'AP & AR Management', 'Supplier invoice processing via Dext/Hubdoc, statement matching, and accounts receivable tracking.')">
+          <div class="workload-title">AP / AR Support</div>
+          <div class="workload-desc">Bill processing, matching, and payment runs.</div>
+        </div>
+
+        <div class="workload-card" onclick="selectWorkload(this, 'Payroll Support', 'Timesheet reconciliation, payroll preparation, pay run staging, and superannuation reporting prep.')">
+          <div class="workload-title">Payroll Support</div>
+          <div class="workload-desc">Staging pay runs & timesheet reconciliations.</div>
+        </div>
+
+        <div class="workload-card" onclick="selectWorkload(this, 'Cleanup & Catch-up Work', 'Rescuing multi-year historical backlogs, reconstructive reconciliations, and messy ledger remediation.')">
+          <div class="workload-title">Cleanup Work</div>
+          <div class="workload-desc">Historical backlogs & messy ledger fixes.</div>
+        </div>
+
+        <div class="workload-card" onclick="selectWorkload(this, 'Month-End Preparation', 'Preparation of month-end balance sheet reconciliations, accruals, prepayments, and draft trial balances.')">
+          <div class="workload-title">Month-End Prep</div>
+          <div class="workload-desc">Drafting trial balances & working papers.</div>
+        </div>
+
+        <div class="workload-card" onclick="selectWorkload(this, 'Management Reporting', 'Formatting monthly KPI packs, cash flow variance reports, and standard advisory slide decks.')">
+          <div class="workload-title">Reporting Packs</div>
+          <div class="workload-desc">Assembling monthly KPI decks & reports.</div>
+        </div>
+
+        <div class="workload-card" onclick="selectWorkload(this, 'BAS / GST Preparation', 'Workpaper preparation, GST audit reports, and draft BAS figures for internal CPA partner sign-off.')">
+          <div class="workload-title">BAS / GST Prep</div>
+          <div class="workload-desc">Draft calculations for partner lodgement.</div>
+        </div>
+
+        <div class="workload-card" onclick="selectWorkload(this, 'Admin Finance Tasks', 'Document gathering, portal organisation, software migrations, and general ledger housekeeping.')">
+          <div class="workload-title">Finance Admin</div>
+          <div class="workload-desc">Data hygiene, file sorting & migrations.</div>
+        </div>
+      </div>
+
+      <!-- Dynamic Scope Detail Display -->
+      <div id="workload-detail-box" style="margin-top: 20px; padding: 20px 24px; background: rgba(212, 168, 83, 0.05); border: 1px solid rgba(212, 168, 83, 0.25); border-radius: var(--radius-md);">
+        <strong style="color: var(--gold-light);" id="detail-title">Selected Scope: Bookkeeping & Bank Feeds</strong>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;" id="detail-desc">
+          Daily or weekly reconciliation of bank feeds, rules management, and categorisation across Xero, MYOB, and QuickBooks.
+        </p>
+      </div>
+
+      <div class="workflow-disclaimer">
+        ⚖️ <strong>Regulatory Note:</strong> TaskAura acts strictly as backend operational support. We do not provide regulated Australian public accounting or tax agent services requiring direct practitioner certification. All lodgements, audits, and professional opinions remain under the authority of <span class="var-firm-name">Smith & Partners</span>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: PARTNER TIME / HIGHER VS LOWER VALUE
+       ========================================================================== -->
+  <section class="model-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div class="badge-pill">RESOURCE ALLOCATION</div>
+        <h2 style="font-size: clamp(1.8rem, 3.8vw, 2.8rem); max-width: 860px; margin: 0 auto 12px;">
+          YOUR MOST EXPENSIVE PEOPLE SHOULDN’T BE DOING YOUR MOST REPEATABLE WORK.
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          The objective isn’t simply to reduce cost. It’s to protect your team’s hours for the advisory work clients genuinely value.
+        </p>
+      </div>
+
+      <div class="value-pyramid-grid">
+        <div class="tier-box low-value">
+          <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px;">Lower Value · Highly Repeatable (Ideal to Delegate)</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Backend Production</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Essential mechanical tasks that consume high volumes of staff hours without contributing directly to client retention or billable advisory.
+          </p>
+          <div class="tier-pills">
+            <span class="tier-pill">Bank Reconciliations</span>
+            <span class="tier-pill">Receipt Matching</span>
+            <span class="tier-pill">AP Invoice Staging</span>
+            <span class="tier-pill">Timesheet Checking</span>
+            <span class="tier-pill">Document Filing</span>
+            <span class="tier-pill">Historical Ledger Cleanup</span>
+          </div>
+        </div>
+
+        <div class="tier-box high-value">
+          <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-primary); margin-bottom: 8px;">High Value · Strategic & Client-Facing (Keep In-House)</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: var(--gold-light);">Strategic Advisory</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            The relationships, nuanced tax planning, and commercial insights that build the enterprise value of <span class="var-firm-name">Smith & Partners</span>.
+          </p>
+          <div class="tier-pills">
+            <span class="tier-pill gold">Tax Planning & Structuring</span>
+            <span class="tier-pill gold">Client Advisory Meetings</span>
+            <span class="tier-pill gold">Cashflow Forecasting</span>
+            <span class="tier-pill gold">Practice Growth</span>
+            <span class="tier-pill gold">Complex Technical Review</span>
+            <span class="tier-pill gold">Partner Relationship Building</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 8: CAPACITY GROWTH VISUAL
+       ========================================================================== -->
+  <section class="model-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div class="badge-pill">SCALABILITY TRAJECTORY</div>
+        <h2 style="font-size: clamp(1.8rem, 3.8vw, 2.8rem);">
+          WHAT HAPPENS WHEN THE NEXT 20 CLIENTS ARRIVE?
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          Visualising the difference between step-function hiring cliffs and continuous backend elasticity.
+        </p>
+      </div>
+
+      <div class="chart-container glass-panel">
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-line fixed"></div>
+            <span>Internal Headcount (Stepped / Fixed)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-line flexible"></div>
+            <span style="color: var(--gold-light); font-weight: 600;">Flexible Backend Model (Smooth / Elastic)</span>
+          </div>
+        </div>
+
+        <div class="chart-svg-wrap">
+          <svg viewBox="0 0 800 240" style="width: 100%; height: 100%; overflow: visible;">
+            <line x1="60" y1="20" x2="780" y2="20" stroke="rgba(255,255,255,0.05)" />
+            <line x1="60" y1="75" x2="780" y2="75" stroke="rgba(255,255,255,0.05)" />
+            <line x1="60" y1="130" x2="780" y2="130" stroke="rgba(255,255,255,0.05)" />
+            <line x1="60" y1="185" x2="780" y2="185" stroke="rgba(255,255,255,0.08)" />
+
+            <text x="80" y="210" fill="#64748b" font-size="11" font-family="var(--font-mono)">Current</text>
+            <text x="210" y="210" fill="#64748b" font-size="11" font-family="var(--font-mono)">+10 Clients</text>
+            <text x="350" y="210" fill="#64748b" font-size="11" font-family="var(--font-mono)">+20 Clients</text>
+            <text x="490" y="210" fill="#64748b" font-size="11" font-family="var(--font-mono)">+30 Clients</text>
+            <text x="630" y="210" fill="#64748b" font-size="11" font-family="var(--font-mono)">+50 Clients</text>
+            <text x="750" y="210" fill="#64748b" font-size="11" font-family="var(--font-mono)">+80</text>
+
+            <path d="M 80 160 L 220 160 L 220 100 L 480 100 L 480 40 L 760 40" fill="none" stroke="#64748b" stroke-width="2.5" stroke-dasharray="6,6" />
+            <path d="M 80 160 Q 300 130, 480 90 T 760 30" fill="none" stroke="url(#goldGradChart)" stroke-width="3.5" filter="drop-shadow(0 0 6px rgba(212,168,83,0.4))" />
+
+            <circle cx="80" cy="160" r="5" fill="#d4a853" />
+            <circle cx="350" cy="115" r="5" fill="#d4a853" />
+            <circle cx="630" cy="60" r="5" fill="#d4a853" />
+
+            <defs>
+              <linearGradient id="goldGradChart" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f5da93" />
+                <stop offset="50%" stop-color="#d4a853" />
+                <stop offset="100%" stop-color="#9e7529" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div style="font-size: 0.82rem; color: var(--text-dim); text-align: center;">
+          Fixed hiring requires committing to full 140 hr/mo salary steps ahead of revenue. Backend capacity scales dynamically alongside incoming client contracts.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 9: 4-MODEL COMPARISON MATRIX
+       ========================================================================== -->
+  <section class="model-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <div class="badge-pill">OPERATING MODEL COMPARISON</div>
+        <h2 style="font-size: clamp(1.8rem, 3.8vw, 2.8rem);">
+          NOT EVERY DELIVERY MODEL IS THE SAME.
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          An objective comparison of four common ways Australian practices solve capacity constraints.
+        </p>
+      </div>
+
+      <div class="models-grid">
+        <div class="model-card">
+          <div style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Freelancer / Solo Contractor</div>
+          <div>
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: #34d399; margin: 8px 0 4px;">Potential Advantages</div>
+            <div class="model-bullet">· Fast initial setup</div>
+            <div class="model-bullet">· Low initial commitment</div>
+
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: #f87171; margin: 12px 0 4px;">Key Considerations</div>
+            <div class="model-bullet">· Single-person bottleneck</div>
+            <div class="model-bullet">· Continuity & sickness risk</div>
+            <div class="model-bullet">· Inconsistent availability</div>
+          </div>
+        </div>
+
+        <div class="model-card">
+          <div style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Traditional BPO Provider</div>
+          <div>
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: #34d399; margin: 8px 0 4px;">Potential Advantages</div>
+            <div class="model-bullet">· Large headcount pool</div>
+            <div class="model-bullet">· Established facilities</div>
+
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: #f87171; margin: 12px 0 4px;">Key Considerations</div>
+            <div class="model-bullet">· Seat lock-ins & minimums</div>
+            <div class="model-bullet">· Rigid corporate contracts</div>
+            <div class="model-bullet">· High staff turnover rates</div>
+          </div>
+        </div>
+
+        <div class="model-card">
+          <div style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px;">Direct In-House Hire</div>
+          <div>
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: #34d399; margin: 8px 0 4px;">Potential Advantages</div>
+            <div class="model-bullet">· Full cultural integration</div>
+            <div class="model-bullet">· In-person office presence</div>
+
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: #f87171; margin: 12px 0 4px;">Key Considerations</div>
+            <div class="model-bullet">· High fixed annual salary</div>
+            <div class="model-bullet">· Super, leave, onboarding</div>
+            <div class="model-bullet">· Stepped 1.0 FTE commitment</div>
+          </div>
+        </div>
+
+        <div class="model-card featured">
+          <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 12px;" class="text-gold">TaskAura Model</div>
+          <div>
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--gold-light); margin: 8px 0 4px;">Core Architecture</div>
+            <div class="model-bullet">· Start with just 1 client</div>
+            <div class="model-bullet">· Defined, repeatable scopes</div>
+            <div class="model-bullet">· Elastic hours matching growth</div>
+            <div class="model-bullet">· Firm retains client control</div>
+            <div class="model-bullet">· Dedicated human account lead</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 10: TRUST & RISK REVERSAL ("GIVE US ONE")
+       ========================================================================== -->
+  <section class="model-section" id="start-one">
+    <div class="container-narrow">
+      <div class="risk-reversal-card glass-panel glass-panel-glow">
+        <div class="badge-pill">ZERO-RISK VERIFICATION</div>
+        <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--text-muted); margin-bottom: 4px;">
+          WE’RE NOT ASKING YOU TO TRUST US WITH 50 CLIENTS.
+        </h2>
+        <div class="giant-hero-number text-gold">
+          GIVE US ONE.
+        </div>
+
+        <p style="font-size: 1.15rem; color: #fff; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+          One client. One defined workflow. One proof of execution.
+        </p>
+
+        <div class="criteria-chips">
+          <div class="chip-item">1. Reconcile Accuracy</div>
+          <div class="chip-item">2. Communication Speed</div>
+          <div class="chip-item">3. Turnaround Discipline</div>
+          <div class="chip-item">4. Process Consistency</div>
+        </div>
+
+        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 540px; margin: 0 auto 32px;">
+          If the first trial piece of work doesn’t tangibly make your team’s week easier, there is zero reason to expand.
+        </p>
+
+        <div class="action-group">
+          <button class="btn btn-gold" onclick="openConsultationModal('Start with One Client Workflow')">
+            START WITH ONE →
+          </button>
+          <button class="btn btn-negative" onclick="showNegativeResponse()">
+            OR KEEP YOUR CURRENT MODEL →
+          </button>
+        </div>
+
+        <div id="negative-msg" class="negative-response-feedback">
+          🤝 <strong>Completely understood.</strong> This model is yours to keep and explore anytime. If delivery capacity or hiring constraints arise later in the season, <span class="var-firm-name">Smith & Partners</span> will know where to find us.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 11: SECURITY & AUSTRALIAN REGULATORY RESPONSIBILITY
+       ========================================================================== -->
+  <section class="model-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div class="badge-pill">GOVERNANCE & RESPONSIBILITY</div>
+        <h2 style="font-size: clamp(1.8rem, 3.8vw, 2.8rem); max-width: 860px; margin: 0 auto 12px;">
+          YOUR CLIENT DATA ISN’T SOMETHING WE EXPECT YOU TO TAKE LIGHTLY.
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          Prior to any engagement, both parties clearly define protocol boundaries and data safeguards.
+        </p>
+      </div>
+
+      <div class="compliance-grid">
+        <div class="compliance-card">
+          <div style="font-size: 1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;" class="text-gold">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Role-Based Access
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Scoped permissions inside your practice tools (Xero, MYOB, Dext). Team members only access authorized client files.
+          </p>
+        </div>
+
+        <div class="compliance-card">
+          <div style="font-size: 1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;" class="text-gold">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Confidentiality & NDAs
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Rigorous bilateral non-disclosure agreements, IP safeguards, and explicit workflow boundaries in writing.
+          </p>
+        </div>
+
+        <div class="compliance-card">
+          <div style="font-size: 1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;" class="text-gold">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            Clear Escalation Chains
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Defined query protocols. Queries that require partner judgment or client contact are routed directly back to you.
+          </p>
+        </div>
+      </div>
+
+      <div class="compliance-notice-box">
+        🇦🇺 <strong>Australian Practitioner Obligations:</strong> Accounting practices operating under CPA Australia, CA ANZ, or IPA standards must consider their professional, privacy (Privacy Act 1988), APES 305 / APES 110 ethical obligations, and cross-border client disclosures when utilizing third-party operational service providers. We assist with transparent workflow documentation to support your compliance review.
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 12 & FINAL CTA: THE REVEAL
+       ========================================================================== -->
+  <section class="model-section" id="final-cta" style="padding-bottom: 120px; text-align: center;">
+    <div class="container">
+      <div class="badge-pill">
+        THE TEAM BEHIND THE MODEL
+      </div>
+
+      <div style="font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; color: var(--gold-light); margin-bottom: 8px;">
+        TASKAURA GLOBAL
+      </div>
+
+      <h2 style="font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.15; max-width: 900px; margin: 0 auto 20px;">
+        DON’T OUTSOURCE YOUR PRACTICE.<br />
+        <span class="text-gold">OUTSOURCE THE BOTTLENECK.</span>
+      </h2>
+
+      <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 680px; margin: 0 auto;">
+        You don’t need to decide whether TaskAura can handle your entire firm’s volume. You only need to decide whether it is worth testing one small piece.
+      </p>
+
+      <!-- Three Pillars -->
+      <div class="principles-row">
+        <div class="principle-card">
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--gold-primary); margin-bottom: 8px;">01 / START SMALL</div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">One Workflow First</div>
+          <div style="font-size: 0.84rem; color: var(--text-muted);">
+            Begin with a single reconciliation or monthly bookkeeping client to observe our rhythm.
+          </div>
+        </div>
+
+        <div class="principle-card">
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--gold-primary); margin-bottom: 8px;">02 / PROVE ACCURACY</div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">Evaluate In Real-Time</div>
+          <div style="font-size: 0.84rem; color: var(--text-muted);">
+            Test turnaround consistency, query clarity, and workpaper hygiene first-hand.
+          </div>
+        </div>
+
+        <div class="principle-card">
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--gold-primary); margin-bottom: 8px;">03 / EXPAND AT WILL</div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;">Scale With Demand</div>
+          <div style="font-size: 0.84rem; color: var(--text-muted);">
+            Increase capacity smoothly as your practice wins new clients without hiring headaches.
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-group">
+        <button class="btn btn-gold" onclick="openConsultationModal('Trial One Workflow Request')">
+          SHOW US ONE WORKFLOW →
+        </button>
+        <button class="btn btn-outline" onclick="openConsultationModal('15-Minute Capacity Conversation')">
+          15-MINUTE CAPACITY CONVERSATION
+        </button>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <button class="btn btn-negative" onclick="showNegativeResponse()">
+          Not a priority right now
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__grid">
+
+        <!-- Left Column: Brand & Description -->
+        <div class="footer__brand-col">
+          <a href="index.html" class="footer__logo-link">
+            <img src="asset/logo/image-removebg-preview.png" class="footer__logo" alt="TaskAura Logo" />
+          </a>
+          <p class="footer__description">
+            TaskAura Global helps businesses scale with reliable, efficient, and high-quality backend capacity and operational support — so you can focus on what matters most: <span class="footer__highlight">Growth.</span>
+          </p>
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/taskauraglobal/" target="_blank" rel="noopener noreferrer" class="footer__social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/taskaura-global/" target="_blank" rel="noopener noreferrer" class="footer__social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Middle Column: Useful Links -->
+        <div class="footer__links-col">
+          <h4 class="footer__title">Useful Links</h4>
+          <ul class="footer__links-list">
+            <li><a href="index.html#hero-section" class="footer__link">Home</a></li>
+            <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
+            <li><a href="index.html#why-us-section" class="footer__link">Why Us</a></li>
+            <li><a href="it-services.html" class="footer__link">IT Services</a></li>
+            <li><a href="accounting.html" class="footer__link">Accounting</a></li>
+            <li><a href="capacity-model.html" class="footer__link" style="color: var(--color-gold-light);">Strategic Capacity Model</a></li>
+            <li><a href="ecommerce-services.html" class="footer__link">E-Commerce Services</a></li>
+            <li><a href="real-estate-services.html" class="footer__link">Real Estate Services</a></li>
+            <li><a href="construction-accounting.html" class="footer__link">Construction Accounting</a></li>
+            <li><a href="business-accounting.html" class="footer__link">Business Accounting</a></li>
+            <li><a href="partners.html" class="footer__link">Our Clients</a></li>
+            <li><a href="careers.html" class="footer__link">Careers</a></li>
+            <li><a href="faq.html" class="footer__link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Right Column: Connect Us -->
+        <div class="footer__connect-col">
+          <h4 class="footer__title">Connect Us</h4>
+          <ul class="footer__connect-list">
+            <li class="footer__connect-item">
+              <span class="footer__connect-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <a href="mailto:rohitsingh@taskauraglobal.com" class="footer__connect-text">rohitsingh@taskauraglobal.com</a>
+            </li>
+            <li class="footer__connect-item">
+              <span class="footer__connect-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.5 19.5 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <a href="tel:+919630549549" class="footer__connect-text">+91 9630549549</a>
+            </li>
+            <li class="footer__connect-item" style="align-items: flex-start;">
+              <span class="footer__connect-icon" style="margin-top: 4px;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+              <div class="footer__connect-text">
+                <strong style="color: var(--color-white); display: block; margin-bottom: 2px;">Headquarters:</strong>
+                Indore, M.P., India
+                <strong style="color: var(--color-white); display: block; margin-top: 8px; margin-bottom: 2px;">Satellite Offices:</strong>
+                Singapore | US | UK | Canada | Australia
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr class="footer__divider" />
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">Copyright © 2026 Taskaura Global. All rights reserved.</p>
+        <div class="footer__policies">
+          <a href="#" class="footer__policy-link">Privacy Policy</a>
+          <span class="footer__policy-sep">|</span>
+          <a href="#" class="footer__policy-link">Terms &amp; Conditions</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       AI ASSISTANT: "ASK CAPACITY ✦"
+       ========================================================================== -->
+  <button class="ai-assistant-toggle" onclick="toggleAiDrawer()" id="ai-toggle-btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+    Ask Capacity ✦
+  </button>
+
+  <div class="ai-assistant-drawer" id="ai-drawer">
+    <div class="ai-drawer-header">
+      <div style="font-family: var(--font-heading); font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+        <span style="color: var(--gold-primary);">✦</span> Capacity Strategy Advisor
+      </div>
+      <button style="background: transparent; border: none; color: var(--text-dim); font-size: 1.2rem; cursor: pointer; padding: 4px;" onclick="toggleAiDrawer()">✕</button>
+    </div>
+
+    <div class="ai-chat-body" id="ai-chat-body">
+      <div class="chat-msg bot">
+        Thinking about whether flexible backend capacity would fit <span class="var-firm-name">Smith & Partners</span> in <span class="var-city-name">Brisbane</span>?
+        <br /><br />
+        Select a scenario below or describe your current practice setup:
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;" id="prompt-pills">
+        <button class="scenario-pill" onclick="sendScenario('We manage 80 bookkeeping clients. How would this work?')">
+          “We manage 80 bookkeeping clients. How would this work?”
+        </button>
+        <button class="scenario-pill" onclick="sendScenario('We use Xero. What could we hand over?')">
+          “We use Xero. What could we hand over?”
+        </button>
+        <button class="scenario-pill" onclick="sendScenario('We only need help during busy periods.')">
+          “We only need help during busy periods.”
+        </button>
+        <button class="scenario-pill" onclick="sendScenario('How would you start with one client?')">
+          “How would you start with one client?”
+        </button>
+        <button class="scenario-pill" onclick="sendScenario('What would our team still be responsible for?')">
+          “What would our team still be responsible for?”
+        </button>
+      </div>
+    </div>
+
+    <div class="ai-chat-input-bar">
+      <input type="text" class="ai-input" id="ai-user-input" placeholder="Type a scenario (e.g. 'We use MYOB...')" onkeypress="handleAiKey(event)" />
+      <button class="ai-send-btn" onclick="sendAiMessage()">→</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PROSPECT PROFILE CONFIGURATION MODAL (For live prospect testing)
+       ========================================================================== -->
+  <div class="prospect-modal" id="prospect-modal">
+    <div class="prospect-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="font-size: 1.25rem;">Personalize Model Profile</h3>
+        <button onclick="closeProspectModal()" style="background: transparent; border: none; color: var(--text-dim); font-size: 1.2rem; cursor: pointer;">✕</button>
+      </div>
+
+      <div class="input-row">
+        <label class="input-label">Firm Name</label>
+        <input type="text" class="input-field" id="cfg-firm-name" value="Smith & Partners" />
+      </div>
+
+      <div class="input-row">
+        <label class="input-label">Lead Partner Name</label>
+        <input type="text" class="input-field" id="cfg-partner-name" value="Michael" />
+      </div>
+
+      <div class="input-row">
+        <label class="input-label">City / Australian Region</label>
+        <input type="text" class="input-field" id="cfg-city-name" value="Brisbane" />
+      </div>
+
+      <div class="input-row">
+        <label class="input-label">Current Hiring Role (Optional)</label>
+        <input type="text" class="input-field" id="cfg-role-name" value="Intermediate Accountant" />
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-top: 24px;">
+        <button class="btn btn-gold" style="flex: 1;" onclick="applyProspectConfig()">
+          Apply to Page
+        </button>
+        <button class="btn btn-outline" onclick="closeProspectModal()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CONSULTATION & TRIAL REQUEST MODAL
+       ========================================================================== -->
+  <div class="prospect-modal" id="consult-modal">
+    <div class="prospect-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="font-size: 1.25rem;" id="modal-heading">Start With One Workflow</h3>
+        <button onclick="closeConsultModal()" style="background: transparent; border: none; color: var(--text-dim); font-size: 1.2rem; cursor: pointer;">✕</button>
+      </div>
+
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+        Let's organize a 15-minute operational walkthrough tailored to <span class="var-firm-name">Smith & Partners</span>.
+      </p>
+
+      <form id="consult-form" onsubmit="handleConsultSubmit(event)">
+        <div class="input-row">
+          <label class="input-label">Your Name</label>
+          <input type="text" class="input-field" id="form-name" required placeholder="Partner name" />
+        </div>
+
+        <div class="input-row">
+          <label class="input-label">Work Email</label>
+          <input type="email" class="input-field" id="form-email" required placeholder="name@firm.com.au" />
+        </div>
+
+        <div class="input-row">
+          <label class="input-label">Phone / Mobile</label>
+          <input type="tel" class="input-field" id="form-phone" required placeholder="0400 000 000" />
+        </div>
+
+        <div class="input-row">
+          <label class="input-label">Primary Software Used</label>
+          <input type="text" class="input-field" id="form-software" placeholder="e.g. Xero, MYOB, Dext" />
+        </div>
+
+        <div style="margin-top: 24px;">
+          <button type="submit" class="btn btn-gold" style="width: 100%;" id="btn-submit-consult">
+            Submit Request →
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Global Script -->
+  <script src="script.js"></script>
+
+  <!-- Capacity Model Script -->
+  <script>
+    // Prospect State Variables
+    let prospectData = {
+      firmName: "Smith & Partners",
+      partnerName: "Michael",
+      city: "Brisbane",
+      hiringRole: "Intermediate Accountant"
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Check URL query params if provided
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get("firm")) prospectData.firmName = urlParams.get("firm");
+      if (urlParams.get("partner")) prospectData.partnerName = urlParams.get("partner");
+      if (urlParams.get("city")) prospectData.city = urlParams.get("city");
+      if (urlParams.get("role")) prospectData.hiringRole = urlParams.get("role");
+
+      renderProspectData();
+      updateSimulator();
+      updateEmployeeCost();
+    });
+
+    function renderProspectData() {
+      document.querySelectorAll(".var-firm-name").forEach(el => el.textContent = prospectData.firmName);
+      document.querySelectorAll(".var-partner-name").forEach(el => el.textContent = prospectData.partnerName);
+      document.querySelectorAll(".var-city-name").forEach(el => el.textContent = prospectData.city);
+    }
+
+    function openProspectModal() {
+      document.getElementById("cfg-firm-name").value = prospectData.firmName;
+      document.getElementById("cfg-partner-name").value = prospectData.partnerName;
+      document.getElementById("cfg-city-name").value = prospectData.city;
+      document.getElementById("cfg-role-name").value = prospectData.hiringRole;
+      document.getElementById("prospect-modal").classList.add("active");
+    }
+
+    function closeProspectModal() {
+      document.getElementById("prospect-modal").classList.remove("active");
+    }
+
+    function applyProspectConfig() {
+      prospectData.firmName = document.getElementById("cfg-firm-name").value.trim() || "Your Firm";
+      prospectData.partnerName = document.getElementById("cfg-partner-name").value.trim() || "Partner";
+      prospectData.city = document.getElementById("cfg-city-name").value.trim() || "Australia";
+      prospectData.hiringRole = document.getElementById("cfg-role-name").value.trim() || "Accountant";
+      
+      renderProspectData();
+      closeProspectModal();
+    }
+
+    // Capacity Simulator Calculations
+    function updateSimulator() {
+      const currentClients = parseInt(document.getElementById("input-current-clients").value);
+      const hoursPerClient = parseFloat(document.getElementById("input-hours-per-client").value);
+      const growthClients = parseInt(document.getElementById("input-growth-clients").value);
+      const hourlyCost = parseInt(document.getElementById("input-hourly-cost").value);
+      const staffHours = parseInt(document.getElementById("input-staff-hours").value);
+
+      document.getElementById("val-current-clients").textContent = currentClients;
+      document.getElementById("val-hours-per-client").textContent = hoursPerClient.toFixed(1) + " hrs";
+      document.getElementById("val-growth-clients").textContent = "+" + growthClients;
+      document.getElementById("val-hourly-cost").textContent = "A$ " + hourlyCost;
+      document.getElementById("val-staff-hours").textContent = staffHours + " hrs";
+
+      const currentWorkload = Math.round(currentClients * hoursPerClient);
+      const growthWorkload = Math.round(growthClients * hoursPerClient);
+      const totalWorkload = currentWorkload + growthWorkload;
+      const fteEquivalent = (growthWorkload / staffHours).toFixed(2);
+
+      document.getElementById("out-current-workload").textContent = currentWorkload.toLocaleString() + " hrs/mo";
+      document.getElementById("out-growth-workload").textContent = "+" + growthWorkload.toLocaleString() + " hrs/mo";
+      document.getElementById("out-total-workload").textContent = totalWorkload.toLocaleString() + " hrs/mo";
+      document.getElementById("out-fte-equivalent").textContent = fteEquivalent + " FTE";
+
+      const pctCurrent = Math.round((currentWorkload / totalWorkload) * 100);
+      const pctGrowth = 100 - pctCurrent;
+      document.getElementById("pct-current").textContent = pctCurrent + "%";
+      document.getElementById("pct-growth").textContent = pctGrowth + "%";
+      document.getElementById("bar-current").style.width = pctCurrent + "%";
+      document.getElementById("bar-growth").style.width = pctGrowth + "%";
+
+      document.getElementById("realisation-clients").textContent = "+" + growthClients + " CLIENTS";
+      document.getElementById("realisation-hours").textContent = "+" + growthWorkload + " HOURS / MO";
+    }
+
+    function updateEmployeeCost() {
+      const salary = parseFloat(document.getElementById("emp-salary").value) || 0;
+      const oncost = parseFloat(document.getElementById("emp-oncost").value) || 0;
+      const recruitment = parseFloat(document.getElementById("emp-recruitment").value) || 0;
+
+      const total = Math.round(salary * (1 + oncost / 100) + recruitment);
+      document.getElementById("emp-total-cost").textContent = "A$ " + total.toLocaleString();
+    }
+
+    function selectWorkload(el, title, desc) {
+      document.querySelectorAll(".workload-card").forEach(c => c.classList.remove("active"));
+      el.classList.add("active");
+      document.getElementById("detail-title").textContent = "Selected Scope: " + title;
+      document.getElementById("detail-desc").textContent = desc;
+    }
+
+    function showNegativeResponse() {
+      document.getElementById("negative-msg").style.display = "block";
+      document.getElementById("negative-msg").scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function openConsultationModal(topic) {
+      document.getElementById("modal-heading").textContent = topic || "Start With One Workflow";
+      document.getElementById("consult-modal").classList.add("active");
+    }
+
+    function closeConsultModal() {
+      document.getElementById("consult-modal").classList.remove("active");
+    }
+
+    function handleConsultSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById("btn-submit-consult");
+      btn.disabled = true;
+      btn.textContent = "Connecting Request...";
+
+      const name = document.getElementById("form-name").value;
+      const email = document.getElementById("form-email").value;
+      const phone = document.getElementById("form-phone").value;
+      const software = document.getElementById("form-software").value;
+
+      const formData = new FormData();
+      formData.append("access_key", "bfc14f9f-7037-4217-b56a-ea8fe9f8b38e");
+      formData.append("subject", "Australian Capacity Model Lead: " + prospectData.firmName + " (" + name + ")");
+      formData.append("Firm Name", prospectData.firmName);
+      formData.append("Partner", name);
+      formData.append("City", prospectData.city);
+      formData.append("Email", email);
+      formData.append("Phone", phone);
+      formData.append("Software", software);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      })
+      .then(async (response) => {
+        const res = await response.json();
+        if (response.status === 200) {
+          window.location.href = "thankyou.html";
+        } else {
+          alert("Request sent successfully! Our strategy team will reach out shortly.");
+          closeConsultModal();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Request noted! We will connect with you via email.");
+        closeConsultModal();
+      });
+    }
+
+    function toggleAiDrawer() {
+      const drawer = document.getElementById("ai-drawer");
+      drawer.classList.toggle("open");
+    }
+
+    function handleAiKey(e) {
+      if (e.key === "Enter") sendAiMessage();
+    }
+
+    function sendScenario(text) {
+      addUserMessage(text);
+      processAiScenario(text);
+    }
+
+    function sendAiMessage() {
+      const input = document.getElementById("ai-user-input");
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = "";
+      addUserMessage(text);
+      processAiScenario(text);
+    }
+
+    function addUserMessage(text) {
+      const chatBody = document.getElementById("ai-chat-body");
+      const msg = document.createElement("div");
+      msg.className = "chat-msg user";
+      msg.textContent = text;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function addBotMessage(html) {
+      const chatBody = document.getElementById("ai-chat-body");
+      const msg = document.createElement("div");
+      msg.className = "chat-msg bot";
+      msg.innerHTML = html;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function processAiScenario(query) {
+      const q = query.toLowerCase();
+      setTimeout(() => {
+        if (q.includes("80") || q.includes("clients")) {
+          addBotMessage(`For a portfolio of 80 bookkeeping clients, we typically recommend piloting with <strong>2 to 3 standard monthly reconciliation files</strong>.<br/><br/>Your team retains all direct client communication, BAS sign-off, and final approvals while our backend team handles the time-consuming transaction classification and receipt matching in Xero/MYOB.<br/><br/>Would you like to map which of your client tiers consumes the most hours?`);
+        } else if (q.includes("xero")) {
+          addBotMessage(`With Xero, we operate seamlessly via delegated staff permissions:<br/>• Bank feed reconciliations & rule verification<br/>• Bill staging & Hubdoc/Dext matching<br/>• Month-end draft balance sheet working papers<br/><br/>Your senior CPAs simply review clean draft files rather than hunting receipts.`);
+        } else if (q.includes("busy") || q.includes("seasonal")) {
+          addBotMessage(`That is precisely where elastic capacity works best. Unlike hiring a full-time employee who carries year-round payroll, TaskAura capacity can surge during EOFY or quarterly BAS crunches and scale back when workload stabilizes.`);
+        } else if (q.includes("start with one") || q.includes("how would you start")) {
+          addBotMessage(`Starting with one client involves:<br/>1. A 15-minute scope alignment on the specific workflow.<br/>2. Scoped software access.<br/>3. We execute the first reconciliation cycle.<br/>4. You evaluate speed, accuracy, and turnaround with zero long-term commitment.`);
+        } else if (q.includes("responsible") || q.includes("team")) {
+          addBotMessage(`Your firm remains 100% in control of:<br/>• Client relationships & strategic advice<br/>• Final review & regulated workpaper sign-off<br/>• Tax lodgements & statutory compliance<br/><br/>TaskAura provides the quiet operational engine in the background.`);
+        } else {
+          addBotMessage(`Understood. Every practice in Australia has a distinct operational flow. How many total recurring clients is <strong>${prospectData.firmName}</strong> currently managing across ${prospectData.city}?`);
+        }
+      }, 500);
+    }
+  </script>
+</body>
+</html>
