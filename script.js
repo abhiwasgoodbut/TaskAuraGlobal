@@ -1005,6 +1005,7 @@ window.addEventListener('load', () => {
   }
 });
 
+
 // Fallback: hide preloader after 3 seconds in case of slow resources
 setTimeout(() => {
   const preloader = document.getElementById('preloader');
@@ -1012,3 +1013,181 @@ setTimeout(() => {
     preloader.classList.add('fade-out');
   }
 }, 3000);
+
+// ========================================
+// PILLAR CARD — Canvas Animations
+// ========================================
+(function initPillarCanvases() {
+  const cards = document.querySelectorAll('.pillar-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    const canvas = card.querySelector('.pillar-card__canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const type = card.dataset.pillar;
+    let raf = null;
+    let running = false;
+
+    function resize() {
+      canvas.width = card.offsetWidth;
+      canvas.height = card.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // ---- TECH: Code Rain ----
+    function techRain() {
+      const cols = Math.floor(canvas.width / 16);
+      const drops = Array.from({ length: cols }, () => Math.random() * canvas.height / 16);
+      const chars = 'アイウエオabcdef01';
+
+      return function draw() {
+        ctx.fillStyle = 'rgba(10,10,20,0.18)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.font = '13px monospace';
+        drops.forEach((y, i) => {
+          const char = chars[Math.floor(Math.random() * chars.length)];
+          const alpha = Math.random() > 0.5 ? 0.9 : 0.35;
+          ctx.fillStyle = `rgba(212, 168, 83, ${alpha})`;
+          ctx.fillText(char, i * 16, y * 16);
+          if (y * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+          else drops[i] += 0.5;
+        });
+      };
+    }
+
+    // ---- AI: Flowing Nodes ----
+    function aiNodes() {
+      const nodes = Array.from({ length: 18 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        r: 2 + Math.random() * 2,
+        pulse: Math.random() * Math.PI * 2,
+      }));
+
+      return function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        nodes.forEach(n => {
+          n.x += n.vx; n.y += n.vy; n.pulse += 0.04;
+          if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+          if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+        });
+        // Draw connections
+        nodes.forEach((a, i) => {
+          nodes.slice(i + 1).forEach(b => {
+            const dist = Math.hypot(a.x - b.x, a.y - b.y);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = `rgba(212, 168, 83, ${(1 - dist / 120) * 0.35})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          });
+        });
+        // Draw nodes
+        nodes.forEach(n => {
+          const glow = 0.5 + 0.5 * Math.sin(n.pulse);
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r + glow, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(242, 210, 122, ${0.5 + glow * 0.4})`;
+          ctx.fill();
+        });
+      };
+    }
+
+    // ---- FINANCE: Graph Lines ----
+    function financeGraph() {
+      const points = Array.from({ length: 30 }, (_, i) => ({
+        x: (canvas.width / 29) * i,
+        y: canvas.height * 0.5 + (Math.random() - 0.5) * canvas.height * 0.35,
+        vy: (Math.random() - 0.5) * 0.8,
+      }));
+      let t = 0;
+
+      return function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        t += 0.018;
+        points.forEach((p, i) => {
+          p.y += p.vy;
+          if (p.y < canvas.height * 0.15 || p.y > canvas.height * 0.85) p.vy *= -1;
+        });
+
+        // Area fill
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, canvas.height);
+        points.forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.lineTo(points[points.length - 1].x, canvas.height);
+        ctx.closePath();
+        const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        grad.addColorStop(0, 'rgba(212,168,83,0.18)');
+        grad.addColorStop(1, 'rgba(212,168,83,0)');
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        // Line
+        ctx.beginPath();
+        points.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+        ctx.strokeStyle = 'rgba(242, 210, 122, 0.7)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Dot on last point
+        const last = points[points.length - 1];
+        ctx.beginPath();
+        ctx.arc(last.x, last.y, 3 + Math.sin(t) * 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(242, 210, 122, 0.9)';
+        ctx.fill();
+      };
+    }
+
+    const drawFn = type === 'tech' ? techRain() : type === 'ai' ? aiNodes() : financeGraph();
+
+    function loop() {
+      if (!running) return;
+      drawFn();
+      raf = requestAnimationFrame(loop);
+    }
+
+    card.addEventListener('mouseenter', () => {
+      running = true;
+      resize();
+      loop();
+    });
+    card.addEventListener('mouseleave', () => {
+      running = false;
+      cancelAnimationFrame(raf);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+  });
+})();
+
+// ========================================
+// THEME TOGGLE (Dark / Light Mode)
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const rootElement = document.documentElement;
+  
+  if (themeToggleBtn) {
+    // Check local storage for saved theme
+    const savedTheme = localStorage.getItem('taskaura-theme');
+    if (savedTheme === 'light') {
+      rootElement.setAttribute('data-theme', 'light');
+    }
+    
+    themeToggleBtn.addEventListener('click', () => {
+      if (rootElement.getAttribute('data-theme') === 'light') {
+        rootElement.removeAttribute('data-theme');
+        localStorage.setItem('taskaura-theme', 'dark');
+      } else {
+        rootElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('taskaura-theme', 'light');
+      }
+    });
+  }
+});
