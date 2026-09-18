@@ -6022,7 +6022,9 @@ section {
 .team-leader__media {
   position: relative;
   width: 100%;
-  aspect-ratio: 2.5 / 1;
+  aspect-ratio: 3.4 / 1;
+  max-height: 330px;
+  min-height: 220px;
   border-radius: 16px;
   overflow: hidden;
   background: #08080c;
@@ -6033,7 +6035,7 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 26%;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -6295,7 +6297,8 @@ section {
 /* Team Responsive Media Queries */
 @media (max-width: 1024px) {
   .team-leader__media {
-    aspect-ratio: 2.2 / 1;
+    aspect-ratio: 2.8 / 1;
+    max-height: 280px;
   }
   .team__grid--three {
     gap: 20px;
@@ -6304,7 +6307,8 @@ section {
 
 @media (max-width: 860px) {
   .team-leader__media {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 2.2 / 1;
+    max-height: 260px;
   }
   .team-leader__content {
     flex-direction: column;
@@ -6327,8 +6331,9 @@ section {
     margin-bottom: 28px;
   }
   .team-leader__media {
-    aspect-ratio: 16 / 9;
-    min-height: 190px;
+    aspect-ratio: 2 / 1;
+    min-height: 180px;
+    max-height: 220px;
   }
   .team-leader__badge {
     position: static;
