@@ -3453,7 +3453,7 @@ section {
   background: #000000;
   background-image: radial-gradient(ellipse at 50% 0%, rgba(212, 168, 83, 0.035) 0%, #000000 70%);
   border-top: 1px solid rgba(212, 168, 83, 0.18);
-  padding: 90px 0 24px 0;
+  padding: 90px 0 0 0;
   color: rgba(255, 255, 255, 0.7);
   font-family: var(--font-body);
   position: relative;
@@ -3721,7 +3721,8 @@ section {
   line-height: 0.88;
   white-space: nowrap;
   letter-spacing: -0.03em;
-  margin: 50px 0 35px 0;
+  margin: 50px 0 0 0;
+  padding-bottom: 0;
   position: relative;
   user-select: none;
   cursor: pointer;
@@ -3885,7 +3886,7 @@ section {
 
 @media (max-width: 640px) {
   .footer--luxury {
-    padding: 60px 0 20px 0;
+    padding: 60px 0 0 0;
   }
   .footer__container--ultra {
     padding: 0 20px;
@@ -3898,7 +3899,7 @@ section {
     grid-column: span 1;
   }
   .footer__aura-banner {
-    margin: 35px 0 25px 0;
+    margin: 35px 0 0 0;
     font-size: clamp(2.4rem, 11vw, 4rem);
   }
   .footer__bottom-lux {
