@@ -3651,6 +3651,7 @@ section {
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  margin-top: 14px;
 }
 
 .footer__boundary-tag p {
