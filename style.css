@@ -5900,7 +5900,7 @@ section {
    ======================================== */
 .team {
   position: relative;
-  padding: 20px 0 90px;
+  padding: 55px 0 90px;
   background: var(--color-dark);
   overflow: hidden;
   border-top: 1px solid rgba(212, 168, 83, 0.08);
@@ -6321,7 +6321,7 @@ section {
 
 @media (max-width: 640px) {
   .team {
-    padding: 10px 0 60px;
+    padding: 36px 0 60px;
   }
   .team__header {
     margin-bottom: 28px;
