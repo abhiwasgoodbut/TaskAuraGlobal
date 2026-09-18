@@ -2548,6 +2548,10 @@ section {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  .why-us__stat-card:last-child {
+    max-width: 100%;
+    margin: 0;
+  }
 }
 
 /* ========================================
@@ -6462,14 +6466,38 @@ section {
 }
 
 @media (max-width: 860px) {
+  .team-leader {
+    max-width: 440px;
+    margin: 0 auto 24px;
+  }
+  .team-leader__card {
+    padding: 16px;
+    border-radius: 20px;
+  }
   .team-leader__media {
-    aspect-ratio: 2.2 / 1;
-    max-height: 260px;
+    aspect-ratio: 16 / 10;
+    max-height: 240px;
+    min-height: auto;
+  }
+  .team-leader__img {
+    object-position: 46% 15%;
   }
   .team-leader__content {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
+    padding: 14px 4px 6px;
+  }
+  .team-leader__info {
+    flex: none;
+    width: 100%;
+  }
+  .team-leader__name {
+    font-size: 1.35rem;
+  }
+  .team-leader__role {
+    font-size: 0.76rem;
+    margin-bottom: 6px;
   }
   .team__grid--three {
     grid-template-columns: 1fr;
@@ -6486,16 +6514,50 @@ section {
   .team__header {
     margin-bottom: 28px;
   }
+  .team-leader {
+    max-width: 440px;
+    margin: 0 auto 20px;
+  }
+  .team-leader__card {
+    padding: 16px;
+    border-radius: 20px;
+  }
   .team-leader__media {
-    aspect-ratio: 2 / 1;
-    min-height: 180px;
+    aspect-ratio: 16 / 10;
+    min-height: auto;
     max-height: 220px;
+    border-radius: 14px;
+    margin-bottom: 0;
+  }
+  .team-leader__img {
+    object-position: 46% 15%;
   }
   .team-leader__badge {
-    position: static;
-    display: inline-block;
-    margin-bottom: 10px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
     font-size: 0.65rem;
+    padding: 4px 10px;
+  }
+  .team-leader__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 4px 6px;
+  }
+  .team-leader__info {
+    flex: none;
+    width: 100%;
+  }
+  .team-leader__name {
+    font-size: 1.3rem;
+  }
+  .team-leader__role {
+    font-size: 0.76rem;
+    margin-bottom: 6px;
+  }
+  .team-leader__tags {
+    gap: 6px;
   }
   .team-card__media {
     aspect-ratio: 4 / 4.6;
