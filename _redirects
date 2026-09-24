@@ -12,7 +12,8 @@
 /faq/                 /faq                  301
 /partners/            /partners             301
 /clients              /partners             301
-/clients/             /partners             301
+/get-quote              /get-quote.html       200
+/get-quote/             /get-quote.html       200
 
 # WordPress WooCommerce & Default Junk Pages to Home
 /checkout             /                     301
