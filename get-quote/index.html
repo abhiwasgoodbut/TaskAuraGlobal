@@ -666,42 +666,42 @@
             <p>Select your expected investment tier so we can calibrate the ideal architecture and delivery plan for your property business.</p>
           </div>
 
-          <!-- US Pricing Tiers (Calibrated from ₹30k–₹49k, ₹50k–₹79k, ₹80k+ tiers) -->
+          <!-- US Pricing Tiers -->
           <div class="budget-grid">
             
-            <!-- Tier 1: $1,500 – $2,999 USD -->
-            <div class="budget-card" data-budget="$1,500 – $2,999 USD">
+            <!-- Tier 1: $999 – $1,499 USD -->
+            <div class="budget-card" data-budget="$999 – $1,499 USD">
               <div class="budget-card__header">
                 <span class="budget-icon">⚡</span>
                 <span class="budget-tier-badge">Starter AI</span>
               </div>
-              <div class="budget-card__amount">$1,500 – $2,999 <span class="curr">USD</span></div>
+              <div class="budget-card__amount">$999 – $1,499 <span class="curr">USD</span></div>
               <div class="budget-card__desc">High-speed property landing site, 24/7 AI buyer Q&A bot, and instant lead capture.</div>
             </div>
 
-            <!-- Tier 2: $3,000 – $4,999 USD (Recommended / Most Popular) -->
-            <div class="budget-card selected" data-budget="$3,000 – $4,999 USD">
+            <!-- Tier 2: $1,499 – $1,999 USD (Recommended / Most Popular) -->
+            <div class="budget-card selected" data-budget="$1,499 – $1,999 USD">
               <div class="budget-card__header">
                 <span class="budget-icon">🔥</span>
                 <span class="budget-tier-badge popular">Most Popular</span>
               </div>
-              <div class="budget-card__amount">$3,000 – $4,999 <span class="curr">USD</span></div>
+              <div class="budget-card__amount">$1,499 – $1,999 <span class="curr">USD</span></div>
               <div class="budget-card__desc">Full luxury web redesign, automated site tour booking, buyer budget qualification & broker alerts.</div>
             </div>
 
-            <!-- Tier 3: $5,000+ USD -->
-            <div class="budget-card" data-budget="$5,000+ USD">
+            <!-- Tier 3: $1,999+ USD -->
+            <div class="budget-card" data-budget="$1,999+ USD">
               <div class="budget-card__header">
                 <span class="budget-icon">👑</span>
                 <span class="budget-tier-badge">Enterprise</span>
               </div>
-              <div class="budget-card__amount">$5,000+ <span class="curr">USD</span></div>
+              <div class="budget-card__amount">$1,999+ <span class="curr">USD</span></div>
               <div class="budget-card__desc">Full-scale brokerage portal, MLS/IDX feed integration, 3D spatial showroom & custom CRM automation.</div>
             </div>
 
           </div>
 
-          <input type="hidden" name="planned_investment" id="input-budget-tier" value="$3,000 – $4,999 USD" />
+          <input type="hidden" name="planned_investment" id="input-budget-tier" value="$1,499 – $1,999 USD" />
 
           <div class="form-actions">
             <button type="button" class="btn-secondary" onclick="goToStep(1)">Back</button>
@@ -876,7 +876,7 @@
       const timeline = document.getElementById('lead-timeline').value;
       const meetingTime = document.getElementById('lead-meeting-time').value;
       const projectType = inputProjectType.value;
-      const budgetTier = inputBudgetTier ? inputBudgetTier.value : '$3,000 – $4,999 USD';
+      const budgetTier = inputBudgetTier ? inputBudgetTier.value : '$1,499 – $1,999 USD';
 
       if (!name || !email || !phone || !company) {
         alert('Please complete all required fields before submitting.');
