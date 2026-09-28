@@ -1016,7 +1016,7 @@
         <div class="step-section" id="step-3">
           <div class="step-header">
             <h3>3. What is your planned investment for your website + AI assistant?</h3>
-            <p>Select your expected investment tier so we can calibrate the ideal architecture and delivery plan for your property business.</p>
+            <p>Select your expected investment tier calibrated in <span id="budget-currency-label" style="color: var(--gold-light); font-weight: 700;">USD</span> for your property business.</p>
           </div>
 
           <!-- US Pricing Tiers -->
@@ -1262,10 +1262,16 @@
           inputBudgetTier.value = selected.getAttribute('data-budget');
         }
       }
+
+      const currLabel = document.getElementById('budget-currency-label');
+      if (currLabel) {
+        currLabel.textContent = `${pricing.currency} (${countryName})`;
+      }
     }
 
     function selectCountry(countryName) {
-      countryCards.forEach(c => {
+      const cards = document.querySelectorAll('.country-card');
+      cards.forEach(c => {
         if (c.getAttribute('data-country') === countryName) {
           c.classList.add('selected');
         } else {
@@ -1276,53 +1282,76 @@
       updatePricingForCountry(countryName);
     }
 
-    // Auto-detect visitor location on load
-    function detectVisitorCountry() {
+    // Auto-detect visitor location on load (IP detection primary for VPN accuracy)
+    async function detectVisitorCountry() {
+      const countryMap = {
+        'PH': 'Philippines',
+        'AU': 'Australia',
+        'GB': 'United Kingdom',
+        'UK': 'United Kingdom',
+        'IN': 'India',
+        'PL': 'Poland',
+        'US': 'United States'
+      };
+
+      // 1. Check IP Geolocation first (vital for VPN detection)
+      const ipEndpoints = [
+        async () => {
+          const r = await fetch('https://api.country.is/', { cache: 'no-cache' });
+          const d = await r.json();
+          return d && d.country ? d.country.toUpperCase() : null;
+        },
+        async () => {
+          const r = await fetch('https://ipwho.is/', { cache: 'no-cache' });
+          const d = await r.json();
+          return d && d.country_code ? d.country_code.toUpperCase() : null;
+        },
+        async () => {
+          const r = await fetch('https://ipapi.co/json/', { cache: 'no-cache' });
+          const d = await r.json();
+          return d && (d.country_code || d.country) ? (d.country_code || d.country).toUpperCase() : null;
+        }
+      ];
+
+      for (const getCountry of ipEndpoints) {
+        try {
+          const code = await Promise.race([
+            getCountry(),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2500))
+          ]);
+          if (code && countryMap[code]) {
+            console.log('[TaskAura] Detected location via IP:', countryMap[code]);
+            selectCountry(countryMap[code]);
+            return;
+          }
+        } catch (err) {
+          // try next geo service
+        }
+      }
+
+      // 2. Fallback to device timezone only if IP detection failed or was blocked
       try {
         const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
         if (tz.includes('Manila') || tz.includes('Philippines')) {
           selectCountry('Philippines');
-          return;
         } else if (tz.includes('Sydney') || tz.includes('Melbourne') || tz.includes('Brisbane') || tz.includes('Perth') || tz.includes('Australia')) {
           selectCountry('Australia');
-          return;
         } else if (tz.includes('London') || tz.includes('Belfast')) {
           selectCountry('United Kingdom');
-          return;
         } else if (tz.includes('Calcutta') || tz.includes('Kolkata') || tz.includes('Colombo')) {
           selectCountry('India');
-          return;
         } else if (tz.includes('Warsaw') || tz.includes('Poland')) {
           selectCountry('Poland');
-          return;
+        } else {
+          selectCountry('United States');
         }
-      } catch (e) {}
-
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 1500);
-      fetch('https://api.country.is/', { signal: controller.signal })
-        .then(res => res.json())
-        .then(data => {
-          clearTimeout(timeoutId);
-          if (data && data.country) {
-            const map = {
-              'PH': 'Philippines',
-              'AU': 'Australia',
-              'GB': 'United Kingdom',
-              'IN': 'India',
-              'PL': 'Poland',
-              'US': 'United States'
-            };
-            if (map[data.country]) {
-              selectCountry(map[data.country]);
-            }
-          }
-        })
-        .catch(() => {});
+      } catch (e) {
+        selectCountry('United States');
+      }
     }
 
     // Country Card Selection Click
-    countryCards.forEach(card => {
+    document.querySelectorAll('.country-card').forEach(card => {
       card.addEventListener('click', () => {
         const val = card.getAttribute('data-country');
         selectCountry(val);
