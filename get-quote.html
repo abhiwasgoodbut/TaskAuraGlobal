@@ -388,10 +388,32 @@
       box-shadow: 0 12px 35px -10px rgba(212, 168, 83, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
     .country-card__flag {
-      font-size: 1.85rem;
-      line-height: 1;
+      width: 44px;
+      height: 29px;
+      border-radius: 6px;
+      overflow: hidden;
       flex-shrink: 0;
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.25s ease;
+    }
+    .country-card:hover .country-card__flag {
+      border-color: rgba(212, 168, 83, 0.4);
+      transform: scale(1.04);
+    }
+    .country-card.selected .country-card__flag {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 14px rgba(212, 168, 83, 0.4);
+    }
+    .country-flag-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .country-card__info {
       flex: 1;
@@ -837,7 +859,9 @@
             
             <!-- United States (USA) -->
             <div class="country-card selected" data-country="United States">
-              <span class="country-card__flag">🇺🇸</span>
+              <div class="country-card__flag">
+                <img src="asset/flags/us.svg" alt="United States Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/us.svg';" />
+              </div>
               <div class="country-card__info">
                 <div class="country-card__name">United States</div>
                 <div class="country-card__sub">USA</div>
@@ -847,7 +871,9 @@
 
             <!-- Australia -->
             <div class="country-card" data-country="Australia">
-              <span class="country-card__flag">🇦🇺</span>
+              <div class="country-card__flag">
+                <img src="asset/flags/au.svg" alt="Australia Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/au.svg';" />
+              </div>
               <div class="country-card__info">
                 <div class="country-card__name">Australia</div>
                 <div class="country-card__sub">AUS</div>
@@ -857,7 +883,9 @@
 
             <!-- United Kingdom (UK) -->
             <div class="country-card" data-country="United Kingdom">
-              <span class="country-card__flag">🇬🇧</span>
+              <div class="country-card__flag">
+                <img src="asset/flags/gb.svg" alt="United Kingdom Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/gb.svg';" />
+              </div>
               <div class="country-card__info">
                 <div class="country-card__name">United Kingdom</div>
                 <div class="country-card__sub">UK</div>
@@ -867,7 +895,9 @@
 
             <!-- Philippines -->
             <div class="country-card" data-country="Philippines">
-              <span class="country-card__flag">🇵🇭</span>
+              <div class="country-card__flag">
+                <img src="asset/flags/ph.svg" alt="Philippines Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/ph.svg';" />
+              </div>
               <div class="country-card__info">
                 <div class="country-card__name">Philippines</div>
                 <div class="country-card__sub">PHL</div>
@@ -877,7 +907,9 @@
 
             <!-- India -->
             <div class="country-card" data-country="India">
-              <span class="country-card__flag">🇮🇳</span>
+              <div class="country-card__flag">
+                <img src="asset/flags/in.svg" alt="India Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/in.svg';" />
+              </div>
               <div class="country-card__info">
                 <div class="country-card__name">India</div>
                 <div class="country-card__sub">IND</div>
@@ -887,7 +919,9 @@
 
             <!-- Poland -->
             <div class="country-card" data-country="Poland">
-              <span class="country-card__flag">🇵🇱</span>
+              <div class="country-card__flag">
+                <img src="asset/flags/pl.svg" alt="Poland Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/pl.svg';" />
+              </div>
               <div class="country-card__info">
                 <div class="country-card__name">Poland</div>
                 <div class="country-card__sub">POL</div>
