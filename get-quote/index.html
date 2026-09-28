@@ -1208,16 +1208,136 @@
       });
     }
 
-    // Country Card Selection
+    // Dynamic Country Pricing Tiers (Calibrated to US price points)
+    const countryPricing = {
+      'United States': {
+        currency: 'USD',
+        t1: { text: '$999 – $1,999', curr: 'USD', val: '$999 – $1,999 USD' },
+        t2: { text: '$1,999 – $3,999', curr: 'USD', val: '$1,999 – $3,999 USD' },
+        t3: { text: '$3,999+', curr: 'USD', val: '$3,999+ USD' }
+      },
+      'Philippines': {
+        currency: 'PHP',
+        t1: { text: '₱55,000 – ₱110,000', curr: 'PHP', val: '₱55,000 – ₱110,000 PHP ($999 – $1,999 USD)' },
+        t2: { text: '₱110,000 – ₱225,000', curr: 'PHP', val: '₱110,000 – ₱225,000 PHP ($1,999 – $3,999 USD)' },
+        t3: { text: '₱225,000+', curr: 'PHP', val: '₱225,000+ PHP ($3,999+ USD)' }
+      },
+      'Australia': {
+        currency: 'AUD',
+        t1: { text: '$1,499 – $2,999', curr: 'AUD', val: '$1,499 – $2,999 AUD' },
+        t2: { text: '$2,999 – $5,999', curr: 'AUD', val: '$2,999 – $5,999 AUD' },
+        t3: { text: '$5,999+', curr: 'AUD', val: '$5,999+ AUD' }
+      },
+      'United Kingdom': {
+        currency: 'GBP',
+        t1: { text: '£799 – £1,599', curr: 'GBP', val: '£799 – £1,599 GBP' },
+        t2: { text: '£1,599 – £3,199', curr: 'GBP', val: '£1,599 – £3,199 GBP' },
+        t3: { text: '£3,199+', curr: 'GBP', val: '£3,199+ GBP' }
+      },
+      'India': {
+        currency: 'INR',
+        t1: { text: '₹85,000 – ₹1,69,000', curr: 'INR', val: '₹85,000 – ₹1,69,000 INR' },
+        t2: { text: '₹1,69,000 – ₹3,39,000', curr: 'INR', val: '₹1,69,000 – ₹3,39,000 INR' },
+        t3: { text: '₹3,39,000+', curr: 'INR', val: '₹3,39,000+ INR' }
+      },
+      'Poland': {
+        currency: 'PLN',
+        t1: { text: '3,999 – 7,999', curr: 'PLN', val: '3,999 – 7,999 PLN' },
+        t2: { text: '7,999 – 15,999', curr: 'PLN', val: '7,999 – 15,999 PLN' },
+        t3: { text: '15,999+', curr: 'PLN', val: '15,999+ PLN' }
+      }
+    };
+
+    function updatePricingForCountry(countryName) {
+      const pricing = countryPricing[countryName] || countryPricing['United States'];
+      const cards = document.querySelectorAll('.budget-card');
+      if (cards.length >= 3) {
+        cards[0].setAttribute('data-budget', pricing.t1.val);
+        const amt1 = cards[0].querySelector('.budget-card__amount');
+        if (amt1) amt1.innerHTML = `${pricing.t1.text} <span class="curr">${pricing.t1.curr}</span>`;
+
+        cards[1].setAttribute('data-budget', pricing.t2.val);
+        const amt2 = cards[1].querySelector('.budget-card__amount');
+        if (amt2) amt2.innerHTML = `${pricing.t2.text} <span class="curr">${pricing.t2.curr}</span>`;
+
+        cards[2].setAttribute('data-budget', pricing.t3.val);
+        const amt3 = cards[2].querySelector('.budget-card__amount');
+        if (amt3) amt3.innerHTML = `${pricing.t3.text} <span class="curr">${pricing.t3.curr}</span>`;
+
+        const selected = document.querySelector('.budget-card.selected');
+        if (selected && inputBudgetTier) {
+          inputBudgetTier.value = selected.getAttribute('data-budget');
+        }
+      }
+    }
+
+    function selectCountry(countryName) {
+      countryCards.forEach(c => {
+        if (c.getAttribute('data-country') === countryName) {
+          c.classList.add('selected');
+        } else {
+          c.classList.remove('selected');
+        }
+      });
+      if (inputCountry) inputCountry.value = countryName;
+      updatePricingForCountry(countryName);
+    }
+
+    // Auto-detect visitor location on load
+    function detectVisitorCountry() {
+      try {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (tz.includes('Manila') || tz.includes('Philippines')) {
+          selectCountry('Philippines');
+          return;
+        } else if (tz.includes('Sydney') || tz.includes('Melbourne') || tz.includes('Brisbane') || tz.includes('Perth') || tz.includes('Australia')) {
+          selectCountry('Australia');
+          return;
+        } else if (tz.includes('London') || tz.includes('Belfast')) {
+          selectCountry('United Kingdom');
+          return;
+        } else if (tz.includes('Calcutta') || tz.includes('Kolkata') || tz.includes('Colombo')) {
+          selectCountry('India');
+          return;
+        } else if (tz.includes('Warsaw') || tz.includes('Poland')) {
+          selectCountry('Poland');
+          return;
+        }
+      } catch (e) {}
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 1500);
+      fetch('https://api.country.is/', { signal: controller.signal })
+        .then(res => res.json())
+        .then(data => {
+          clearTimeout(timeoutId);
+          if (data && data.country) {
+            const map = {
+              'PH': 'Philippines',
+              'AU': 'Australia',
+              'GB': 'United Kingdom',
+              'IN': 'India',
+              'PL': 'Poland',
+              'US': 'United States'
+            };
+            if (map[data.country]) {
+              selectCountry(map[data.country]);
+            }
+          }
+        })
+        .catch(() => {});
+    }
+
+    // Country Card Selection Click
     countryCards.forEach(card => {
       card.addEventListener('click', () => {
-        countryCards.forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-
         const val = card.getAttribute('data-country');
-        if (inputCountry) inputCountry.value = val;
+        selectCountry(val);
       });
     });
+
+    // Run auto-detection
+    detectVisitorCountry();
 
     // Service Card Selection
     serviceCards.forEach(card => {
