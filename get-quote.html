@@ -352,7 +352,76 @@
       line-height: 1.5;
     }
 
-    /* STEP 1: Bespoke Service Cards */
+    /* STEP 1: Country Selection Cards */
+    .country-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    @media (max-width: 660px) {
+      .country-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+    .country-card {
+      background: rgba(255, 255, 255, 0.016);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 18px 16px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+    .country-card:hover {
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(212, 168, 83, 0.35);
+      transform: translateY(-2px);
+    }
+    .country-card.selected {
+      border-color: var(--gold-primary);
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(16, 16, 26, 0.85) 100%);
+      box-shadow: 0 12px 35px -10px rgba(212, 168, 83, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+    .country-card__flag {
+      font-size: 1.85rem;
+      line-height: 1;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+    }
+    .country-card__info {
+      flex: 1;
+      min-width: 0;
+    }
+    .country-card__name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: -0.01em;
+    }
+    .country-card.selected .country-card__name {
+      color: var(--gold-light);
+    }
+    .country-card__sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .country-card .card-indicator {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* STEP 2: Bespoke Service Cards */
     .service-grid {
       display: flex;
       flex-direction: column;
@@ -746,20 +815,103 @@
         </div>
       </div>
       
-      <!-- Progress Bar -->
+      <!-- Progress Bar (4 Steps) -->
       <div class="form-progress">
         <div class="progress-fill" id="progress-line"></div>
         <div class="progress-step active" id="dot-1">1</div>
         <div class="progress-step" id="dot-2">2</div>
         <div class="progress-step" id="dot-3">3</div>
+        <div class="progress-step" id="dot-4">4</div>
       </div>
 
       <form id="lead-quote-form" onsubmit="return false;">
         
-        <!-- ==================== STEP 1: WHAT DOES YOUR BUSINESS NEED? ==================== -->
+        <!-- ==================== STEP 1: WHICH COUNTRY ARE YOU IN? ==================== -->
         <div class="step-section active" id="step-1">
           <div class="step-header">
-            <h3>1. What does your business need?</h3>
+            <h3>1. Which country are you located in?</h3>
+            <p>Select your region so we can configure local compliance, hosting nodes, and real estate market workflows.</p>
+          </div>
+
+          <div class="country-grid">
+            
+            <!-- United States (USA) -->
+            <div class="country-card selected" data-country="United States">
+              <span class="country-card__flag">🇺🇸</span>
+              <div class="country-card__info">
+                <div class="country-card__name">United States</div>
+                <div class="country-card__sub">USA</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+            <!-- Australia -->
+            <div class="country-card" data-country="Australia">
+              <span class="country-card__flag">🇦🇺</span>
+              <div class="country-card__info">
+                <div class="country-card__name">Australia</div>
+                <div class="country-card__sub">AUS</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+            <!-- United Kingdom (UK) -->
+            <div class="country-card" data-country="United Kingdom">
+              <span class="country-card__flag">🇬🇧</span>
+              <div class="country-card__info">
+                <div class="country-card__name">United Kingdom</div>
+                <div class="country-card__sub">UK</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+            <!-- Philippines -->
+            <div class="country-card" data-country="Philippines">
+              <span class="country-card__flag">🇵🇭</span>
+              <div class="country-card__info">
+                <div class="country-card__name">Philippines</div>
+                <div class="country-card__sub">PHL</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+            <!-- India -->
+            <div class="country-card" data-country="India">
+              <span class="country-card__flag">🇮🇳</span>
+              <div class="country-card__info">
+                <div class="country-card__name">India</div>
+                <div class="country-card__sub">IND</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+            <!-- Poland -->
+            <div class="country-card" data-country="Poland">
+              <span class="country-card__flag">🇵🇱</span>
+              <div class="country-card__info">
+                <div class="country-card__name">Poland</div>
+                <div class="country-card__sub">POL</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+          </div>
+
+          <input type="hidden" name="country" id="input-country" value="United States" />
+
+          <div class="form-actions">
+            <div></div>
+            <button type="button" class="btn-primary" onclick="goToStep(2)">
+              <span>Next: Business Objective</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================== STEP 2: WHAT DOES YOUR BUSINESS NEED? ==================== -->
+        <div class="step-section" id="step-2">
+          <div class="step-header">
+            <h3>2. What does your business need?</h3>
             <p>Select your primary objective to customize your website & AI solution.</p>
           </div>
 
@@ -818,18 +970,18 @@
           <input type="hidden" name="project_type" id="input-project-type" value="New Website + AI Assistant" />
 
           <div class="form-actions">
-            <div></div>
-            <button type="button" class="btn-primary" onclick="goToStep(2)">
+            <button type="button" class="btn-secondary" onclick="goToStep(1)">Back</button>
+            <button type="button" class="btn-primary" onclick="goToStep(3)">
               <span>Next: Planned Investment</span>
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
         </div>
 
-        <!-- ==================== STEP 2: PLANNED INVESTMENT & SCOPE ==================== -->
-        <div class="step-section" id="step-2">
+        <!-- ==================== STEP 3: PLANNED INVESTMENT & SCOPE ==================== -->
+        <div class="step-section" id="step-3">
           <div class="step-header">
-            <h3>2. What is your planned investment for your website + AI assistant?</h3>
+            <h3>3. What is your planned investment for your website + AI assistant?</h3>
             <p>Select your expected investment tier so we can calibrate the ideal architecture and delivery plan for your property business.</p>
           </div>
 
@@ -884,18 +1036,18 @@
           <input type="hidden" name="planned_investment" id="input-budget-tier" value="$1,499 – $1,999 USD" />
 
           <div class="form-actions">
-            <button type="button" class="btn-secondary" onclick="goToStep(1)">Back</button>
-            <button type="button" class="btn-primary" onclick="goToStep(3)">
+            <button type="button" class="btn-secondary" onclick="goToStep(2)">Back</button>
+            <button type="button" class="btn-primary" onclick="goToStep(4)">
               <span>Next: Business Details</span>
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
         </div>
 
-        <!-- ==================== STEP 3: CONTACT & ESTIMATE CONFIRMATION ==================== -->
-        <div class="step-section" id="step-3">
+        <!-- ==================== STEP 4: CONTACT & ESTIMATE CONFIRMATION ==================== -->
+        <div class="step-section" id="step-4">
           <div class="step-header">
-            <h3>3. Share your business details</h3>
+            <h3>4. Share your business details</h3>
             <p>Our team will reach out with a personalized live demo showing how an AI website scales your sales.</p>
           </div>
 
@@ -954,7 +1106,7 @@
           </div>
 
           <div class="form-actions">
-            <button type="button" class="btn-secondary" onclick="goToStep(2)">Back</button>
+            <button type="button" class="btn-secondary" onclick="goToStep(3)">Back</button>
             <button type="submit" class="btn-primary" id="btn-submit-quote">
               <span>Confirm 15-Min Meeting & Proposal</span>
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -975,14 +1127,17 @@
   <!-- Script logic -->
   <script>
     let currentStep = 1;
-    const totalSteps = 3;
+    const totalSteps = 4;
 
     // Elements
     const progressLine = document.getElementById('progress-line');
     const dot1 = document.getElementById('dot-1');
     const dot2 = document.getElementById('dot-2');
     const dot3 = document.getElementById('dot-3');
+    const dot4 = document.getElementById('dot-4');
 
+    const countryCards = document.querySelectorAll('.country-card');
+    const inputCountry = document.getElementById('input-country');
     const serviceCards = document.querySelectorAll('.service-card');
     const inputProjectType = document.getElementById('input-project-type');
     const budgetCards = document.querySelectorAll('.budget-card');
@@ -1004,7 +1159,7 @@
       const percentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
       progressLine.style.width = percentage + '%';
 
-      [dot1, dot2, dot3].forEach((dot, index) => {
+      [dot1, dot2, dot3, dot4].forEach((dot, index) => {
         const stepNum = index + 1;
         if (stepNum < currentStep) {
           dot.className = 'progress-step completed';
@@ -1018,6 +1173,17 @@
         }
       });
     }
+
+    // Country Card Selection
+    countryCards.forEach(card => {
+      card.addEventListener('click', () => {
+        countryCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        const val = card.getAttribute('data-country');
+        if (inputCountry) inputCountry.value = val;
+      });
+    });
 
     // Service Card Selection
     serviceCards.forEach(card => {
@@ -1055,6 +1221,7 @@
       const scale = document.getElementById('lead-scale').value;
       const timeline = document.getElementById('lead-timeline').value;
       const meetingTime = document.getElementById('lead-meeting-time').value;
+      const country = inputCountry ? inputCountry.value : 'United States';
       const projectType = inputProjectType.value;
       const budgetTier = inputBudgetTier ? inputBudgetTier.value : '$1,499 – $1,999 USD';
 
@@ -1092,10 +1259,11 @@
 
       const formData = new FormData();
       formData.append('access_key', 'bfc14f9f-7037-4217-b56a-ea8fe9f8b38e');
-      formData.append('subject', '🏡 Real Estate Lead: ' + name + ' (' + company + ')');
+      formData.append('subject', '🏡 Real Estate Lead: ' + name + ' (' + company + ') - ' + country);
       formData.append('from_name', 'TaskAura Real Estate Engine');
       formData.append('Name & Role', name);
       formData.append('Brokerage/Firm', company);
+      formData.append('Country', country);
       formData.append('Email', email);
       formData.append('Phone', phone);
       formData.append('Requested Service', projectType);
@@ -1103,7 +1271,7 @@
       formData.append('Listing/Inventory Scale', scale);
       formData.append('Target Timeline', timeline);
       formData.append('15-Min Meeting Availability', meetingTime);
-      formData.append('Lead Source', 'Florida YouTube Ads (/get-quote)');
+      formData.append('Lead Source', 'Global Real Estate Ads (/get-quote)');
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
