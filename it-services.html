@@ -1605,14 +1605,7 @@
 
           <div class="field-group" style="margin-bottom: 22px;">
             <label for="it-lead-meeting-time">When are you available for a 15-minute consultation meeting? *</label>
-            <select id="it-lead-meeting-time" name="meeting_availability" class="field-select" required>
-              <option value="Tomorrow Morning (9 AM – 12 PM EST)" selected>Tomorrow Morning (9 AM – 12 PM EST)</option>
-              <option value="Tomorrow Afternoon (1 PM – 5 PM EST)">Tomorrow Afternoon (1 PM – 5 PM EST)</option>
-              <option value="Today (ASAP / Next few hours)">Today (ASAP / Next few hours)</option>
-              <option value="Later this week (Morning EST)">Later this week (Morning EST)</option>
-              <option value="Later this week (Afternoon EST)">Later this week (Afternoon EST)</option>
-              <option value="Send me a Calendly link to pick a slot">Send me a calendar link to pick a custom time</option>
-            </select>
+            <input type="text" id="it-lead-meeting-time" name="meeting_availability" class="field-input" placeholder="e.g. Tomorrow at 2:00 PM EST, or write your preferred day & time" required />
           </div>
 
           <div class="form-actions">
@@ -2048,13 +2041,13 @@
         const phone = document.getElementById('it-lead-phone').value.trim();
         const scale = document.getElementById('it-lead-scale').value;
         const timeline = document.getElementById('it-lead-timeline').value;
-        const meetingTime = document.getElementById('it-lead-meeting-time').value;
+        const meetingTime = document.getElementById('it-lead-meeting-time').value.trim();
         const country = itInputCountry ? itInputCountry.value : 'United States';
         const projectType = itInputProjectType ? itInputProjectType.value : 'Custom Website + AI Assistant';
         const budgetTier = itInputBudgetTier ? itInputBudgetTier.value : '$1,999 – $3,999 USD';
 
-        if (!name || !email || !phone || !company) {
-          alert('Please complete all required fields before submitting.');
+        if (!name || !email || !phone || !company || !meetingTime) {
+          alert('Please complete all required fields, including your preferred consultation time.');
           return;
         }
 
