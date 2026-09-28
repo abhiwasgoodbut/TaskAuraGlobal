@@ -68,313 +68,526 @@
       filter: blur(80px);
     }
     .form-container-card {
-      max-width: 720px;
+      max-width: 780px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.015);
+      background: rgba(13, 13, 20, 0.85);
       border: 1px solid rgba(212, 168, 83, 0.22);
-      border-radius: 24px;
-      padding: 48px;
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 28px;
+      padding: 44px;
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
       box-shadow: 
         0 30px 60px rgba(0, 0, 0, 0.5), 
         0 0 50px rgba(212, 168, 83, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
       position: relative;
       z-index: 2;
     }
     @media (max-width: 768px) {
       .form-container-card {
-        padding: 32px 20px;
+        padding: 28px 18px;
         border-radius: 20px;
       }
     }
-    .step-progress-bar {
+
+    /* 4-Step Progress Bar */
+    .form-progress {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 40px;
       position: relative;
+      margin-bottom: 34px;
     }
-    .step-progress-bar::before {
+    .form-progress::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 0;
       right: 0;
       height: 2px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.07);
       transform: translateY(-50%);
       z-index: 1;
     }
-    .progress-line-fill {
+    .progress-fill {
       position: absolute;
       top: 50%;
       left: 0;
-      width: 0%;
       height: 2px;
-      background: var(--gradient-gold);
+      background: linear-gradient(90deg, #d4a853, #f7e2a9);
       transform: translateY(-50%);
       z-index: 1;
-      transition: width 0.4s ease;
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 10px rgba(212, 168, 83, 0.5);
+      width: 0%;
     }
-    .progress-step-dot {
-      width: 36px;
-      height: 36px;
+    .progress-step {
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: #09090f;
-      border: 2px solid rgba(255, 255, 255, 0.08);
-      color: var(--color-gray-text-dark);
+      background: #090910;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.86rem;
+      font-family: 'Outfit', sans-serif;
       position: relative;
       z-index: 2;
-      transition: all 0.4s ease;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
-    .progress-step-dot.active {
-      border-color: var(--color-gold);
-      color: var(--color-gold);
-      background: #11111a;
-      box-shadow: 0 0 15px rgba(212, 168, 83, 0.2);
+    .progress-step.active {
+      border-color: #d4a853;
+      color: #06060a;
+      background: linear-gradient(135deg, #fcedc5 0%, #d4a853 100%);
+      box-shadow: 0 0 24px rgba(212, 168, 83, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      transform: scale(1.06);
     }
-    .progress-step-dot.completed {
-      background: var(--gradient-gold);
-      border-color: transparent;
-      color: var(--color-dark);
+    .progress-step.completed {
+      background: rgba(212, 168, 83, 0.16);
+      color: #f7e2a9;
+      border-color: #d4a853;
+      box-shadow: 0 0 14px rgba(212, 168, 83, 0.2);
     }
-    .form-step-content {
+
+    /* Steps Animation */
+    .step-section {
       display: none;
     }
-    .form-step-content.active {
+    .step-section.active {
       display: block;
-      animation: fadeInFormStep 0.4s ease forwards;
+      animation: fadeInStep 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    @keyframes fadeInFormStep {
+    @keyframes fadeInStep {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .step-title-desc {
-      text-align: center;
-      margin-bottom: 32px;
+
+    .step-header {
+      margin-bottom: 24px;
     }
-    .step-title-desc h3 {
-      font-family: var(--font-heading);
-      font-size: 1.45rem;
+    .step-header h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.38rem;
       font-weight: 700;
-      color: var(--color-white);
-      margin-bottom: 8px;
+      color: #ffffff;
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+    }
+    .step-header p {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+    }
+
+    /* Step 1: Country Cards */
+    .country-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    @media (max-width: 660px) {
+      .country-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+    .country-card {
+      background: rgba(255, 255, 255, 0.016);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 18px 16px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+    .country-card:hover {
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(212, 168, 83, 0.35);
+      transform: translateY(-2px);
+    }
+    .country-card.selected {
+      border-color: #d4a853;
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(16, 16, 26, 0.85) 100%);
+      box-shadow: 0 12px 35px -10px rgba(212, 168, 83, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+    .country-card__flag {
+      width: 44px;
+      height: 29px;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.25s ease;
+    }
+    .country-card:hover .country-card__flag {
+      border-color: rgba(212, 168, 83, 0.4);
+      transform: scale(1.04);
+    }
+    .country-card.selected .country-card__flag {
+      border-color: #d4a853;
+      box-shadow: 0 0 14px rgba(212, 168, 83, 0.4);
+    }
+    .country-flag-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .country-card__info {
+      flex: 1;
+      min-width: 0;
+    }
+    .country-card__name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       letter-spacing: -0.01em;
     }
-    .step-title-desc p {
-      font-size: 0.92rem;
-      color: var(--color-gray-text-light);
+    .country-card.selected .country-card__name {
+      color: #f7e2a9;
     }
-    .options-grid-2col {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    .country-card__sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.04em;
+    }
+    .country-card .card-indicator {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Step 2: Bespoke Service Cards */
+    .service-grid {
+      display: flex;
+      flex-direction: column;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 26px;
     }
-    @media (max-width: 576px) {
-      .options-grid-2col {
+    .service-card {
+      background: rgba(255, 255, 255, 0.016);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 20px 22px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+    }
+    .service-card:hover {
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(212, 168, 83, 0.35);
+      transform: translateY(-2px);
+    }
+    .service-card.selected {
+      border-color: #d4a853;
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(16, 16, 26, 0.85) 100%);
+      box-shadow: 0 14px 40px -10px rgba(212, 168, 83, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+    .service-card__icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(212, 168, 83, 0.08);
+      border: 1px solid rgba(212, 168, 83, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f7e2a9;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+    .service-card.selected .service-card__icon {
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.25) 0%, rgba(212, 168, 83, 0.1) 100%);
+      border-color: #d4a853;
+      color: #ffffff;
+      box-shadow: 0 0 18px rgba(212, 168, 83, 0.3);
+    }
+    .service-card__content {
+      flex: 1;
+    }
+    .service-card__title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .service-card.selected .service-card__title {
+      color: #f7e2a9;
+    }
+    .service-card__desc {
+      font-size: 0.83rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.45;
+    }
+    .card-indicator {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+    .service-card.selected .card-indicator,
+    .country-card.selected .card-indicator {
+      border-color: #d4a853;
+      background: #d4a853;
+      box-shadow: 0 0 12px rgba(212, 168, 83, 0.6);
+    }
+    .card-indicator::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #06060a;
+      opacity: 0;
+      transform: scale(0.4);
+      transition: all 0.2s ease;
+    }
+    .service-card.selected .card-indicator::after,
+    .country-card.selected .card-indicator::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Step 3: Budget Cards */
+    .budget-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    @media (max-width: 640px) {
+      .budget-grid {
         grid-template-columns: 1fr;
       }
     }
-    .option-card-label {
-      background: rgba(255, 255, 255, 0.01);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 16px 20px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      text-align: left;
-      gap: 14px;
+    .budget-card {
+      background: rgba(255, 255, 255, 0.016);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 22px 18px;
       cursor: pointer;
-      color: var(--color-gray-text-light);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
       position: relative;
     }
-    .option-card-label:hover {
-      background: rgba(255, 255, 255, 0.02);
+    .budget-card:hover {
+      background: rgba(255, 255, 255, 0.035);
       border-color: rgba(212, 168, 83, 0.35);
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-    .option-pill-input {
-      display: none;
+    .budget-card.selected {
+      border-color: #d4a853;
+      background: linear-gradient(180deg, rgba(212, 168, 83, 0.12) 0%, rgba(15, 15, 25, 0.85) 100%);
+      box-shadow: 0 14px 40px -10px rgba(212, 168, 83, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
-    .option-pill-input:checked + .option-card-label {
-      border-color: var(--color-gold);
-      background: rgba(212, 168, 83, 0.06);
-      color: var(--color-white);
-      transform: scale(1.01);
+    .budget-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
     }
-    .option-card-label .option-title {
-      font-size: 0.95rem;
+    .budget-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: rgba(212, 168, 83, 0.08);
+      border: 1px solid rgba(212, 168, 83, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f7e2a9;
+      transition: all 0.25s ease;
+    }
+    .budget-card.selected .budget-icon {
+      background: rgba(212, 168, 83, 0.22);
+      border-color: #d4a853;
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(212, 168, 83, 0.3);
+    }
+    .budget-tier-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 9px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .budget-tier-badge.popular {
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.22) 0%, rgba(247, 226, 169, 0.32) 100%);
+      color: #f7e2a9;
+      border: 1px solid rgba(212, 168, 83, 0.45);
+      box-shadow: 0 0 12px rgba(212, 168, 83, 0.2);
+    }
+    .budget-card__amount {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .budget-card.selected .budget-card__amount {
+      color: #f7e2a9;
+    }
+    .budget-card__amount .curr {
+      font-size: 0.72rem;
       font-weight: 600;
-      color: var(--color-white);
-      margin: 0;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.06em;
+      vertical-align: middle;
+      margin-left: 2px;
     }
-    .option-pill-input:checked + .option-card-label .option-title {
-      color: var(--color-gold-light);
+    .budget-card__desc {
+      font-size: 0.81rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.45;
+      flex: 1;
     }
-    .custom-radio-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.25s ease;
-    }
-    .option-pill-input:checked + .option-card-label .custom-radio-dot {
-      border-color: var(--color-gold);
-    }
-    .custom-radio-dot::after {
-      content: '';
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--color-gold);
-      opacity: 0;
-      transform: scale(0);
-      transition: all 0.25s ease;
-    }
-    .option-pill-input:checked + .option-card-label .custom-radio-dot::after {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .custom-checkbox-box {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.25s ease;
-    }
-    .option-pill-input:checked + .option-card-label .custom-checkbox-box {
-      border-color: var(--color-gold);
-      background: var(--color-gold);
-    }
-    .custom-checkbox-box svg {
-      width: 10px;
-      height: 10px;
-      stroke: var(--color-dark);
-      stroke-width: 3.5px;
-      opacity: 0;
-      transform: scale(0);
-      transition: all 0.2s ease;
-    }
-    .option-pill-input:checked + .option-card-label .custom-checkbox-box svg {
-      opacity: 1;
-      transform: scale(1);
-    }
-    @media (min-width: 768px) {
-      .span-two-columns {
-        grid-column: span 2;
-      }
-    }
-    .input-field-group {
+
+    /* Step 4: Form Fields */
+    .field-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       margin-bottom: 16px;
     }
-    @media (max-width: 576px) {
-      .input-field-group {
+    @media (max-width: 600px) {
+      .field-row {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
       }
     }
-    .form-text-input {
-      background: rgba(9, 9, 17, 0.8);
-      border: 1.5px solid rgba(255, 255, 255, 0.14);
-      border-radius: 12px;
-      padding: 14px 18px;
-      color: var(--color-white);
-      font-size: 0.95rem;
-      font-family: inherit;
+    .field-group {
+      margin-bottom: 16px;
+    }
+    .field-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 7px;
+    }
+    .field-input, .field-select {
       width: 100%;
+      background: rgba(10, 10, 16, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-family: inherit;
       outline: none;
-      transition: all 0.3s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
     }
-    .form-text-input::placeholder {
-      color: rgba(255, 255, 255, 0.45);
+    .field-input::placeholder {
+      color: rgba(255, 255, 255, 0.28);
     }
-    .form-text-input:hover {
-      border-color: rgba(212, 168, 83, 0.4);
-      background: rgba(9, 9, 17, 0.95);
-      box-shadow: 0 0 10px rgba(212, 168, 83, 0.05);
+    .field-input:hover, .field-select:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(14, 14, 22, 0.8);
     }
-    .form-text-input:focus {
-      border-color: var(--color-gold);
-      box-shadow: 0 0 15px rgba(212, 168, 83, 0.25);
-      background: #000000;
+    .field-input:focus, .field-select:focus {
+      border-color: #d4a853;
+      background: rgba(14, 14, 22, 0.95);
+      box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.16), 0 6px 18px rgba(0, 0, 0, 0.5);
     }
-    select.form-text-input {
+    .field-select {
       appearance: none;
       -webkit-appearance: none;
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d4a853' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d4a853' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 18px center;
-      background-size: 14px;
-      padding-right: 40px;
+      background-position: right 14px center;
+      background-size: 16px;
+      padding-right: 42px;
       cursor: pointer;
     }
-    select.form-text-input option {
-      background: #0f0f18;
-      color: var(--color-white);
+    .field-select option {
+      background: #0d0d15;
+      color: #ffffff;
+      padding: 10px;
     }
-    .form-textarea {
-      height: 110px;
-      resize: none;
-    }
-    .form-navigation-actions {
+
+    /* Actions & Buttons */
+    .form-actions {
       display: flex;
       justify-content: space-between;
-      margin-top: 32px;
-      gap: 16px;
+      align-items: center;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
-    .btn-step-prev {
-      background: transparent;
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--color-gray-text-light);
-      padding: 12px 28px;
-      border-radius: 100px;
+      color: rgba(255, 255, 255, 0.85);
+      padding: 13px 24px;
+      border-radius: 12px;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .btn-step-prev:hover {
-      border-color: rgba(255, 255, 255, 0.25);
-      color: var(--color-white);
-    }
-    .btn-step-next, .btn-step-submit {
-      padding: 12px 32px;
-      border-radius: 100px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
+      transition: all 0.2s ease;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
     }
-    .btn-step-next {
-      background: var(--gradient-gold);
-      color: var(--color-dark);
-      border: none;
-      margin-left: auto;
-    }
-    .btn-step-next:hover {
-      box-shadow: 0 8px 24px rgba(212, 168, 83, 0.25);
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
       transform: translateY(-1px);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #f7e2a9 0%, #d4a853 50%, #b8862d 100%);
+      color: #06060a;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px -4px rgba(212, 168, 83, 0.4);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 12px 30px -2px rgba(212, 168, 83, 0.6);
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -1103,142 +1316,314 @@
     </div>
 
     <div class="form-container-card">
-      <!-- Progress Bar -->
-      <div class="step-progress-bar">
-        <div class="progress-line-fill"></div>
-        <div class="progress-step-dot active">1</div>
-        <div class="progress-step-dot">2</div>
-        <div class="progress-step-dot">3</div>
+      <!-- 4-Step Progress Bar -->
+      <div class="form-progress">
+        <div class="progress-fill" id="it-progress-line"></div>
+        <div class="progress-step active" id="it-dot-1">1</div>
+        <div class="progress-step" id="it-dot-2">2</div>
+        <div class="progress-step" id="it-dot-3">3</div>
+        <div class="progress-step" id="it-dot-4">4</div>
       </div>
-      
-      <!-- Multi-step Form -->
-      <form id="it-lead-form" novalidate>
-        
-        <!-- Step 1 Content -->
-        <div class="form-step-content active">
-          <div class="step-title-desc">
-            <h3>Step 1: What are you building?</h3>
-            <p>Select what you would like to develop</p>
+
+      <form id="it-lead-form" onsubmit="return false;">
+
+        <!-- ==================== STEP 1: WHICH COUNTRY ARE YOU IN? ==================== -->
+        <div class="step-section active" id="it-step-1">
+          <div class="step-header">
+            <h3>1. Which country are you located in?</h3>
+            <p>Select your region so we can configure local compliance, hosting nodes, and communication workflows.</p>
           </div>
-          <div class="options-grid-2col">
-            <input type="radio" name="build_type" id="build-website" value="Website" class="option-pill-input">
-            <label for="build-website" class="option-card-label">
-              <span class="custom-radio-dot" style="flex-shrink: 0;"></span>
-              <span class="option-title">Website</span>
-            </label>
 
-            <input type="radio" name="build_type" id="build-webapp" value="Web Application" class="option-pill-input">
-            <label for="build-webapp" class="option-card-label">
-              <span class="custom-radio-dot" style="flex-shrink: 0;"></span>
-              <span class="option-title">Web Application</span>
-            </label>
+          <div class="country-grid">
+            
+            <!-- United States (USA) -->
+            <div class="country-card selected" data-country="United States">
+              <div class="country-card__flag">
+                <img src="asset/flags/us.svg" alt="United States Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/us.svg';" />
+              </div>
+              <div class="country-card__info">
+                <div class="country-card__name">United States</div>
+                <div class="country-card__sub">USA</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
 
-            <input type="radio" name="build_type" id="build-mobile" value="Mobile Application" class="option-pill-input">
-            <label for="build-mobile" class="option-card-label">
-              <span class="custom-radio-dot" style="flex-shrink: 0;"></span>
-              <span class="option-title">Mobile Application</span>
-            </label>
+            <!-- Australia -->
+            <div class="country-card" data-country="Australia">
+              <div class="country-card__flag">
+                <img src="asset/flags/au.svg" alt="Australia Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/au.svg';" />
+              </div>
+              <div class="country-card__info">
+                <div class="country-card__name">Australia</div>
+                <div class="country-card__sub">AUS</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
 
-            <input type="radio" name="build_type" id="build-ecommerce" value="E-commerce Platform" class="option-pill-input">
-            <label for="build-ecommerce" class="option-card-label">
-              <span class="custom-radio-dot" style="flex-shrink: 0;"></span>
-              <span class="option-title">E-commerce Platform</span>
-            </label>
+            <!-- United Kingdom (UK) -->
+            <div class="country-card" data-country="United Kingdom">
+              <div class="country-card__flag">
+                <img src="asset/flags/gb.svg" alt="United Kingdom Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/gb.svg';" />
+              </div>
+              <div class="country-card__info">
+                <div class="country-card__name">United Kingdom</div>
+                <div class="country-card__sub">UK</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
 
-            <input type="radio" name="build_type" id="build-saas" value="SaaS Product" class="option-pill-input">
-            <label for="build-saas" class="option-card-label">
-              <span class="custom-radio-dot" style="flex-shrink: 0;"></span>
-              <span class="option-title">SaaS Product</span>
-            </label>
+            <!-- Philippines -->
+            <div class="country-card" data-country="Philippines">
+              <div class="country-card__flag">
+                <img src="asset/flags/ph.svg" alt="Philippines Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/ph.svg';" />
+              </div>
+              <div class="country-card__info">
+                <div class="country-card__name">Philippines</div>
+                <div class="country-card__sub">PHL</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
 
-            <input type="radio" name="build_type" id="build-custom" value="Custom Software" class="option-pill-input">
-            <label for="build-custom" class="option-card-label">
-              <span class="custom-radio-dot" style="flex-shrink: 0;"></span>
-              <span class="option-title">Custom Software</span>
-            </label>
+            <!-- India -->
+            <div class="country-card" data-country="India">
+              <div class="country-card__flag">
+                <img src="asset/flags/in.svg" alt="India Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/in.svg';" />
+              </div>
+              <div class="country-card__info">
+                <div class="country-card__name">India</div>
+                <div class="country-card__sub">IND</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
 
-            <input type="radio" name="build_type" id="build-other" value="Other" class="option-pill-input">
-            <label for="build-other" class="option-card-label span-two-columns">
-              <span class="custom-radio-dot" style="flex-shrink: 0;"></span>
-              <span class="option-title">Other</span>
-            </label>
+            <!-- Poland -->
+            <div class="country-card" data-country="Poland">
+              <div class="country-card__flag">
+                <img src="asset/flags/pl.svg" alt="Poland Flag" class="country-flag-img" loading="eager" onerror="this.onerror=null;this.src='https://flagcdn.com/pl.svg';" />
+              </div>
+              <div class="country-card__info">
+                <div class="country-card__name">Poland</div>
+                <div class="country-card__sub">POL</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+          </div>
+
+          <input type="hidden" name="country" id="it-input-country" value="United States" />
+
+          <div class="form-actions">
+            <div></div>
+            <button type="button" class="btn-primary" onclick="goToItStep(2)">
+              <span>Next: Project Objective</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
           </div>
         </div>
-        
-        <!-- Step 2 Content -->
-        <div class="form-step-content">
-          <div class="step-title-desc">
-            <h3>Step 2: Project Details</h3>
-            <p>Tell us about your project vision, timeline, and estimated budget</p>
-          </div>
-          
-          <div style="margin-bottom: 24px;">
-            <label class="contact__label" style="display: block; margin-bottom: 8px; color: var(--color-white); font-weight: 500;">Describe your project idea & features needed*</label>
-            <textarea name="project_desc" placeholder="Briefly describe your idea, the problem you're solving, and the main features you need..." class="form-text-input form-textarea" style="height: 120px;" required></textarea>
+
+        <!-- ==================== STEP 2: WHAT DOES YOUR BUSINESS NEED? ==================== -->
+        <div class="step-section" id="it-step-2">
+          <div class="step-header">
+            <h3>2. What does your business need?</h3>
+            <p>Select your primary objective to calibrate your technology stack & engineering team.</p>
           </div>
 
-          <div class="input-field-group" style="margin-bottom: 8px;">
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <label class="contact__label" style="color: var(--color-white); font-weight: 500;">Estimated Budget*</label>
-              <select name="budget" class="form-text-input" required>
-                <option value="" disabled selected>Select Budget...</option>
-                <option value="Under ₹50K">Under ₹50K</option>
-                <option value="₹50K–₹1L">₹50K–₹1L</option>
-                <option value="₹1L–₹2.5L">₹1L–₹2.5L</option>
-                <option value="₹2.5L–₹5L">₹2.5L–₹5L</option>
-                <option value="₹5L+">₹5L+</option>
-                <option value="Not sure yet">Not sure yet</option>
+          <div class="service-grid">
+            
+            <!-- Option 1: Custom Website + AI Assistant -->
+            <div class="service-card selected" data-value="Custom Website + AI Assistant">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div class="service-card__content">
+                <div class="service-card__title">Custom Website + AI Assistant</div>
+                <div class="service-card__desc">High-performance custom web platform engineered with sub-second speeds, modern UX, and built-in 24/7 AI conversational intelligence.</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+            <!-- Option 2: Web & Mobile Application Development -->
+            <div class="service-card" data-value="Web & Mobile Application Development">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </div>
+              <div class="service-card__content">
+                <div class="service-card__title">Web & Mobile Application Development</div>
+                <div class="service-card__desc">Scalable iOS, Android, and cross-platform web applications built on reactive frameworks with resilient cloud backends.</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+            <!-- Option 3: SaaS Platform & Custom AI Integration -->
+            <div class="service-card" data-value="SaaS Platform & Custom AI Integration">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                  <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+              </div>
+              <div class="service-card__content">
+                <div class="service-card__title">SaaS Platform & Custom AI Integration</div>
+                <div class="service-card__desc">Full-scale multi-tenant SaaS architecture, automated CRM pipelines, custom LLM models, and enterprise API integrations.</div>
+              </div>
+              <div class="card-indicator"></div>
+            </div>
+
+          </div>
+
+          <input type="hidden" name="project_type" id="it-input-project-type" value="Custom Website + AI Assistant" />
+
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" onclick="goToItStep(1)">Back</button>
+            <button type="button" class="btn-primary" onclick="goToItStep(3)">
+              <span>Next: Planned Investment</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================== STEP 3: PLANNED INVESTMENT & SCOPE ==================== -->
+        <div class="step-section" id="it-step-3">
+          <div class="step-header">
+            <h3>3. What is your planned investment for your project?</h3>
+            <p>Select your expected investment tier so we can allocate the ideal senior engineering squad and architecture.</p>
+          </div>
+
+          <div class="budget-grid">
+            
+            <!-- Tier 1: $999 – $1,999 USD -->
+            <div class="budget-card" data-budget="$999 – $1,999 USD">
+              <div class="budget-card__header">
+                <span class="budget-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </span>
+                <span class="budget-tier-badge">Starter AI</span>
+              </div>
+              <div class="budget-card__amount">$999 – $1,999 <span class="curr">USD</span></div>
+              <div class="budget-card__desc">High-speed web landing, responsive UI, 24/7 AI chat concierge, and instant lead capture pipeline.</div>
+            </div>
+
+            <!-- Tier 2: $1,999 – $3,999 USD (Recommended / Most Popular) -->
+            <div class="budget-card selected" data-budget="$1,999 – $3,999 USD">
+              <div class="budget-card__header">
+                <span class="budget-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </span>
+                <span class="budget-tier-badge popular">Most Popular</span>
+              </div>
+              <div class="budget-card__amount">$1,999 – $3,999 <span class="curr">USD</span></div>
+              <div class="budget-card__desc">Full bespoke web/app build, custom automated workflows, qualification agents, and CRM sync.</div>
+            </div>
+
+            <!-- Tier 3: $3,999+ USD -->
+            <div class="budget-card" data-budget="$3,999+ USD">
+              <div class="budget-card__header">
+                <span class="budget-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 3h12l3 7-9 11L3 10l3-7z"></path>
+                    <path d="M3 10h18"></path>
+                  </svg>
+                </span>
+                <span class="budget-tier-badge">Enterprise</span>
+              </div>
+              <div class="budget-card__amount">$3,999+ <span class="curr">USD</span></div>
+              <div class="budget-card__desc">Enterprise-scale multi-platform portal, custom neural models, advanced cloud infrastructure & SLA support.</div>
+            </div>
+
+          </div>
+
+          <input type="hidden" name="planned_investment" id="it-input-budget-tier" value="$1,999 – $3,999 USD" />
+
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" onclick="goToItStep(2)">Back</button>
+            <button type="button" class="btn-primary" onclick="goToItStep(4)">
+              <span>Next: Business Details</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================== STEP 4: CONTACT & ESTIMATE CONFIRMATION ==================== -->
+        <div class="step-section" id="it-step-4">
+          <div class="step-header">
+            <h3>4. Share your project & business details</h3>
+            <p>Our senior engineering squad will reach out with a personalized roadmap, architecture breakdown, and demo.</p>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="it-lead-name">Your Full Name & Role *</label>
+              <input type="text" id="it-lead-name" name="name" class="field-input" placeholder="e.g. Alex Morgan (Founder / CTO)" required />
+            </div>
+            <div class="field-group">
+              <label for="it-lead-company">Company / Organization *</label>
+              <input type="text" id="it-lead-company" name="company" class="field-input" placeholder="e.g. Apex Global Technologies" required />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="it-lead-email">Work Email *</label>
+              <input type="email" id="it-lead-email" name="email" class="field-input" placeholder="alex@apextech.com" required />
+            </div>
+            <div class="field-group">
+              <label for="it-lead-phone">Direct Phone / WhatsApp *</label>
+              <input type="tel" id="it-lead-phone" name="phone" class="field-input" placeholder="+1 (555) 000-0000" required />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="it-lead-scale">Project Scope & Complexity *</label>
+              <select id="it-lead-scale" name="project_scope" class="field-select" required>
+                <option value="Startup / MVP Stage">Startup / MVP Stage</option>
+                <option value="Growth Scale (Mid-Market Application)" selected>Growth Scale (Mid-Market Application)</option>
+                <option value="Enterprise Platform (Multi-Service / Distributed)">Enterprise Platform (Multi-Service)</option>
+                <option value="AI Workflow & Infrastructure Automation">AI Workflow & Infrastructure Automation</option>
               </select>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <label class="contact__label" style="color: var(--color-white); font-weight: 500;">Start Timeline*</label>
-              <select name="start_timeline" class="form-text-input" required>
-                <option value="" disabled selected>Select Timeline...</option>
-                <option value="ASAP">ASAP</option>
-                <option value="Within 2 weeks">Within 2 weeks</option>
-                <option value="Within 1 month">Within 1 month</option>
-                <option value="1–3 months">1–3 months</option>
-                <option value="Just exploring">Just exploring</option>
+            <div class="field-group">
+              <label for="it-lead-timeline">Target Implementation Timeline *</label>
+              <select id="it-lead-timeline" name="timeline" class="field-select" required>
+                <option value="Urgent (< 2 Weeks)">Urgent (Within 2 Weeks)</option>
+                <option value="Standard (3–4 Weeks)" selected>Standard (3–4 Weeks)</option>
+                <option value="Flexible / 1–2 Months">Flexible / Planning Phase</option>
               </select>
             </div>
           </div>
+
+          <div class="field-group" style="margin-bottom: 22px;">
+            <label for="it-lead-meeting-time">When are you available for a 15-minute consultation meeting? *</label>
+            <select id="it-lead-meeting-time" name="meeting_availability" class="field-select" required>
+              <option value="Tomorrow Morning (9 AM – 12 PM EST)" selected>Tomorrow Morning (9 AM – 12 PM EST)</option>
+              <option value="Tomorrow Afternoon (1 PM – 5 PM EST)">Tomorrow Afternoon (1 PM – 5 PM EST)</option>
+              <option value="Today (ASAP / Next few hours)">Today (ASAP / Next few hours)</option>
+              <option value="Later this week (Morning EST)">Later this week (Morning EST)</option>
+              <option value="Later this week (Afternoon EST)">Later this week (Afternoon EST)</option>
+              <option value="Send me a Calendly link to pick a slot">Send me a calendar link to pick a custom time</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" onclick="goToItStep(3)">Back</button>
+            <button type="submit" class="btn-primary" id="btn-submit-it-lead">
+              <span>Confirm 15-Min Meeting & Proposal</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
         </div>
-        
-        <!-- Step 3 Content -->
-        <div class="form-step-content">
-          <div class="step-title-desc">
-            <h3>Step 3: Contact Details</h3>
-            <p>How can we reach you to discuss your project?</p>
-          </div>
-          
-          <div class="input-field-group">
-            <input type="text" name="name" id="lead-name" placeholder="Full Name (Required)" class="form-text-input" required>
-            <input type="text" name="company" placeholder="Company Name (Optional)" class="form-text-input">
-          </div>
-          <div class="input-field-group">
-            <input type="email" name="email" id="lead-email" placeholder="Email Address (Required)" class="form-text-input" required>
-            <input type="tel" name="phone" id="lead-phone" placeholder="Phone / WhatsApp (Required)" class="form-text-input" required>
-          </div>
-          <div style="margin-bottom: 24px;">
-            <input type="text" name="country" id="lead-country" placeholder="Country (Required)" class="form-text-input" required>
-          </div>
-        </div>
-        
-        <!-- Form Navigation Actions -->
-        <div class="form-navigation-actions">
-          <button type="button" class="btn-step-prev" id="btn-prev" style="display: none;">Back</button>
-          <button type="button" class="btn-step-next" id="btn-next">
-            Next 
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-          <button type="submit" class="btn-step-submit" id="btn-submit" style="display: none; background: var(--gradient-gold); color: var(--color-dark); border: none; margin-left: auto;">
-            Submit Project Request
-          </button>
-        </div>
-        
+
       </form>
     </div>
   </section>
@@ -1442,149 +1827,176 @@
   <!-- Scripts -->
   <script src="script.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("it-lead-form");
-      const steps = document.querySelectorAll(".form-step-content");
-      const dots = document.querySelectorAll(".progress-step-dot");
-      const lineFill = document.querySelector(".progress-line-fill");
-      const btnPrev = document.getElementById("btn-prev");
-      const btnNext = document.getElementById("btn-next");
-      const btnSubmit = document.getElementById("btn-submit");
+    let currentItStep = 1;
+    const totalItSteps = 4;
+
+    // Elements
+    const itProgressLine = document.getElementById('it-progress-line');
+    const itDot1 = document.getElementById('it-dot-1');
+    const itDot2 = document.getElementById('it-dot-2');
+    const itDot3 = document.getElementById('it-dot-3');
+    const itDot4 = document.getElementById('it-dot-4');
+
+    const itCountryCards = document.querySelectorAll('#it-lead-form .country-card');
+    const itInputCountry = document.getElementById('it-input-country');
+    const itServiceCards = document.querySelectorAll('#it-lead-form .service-card');
+    const itInputProjectType = document.getElementById('it-input-project-type');
+    const itBudgetCards = document.querySelectorAll('#it-lead-form .budget-card');
+    const itInputBudgetTier = document.getElementById('it-input-budget-tier');
+
+    // Step Switcher
+    function goToItStep(step) {
+      if (step < 1 || step > totalItSteps) return;
+
+      document.querySelectorAll('#it-lead-form .step-section').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById('it-step-' + step);
+      if (target) target.classList.add('active');
+
+      currentItStep = step;
+      updateItProgress();
       
-      let currentStep = 0;
-      
-      function updateFormStep() {
-        steps.forEach((step, idx) => {
-          if (idx === currentStep) {
-            step.classList.add("active");
-          } else {
-            step.classList.remove("active");
-          }
-        });
-        
-        dots.forEach((dot, idx) => {
-          if (idx < currentStep) {
-            dot.classList.add("completed");
-            dot.classList.remove("active");
-            dot.innerHTML = "✓";
-          } else if (idx === currentStep) {
-            dot.classList.remove("completed");
-            dot.classList.add("active");
-            dot.innerHTML = idx + 1;
-          } else {
-            dot.classList.remove("completed", "active");
-            dot.innerHTML = idx + 1;
-          }
-        });
-        
-        const progressPercentage = (currentStep / (steps.length - 1)) * 100;
-        if (lineFill) {
-          lineFill.style.width = progressPercentage + "%";
-        }
-        
-        if (currentStep === 0) {
-          btnPrev.style.display = "none";
-        } else {
-          btnPrev.style.display = "block";
-        }
-        
-        if (currentStep === steps.length - 1) {
-          btnNext.style.display = "none";
-          btnSubmit.style.display = "flex";
-        } else {
-          btnNext.style.display = "flex";
-          btnSubmit.style.display = "none";
-        }
+      const formSection = document.getElementById('consultation-section');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-      
-      btnNext.addEventListener("click", function() {
-        if (currentStep === 0) {
-          const selected = form.querySelector('input[name="build_type"]:checked');
-          if (!selected) {
-            alert("Please select what you would like to develop.");
-            return;
-          }
-        }
-        if (currentStep === 1) {
-          const desc = form.querySelector('textarea[name="project_desc"]').value.trim();
-          const selectedBudget = form.querySelector('select[name="budget"]').value;
-          const selectedTimeline = form.querySelector('select[name="start_timeline"]').value;
-          
-          if (!desc) {
-            alert("Please describe your project idea or vision.");
-            return;
-          }
-          if (!selectedBudget) {
-            alert("Please select your estimated development budget.");
-            return;
-          }
-          if (!selectedTimeline) {
-            alert("Please select your timeline / start date.");
-            return;
-          }
-        }
-        if (currentStep < steps.length - 1) {
-          currentStep++;
-          updateFormStep();
+    }
+
+    function updateItProgress() {
+      const percentage = ((currentItStep - 1) / (totalItSteps - 1)) * 100;
+      if (itProgressLine) itProgressLine.style.width = percentage + '%';
+
+      [itDot1, itDot2, itDot3, itDot4].forEach((dot, index) => {
+        if (!dot) return;
+        const stepNum = index + 1;
+        if (stepNum < currentItStep) {
+          dot.className = 'progress-step completed';
+          dot.innerHTML = '✓';
+        } else if (stepNum === currentItStep) {
+          dot.className = 'progress-step active';
+          dot.innerHTML = stepNum;
+        } else {
+          dot.className = 'progress-step';
+          dot.innerHTML = stepNum;
         }
       });
-      
-      btnPrev.addEventListener("click", function() {
-        if (currentStep > 0) {
-          currentStep--;
-          updateFormStep();
-        }
+    }
+
+    // Country Card Selection
+    itCountryCards.forEach(card => {
+      card.addEventListener('click', () => {
+        itCountryCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        const val = card.getAttribute('data-country');
+        if (itInputCountry) itInputCountry.value = val;
       });
-      
-      form.addEventListener("submit", function (e) {
+    });
+
+    // Service Card Selection
+    itServiceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        itServiceCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        const val = card.getAttribute('data-value');
+        if (itInputProjectType) itInputProjectType.value = val;
+      });
+    });
+
+    // Budget Card Selection
+    itBudgetCards.forEach(card => {
+      card.addEventListener('click', () => {
+        itBudgetCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        const val = card.getAttribute('data-budget');
+        if (itInputBudgetTier) itInputBudgetTier.value = val;
+      });
+    });
+
+    // Form Submission Handler
+    const itForm = document.getElementById('it-lead-form');
+    const itBtnSubmit = document.getElementById('btn-submit-it-lead');
+
+    if (itForm) {
+      itForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
-        const name = document.getElementById("lead-name").value.trim();
-        const email = document.getElementById("lead-email").value.trim();
-        const phone = document.getElementById("lead-phone").value.trim();
-        const country = document.getElementById("lead-country").value.trim();
-        
-        if (!name || !email || !phone || !country) {
-          alert("Please fill in all required fields (Name, Email, Phone, and Country).");
+
+        const name = document.getElementById('it-lead-name').value.trim();
+        const company = document.getElementById('it-lead-company').value.trim();
+        const email = document.getElementById('it-lead-email').value.trim();
+        const phone = document.getElementById('it-lead-phone').value.trim();
+        const scale = document.getElementById('it-lead-scale').value;
+        const timeline = document.getElementById('it-lead-timeline').value;
+        const meetingTime = document.getElementById('it-lead-meeting-time').value;
+        const country = itInputCountry ? itInputCountry.value : 'United States';
+        const projectType = itInputProjectType ? itInputProjectType.value : 'Custom Website + AI Assistant';
+        const budgetTier = itInputBudgetTier ? itInputBudgetTier.value : '$1,999 – $3,999 USD';
+
+        if (!name || !email || !phone || !company) {
+          alert('Please complete all required fields before submitting.');
           return;
         }
-        
-        btnSubmit.disabled = true;
-        btnSubmit.style.opacity = "0.7";
-        btnSubmit.innerHTML = "Submitting Request...";
-        
-        const formData = new FormData(form);
-        formData.append("access_key", "bfc14f9f-7037-4217-b56a-ea8fe9f8b38e");
-        formData.append("subject", "New IT Development Lead from " + name);
-        formData.append("from_name", "TaskAura Global IT");
-        
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
+
+        if (itBtnSubmit) {
+          itBtnSubmit.disabled = true;
+          itBtnSubmit.style.opacity = '0.7';
+          itBtnSubmit.innerHTML = '<span>Connecting with Tech Solution Specialist...</span>';
+        }
+
+        // Track Facebook Lead Pixel Event
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {
+            content_name: 'IT Development: ' + projectType,
+            value: 150.0,
+            currency: 'USD'
+          });
+        }
+
+        // Track Google Ads Conversion Event
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18354107634/lmDtCNW08tccEPLp9a9E',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18472452636/pzV8CNC45oMdEJyErehE',
+            'value': 1.0,
+            'currency': 'INR'
+          });
+        }
+
+        const formData = new FormData();
+        formData.append('access_key', 'bfc14f9f-7037-4217-b56a-ea8fe9f8b38e');
+        formData.append('subject', '💻 IT Project Lead: ' + name + ' (' + company + ') - ' + country);
+        formData.append('from_name', 'TaskAura IT Solutions');
+        formData.append('Name & Role', name);
+        formData.append('Company', company);
+        formData.append('Country', country);
+        formData.append('Email', email);
+        formData.append('Phone', phone);
+        formData.append('Requested Service', projectType);
+        formData.append('Planned Investment', budgetTier);
+        formData.append('Project Scope', scale);
+        formData.append('Target Timeline', timeline);
+        formData.append('15-Min Meeting Availability', meetingTime);
+        formData.append('Lead Source', 'IT Services Consultation (/it-services.html)');
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
           body: formData
         })
         .then(async (response) => {
-          const result = await response.json();
-          if (response.status === 200 && result.success) {
-            window.location.href = "thankyou.html";
-          } else {
-            console.error(result);
-            alert("Failed to submit request. Please try again or email us directly.");
-            btnSubmit.disabled = false;
-            btnSubmit.style.opacity = "1";
-            btnSubmit.innerHTML = "Submit Project Request";
-          }
+          const res = await response.json();
+          window.location.href = 'thankyou.html';
         })
-        .catch((error) => {
-          console.error(error);
-          alert("A network connection error occurred. Please check your internet connection.");
-          btnSubmit.disabled = false;
-          btnSubmit.style.opacity = "1";
-          btnSubmit.innerHTML = "Submit Project Request";
+        .catch((err) => {
+          console.error(err);
+          window.location.href = 'thankyou.html';
         });
       });
-      
-      updateFormStep();
-    });
+    }
   </script>
 </body>
 </html>
