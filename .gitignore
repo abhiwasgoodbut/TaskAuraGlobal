@@ -1,9 +1,38 @@
-# Local Netlify folder
-.netlify
+# Environment & Deployment
 .env
+.netlify/
 
-# Dependencies & Local Chat Logs
+# Dependencies & Local Agent Logs
 node_modules/
 chat_logs/
 .agents/
 
+# Quotations & Internal Documents (Do not push to GitHub)
+*quotation*
+*Quotation*
+*.pdf
+documents/
+documents/**
+
+# Scratch, Test & Temporary Files
+script.txt
+tes.text
+*.tmp
+*.temp
+*.log
+*.bak
+
+# Python Automation & Cache
+*.py
+__pycache__/
+*.pyc
+
+# 3D Design Files & Scratch Media
+*.blend
+*.blend1
+
+# OS & Editor Metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
