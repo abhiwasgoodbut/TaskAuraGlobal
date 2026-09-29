@@ -1335,26 +1335,6 @@
             </div>
           </div>
 
-          <div class="field-row">
-            <div class="field-group">
-              <label for="lead-scale">Current Property / Inventory Scale *</label>
-              <select id="lead-scale" name="inventory_scale" class="field-select" required>
-                <option value="Boutique (1–10 Active Listings)">Boutique (1–10 Active Listings)</option>
-                <option value="Mid-Scale Brokerage (10–50 Active Listings)" selected>Mid-Scale Brokerage (10–50 Active Listings)</option>
-                <option value="Large Firm / Developer (50+ Properties & Projects)">Large Firm / Developer (50+ Properties)</option>
-                <option value="Pre-Construction / New Development Projects">Pre-Construction / New Development Projects</option>
-              </select>
-            </div>
-            <div class="field-group">
-              <label for="lead-timeline">Target Implementation Timeline *</label>
-              <select id="lead-timeline" name="timeline" class="field-select" required>
-                <option value="Urgent (< 2 Weeks)">Urgent (Within 2 Weeks)</option>
-                <option value="Standard (3–4 Weeks)" selected>Standard (3–4 Weeks)</option>
-                <option value="Flexible / 1–2 Months">Flexible / Planning Phase</option>
-              </select>
-            </div>
-          </div>
-
           <div class="field-group" style="margin-bottom: 22px;">
             <label for="lead-meeting-time">When are you available for a 15-minute meeting? *</label>
             <input type="text" id="lead-meeting-time" name="meeting_availability" class="field-input" placeholder="e.g. Tomorrow at 2:00 PM EST, or write your preferred day & time" required />
@@ -1621,8 +1601,6 @@
       const company = document.getElementById('lead-company').value.trim();
       const email = document.getElementById('lead-email').value.trim();
       const phone = document.getElementById('lead-phone').value.trim();
-      const scale = document.getElementById('lead-scale').value;
-      const timeline = document.getElementById('lead-timeline').value;
       const meetingTime = document.getElementById('lead-meeting-time').value.trim();
       const country = inputCountry ? inputCountry.value : 'United States';
       const projectType = inputProjectType.value;
@@ -1671,8 +1649,6 @@
       formData.append('Phone', phone);
       formData.append('Requested Service', projectType);
       formData.append('Planned Investment', budgetTier);
-      formData.append('Listing/Inventory Scale', scale);
-      formData.append('Target Timeline', timeline);
       formData.append('15-Min Meeting Availability', meetingTime);
       formData.append('Lead Source', 'Global Real Estate Ads (/get-quote)');
 
