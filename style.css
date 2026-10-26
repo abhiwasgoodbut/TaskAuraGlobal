@@ -48,11 +48,17 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--color-white);
   background: var(--color-dark);
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
   line-height: 1.6;
 }
 
@@ -793,6 +799,7 @@ section {
   .navbar {
     top: 15px;
     width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
   }
   .navbar__capsule {
     height: 68px; /* Spacious mobile navbar height */
@@ -836,14 +843,20 @@ section {
     align-items: stretch;
     padding: 100px 32px 40px;
     gap: 28px;
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
     z-index: 105;
     margin-left: 0;
     overflow-y: auto;
     max-height: 100vh;
+    visibility: hidden;
+    pointer-events: none;
   }
 
-  .navbar__menu.open { right: 0; }
+  .navbar__menu.open {
+    right: 0;
+    visibility: visible;
+    pointer-events: auto;
+  }
 
   .navbar__menu::-webkit-scrollbar {
     width: 4px;
@@ -1193,6 +1206,7 @@ section {
   width: 100%;
   padding: 80px 60px 100px;
   background: #000000;
+  overflow: hidden;
 }
 
 /* Seamless bottom fade into next section */
@@ -2275,6 +2289,7 @@ section {
   background-image: radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
   background-size: 28px 28px;
   border-top: none;
+  overflow: hidden;
 }
 
 /* Ambient Liquid Glass Background Blobs */
@@ -2909,6 +2924,7 @@ section {
   background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 28px 28px;
   border-top: none;
+  overflow: hidden;
 }
 
 .about__badge {
@@ -3171,6 +3187,7 @@ section {
   min-height: calc(100vh - 96px);
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 /* Ambient Liquid Glass Background Blobs */
@@ -3905,7 +3922,10 @@ section {
   }
   .footer__aura-banner {
     margin: 35px 0 0 0;
-    font-size: clamp(2.4rem, 11vw, 4rem);
+    font-size: clamp(1.6rem, 7.5vw, 2.8rem);
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.05;
   }
   .footer__bottom-lux {
     padding-top: 18px;
@@ -5332,13 +5352,15 @@ section {
   flex-direction: column;
   overflow: hidden;
   opacity: 0;
+  visibility: hidden;
   transform: translateY(20px) scale(0.95);
   pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
 }
 
 .chat-panel.active {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0) scale(1);
   pointer-events: auto;
 }

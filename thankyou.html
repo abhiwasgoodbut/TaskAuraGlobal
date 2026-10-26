@@ -60,7 +60,8 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
+    html { overflow-x: clip; max-width: 100%; }
+    body { overflow-x: clip; max-width: 100%;
       background: #05050a;
       min-height: 100vh;
       display: flex;
@@ -72,7 +73,7 @@
     }
     .glowing-bg {
       position: absolute;
-      width: 600px;
+      width: 600px; max-width: 90vw;
       height: 600px;
       background: radial-gradient(circle, rgba(212, 168, 83, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
       top: 50%;
